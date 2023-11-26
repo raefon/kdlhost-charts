@@ -1,0 +1,4 @@
+storage:
+    dataLocality: disabled
+    numberOfReplicas: 1
+    nasIp: 172.16.10.10
