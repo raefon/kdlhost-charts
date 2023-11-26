@@ -3,7 +3,7 @@ apiVersion: v2
 name: common
 description: Function library for kdlhost helm charts
 type: library
-version: 0.1.14
+version: 0.1.15
 keywords:
   - kdlhost-charts
   - common
@@ -14,4 +14,4 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: Remove additionalProperties from values.schema.json
+      description: Changed default ingress from values.yaml

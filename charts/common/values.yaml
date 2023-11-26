@@ -161,7 +161,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   labels: {}
   hosts:
-    - host: "http://common.192.168.1.202.nip.io"
+    - host: "cluster.local"
       paths:
         - path: /
           # Ignored if not kubeVersion >= 1.14-0
