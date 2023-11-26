@@ -125,4 +125,30 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/syncthing-0.1.8/syncthing-0.1.8.tgz
     version: 0.1.8
-generated: "2023-11-26T17:40:13.402481091Z"
+  tenet:
+  - annotations:
+      artifacthub.io/changes: '- Initial'
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-11-26T19:50:58.418473896Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    - name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: Used to provision tenets
+    digest: 51511d137ad85ed456f7bd278781c532e5b7da6e2f64bc7bc89f39d9685d406a
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
+    version: 0.0.1
+generated: "2023-11-26T19:50:58.41849171Z"
