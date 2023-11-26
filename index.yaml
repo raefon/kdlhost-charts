@@ -21,4 +21,21 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/common-0.1.14/common-0.1.14.tgz
     version: 0.1.14
-generated: "2023-11-26T16:33:36.544753535Z"
+  local-path-provisioner:
+  - apiVersion: v1
+    appVersion: v0.0.25-dev
+    created: "2023-11-26T16:35:00.374659819Z"
+    description: Use HostPath for persistent local storage with Kubernetes
+    digest: 520830cc6f07a59b7f5b4deaa585b19a72135c03d56989da740277c57359114e
+    home: https://github.com/rancher/local-path-provisioner
+    keywords:
+    - storage
+    - hostpath
+    kubeVersion: '>=1.12.0-r0'
+    name: local-path-provisioner
+    sources:
+    - https://github.com/rancher/local-path-provisioner.git
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/local-path-provisioner-0.0.25-dev/local-path-provisioner-0.0.25-dev.tgz
+    version: 0.0.25-dev
+generated: "2023-11-26T16:35:00.374690696Z"
