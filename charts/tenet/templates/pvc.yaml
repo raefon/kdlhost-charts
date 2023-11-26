@@ -1,29 +1,29 @@
-{{- if and .Values.data-persistence.enabled (not .Values.data-persistence.existingClaim) }}
+{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ .Values.data-persistence.name | quote }}
+  name: {{ template "tenet.fullname" . }}
   namespace: {{ .Release.Namespace }}
-{{- with .Values.data-persistence.annotations  }}
+{{- with .Values.persistence.annotations  }}
   annotations:
 {{ toYaml . | indent 4 }}
 {{- end }}
   labels:
-    app: {{ .Values.data-persistence.name | quote }}
+    app: "{{ .Values.persistence.name }}"
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
 spec:
   accessModes:
-    - {{ .Values.data-persistence.accessMode | quote }}
+    - {{ .Values.persistence.accessMode | quote }}
   resources:
     requests:
       storage: {{ .Values.persistence.size | quote }}
-{{- if .Values.data-persistence.storageClass }}
+{{- if .Values.persistence.storageClass }}
 {{- if (eq "-" .Values.persistence.storageClass) }}
   storageClassName: ""
 {{- else }}
-  storageClassName: "{{ .Values.data-persistence.storageClass }}"
+  storageClassName: "{{ .Values.persistence.storageClass }}"
 {{- end }}
 {{- end }}
 {{- end }}
