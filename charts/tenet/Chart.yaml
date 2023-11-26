@@ -12,7 +12,7 @@ dependencies:
     version: ~0.1.8
     repository: https://raefon.github.io/kdlhost-charts/
   - name: syncthing
-    version: ~0.1.26
+    version: ~1.26.0
     repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - tenet
