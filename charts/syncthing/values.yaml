@@ -24,7 +24,7 @@ service:
       port: 22000
 
 ingress:
-  enabled: true
+  enabled: false
   hosts:
     - host: "cluster.local"
       paths:
