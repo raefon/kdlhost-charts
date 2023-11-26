@@ -1,0 +1,24 @@
+apiVersion: v1
+entries:
+  common:
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: Remove additionalProperties from values.schema.json
+    apiVersion: v2
+    created: "2023-11-26T16:33:36.544715304Z"
+    description: Function library for kdlhost helm charts
+    digest: 3734f0cca85a39705d7740937e81171b0951a89878e2aadea23502bdcd5f9da3
+    home: https://raefon.github.io/kdlhost-charts/common
+    keywords:
+    - kdlhost-charts
+    - common
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: common
+    type: library
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/common-0.1.14/common-0.1.14.tgz
+    version: 0.1.14
+generated: "2023-11-26T16:33:36.544753535Z"
