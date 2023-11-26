@@ -1,3 +1,6 @@
+image:
+  repository: ""
+
 ingress:
   enabled: false
   annotations: {}
