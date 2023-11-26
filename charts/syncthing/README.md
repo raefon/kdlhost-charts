@@ -10,7 +10,7 @@
 
 ## TL;DR
 ```console
-$ helm repo add nicholaswilde https://raefon.github.io/kdlhost-charts/
+$ helm repo add kdlhost-charts https://raefon.github.io/kdlhost-charts/
 $ helm repo update
 $ helm install syncthing kdlhost-charts/syncthing
 ```
@@ -37,13 +37,13 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 ```console
 helm install syncthing \
   --set env.TZ="America/New York" \
-    nicholaswilde/syncthing
+    kdlhost-charts/syncthing
 ```
 
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 For example,
 ```console
-helm install syncthing nicholaswilde/syncthing -f values.yaml
+helm install syncthing kdlhost-charts/syncthing -f values.yaml
 ```
 
 ----------------------------------------------
