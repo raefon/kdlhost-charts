@@ -38,4 +38,38 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/local-path-provisioner-0.0.25-dev/local-path-provisioner-0.0.25-dev.tgz
     version: 0.0.25-dev
-generated: "2023-11-26T16:35:00.374690696Z"
+  syncthing:
+  - annotations:
+      artifacthub.io/changes: |
+        - Bumped tag to 1.14.0
+        - Removed nginx ingress annotation
+      artifacthub.io/images: |
+        - name: syncthing
+          image: syncthing/syncthing:1.14.0
+    apiVersion: v2
+    appVersion: 1.14.0
+    created: "2023-11-26T16:35:55.479125563Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: A continuous file synchronization program.
+    digest: 03a17303082ad5a819926a71365a2c7fd27d7fd873de68f16d56bbb9874585b7
+    home: https://github.com/nicholaswilde/helm-charts/tree/main/charts/syncthing
+    icon: https://github.com/syncthing/syncthing/raw/main/assets/logo-128.png
+    keywords:
+    - sync
+    - thing
+    - syncronization
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: syncthing
+    sources:
+    - https://syncthing.net/
+    - https://hub.docker.com/r/syncthing/syncthing
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/syncthing-0.1.8/syncthing-0.1.8.tgz
+    version: 0.1.8
+generated: "2023-11-26T16:35:55.479136673Z"
