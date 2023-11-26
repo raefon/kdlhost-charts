@@ -41,6 +41,39 @@ entries:
   syncthing:
   - annotations:
       artifacthub.io/changes: |
+        - Bumped tag to 1.26.1
+        - Removed nginx ingress annotation
+      artifacthub.io/images: |
+        - name: syncthing
+          image: syncthing/syncthing:1.26.1
+    apiVersion: v2
+    appVersion: 1.26.1
+    created: "2023-11-26T16:43:32.077598711Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: A continuous file synchronization program.
+    digest: b09d374283dcddba94a34598cbdd1d04c7a1ece85ce868516a89f3bad7c303da
+    home: https://github.com/nicholaswilde/helm-charts/tree/main/charts/syncthing
+    icon: https://github.com/syncthing/syncthing/raw/main/assets/logo-128.png
+    keywords:
+    - sync
+    - thing
+    - syncronization
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: syncthing
+    sources:
+    - https://syncthing.net/
+    - https://hub.docker.com/r/syncthing/syncthing
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/syncthing-0.1.9/syncthing-0.1.9.tgz
+    version: 0.1.9
+  - annotations:
+      artifacthub.io/changes: |
         - Bumped tag to 1.14.0
         - Removed nginx ingress annotation
       artifacthub.io/images: |
@@ -72,4 +105,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/syncthing-0.1.8/syncthing-0.1.8.tgz
     version: 0.1.8
-generated: "2023-11-26T16:35:55.479136673Z"
+generated: "2023-11-26T16:43:32.077613468Z"
