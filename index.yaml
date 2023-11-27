@@ -130,6 +130,28 @@ entries:
       artifacthub.io/changes: '- update persistentvolumeclaims'
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-11-27T23:23:14.56858284Z"
+    dependencies:
+    - name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: Used to provision tenets
+    digest: 32735c4fbfbe350fb6ab1887bdae483a0e0beea0ceaa1d50e3ba2e4adc51c7d6
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.3/tenet-0.0.3.tgz
+    version: 0.0.3
+  - annotations:
+      artifacthub.io/changes: '- update persistentvolumeclaims'
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-11-26T23:36:01.077693582Z"
     dependencies:
     - name: syncthing
@@ -173,4 +195,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-11-26T23:36:01.077709993Z"
+generated: "2023-11-27T23:23:14.568604571Z"
