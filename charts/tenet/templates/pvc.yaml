@@ -1,12 +1,10 @@
-{{- if and .Values.persistence.enabled }}
-{{- range .Values.persistence}}
----
+{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: "{{ .name }}"
+  name: "{{ .Values.persistence.name }}"
   namespace: {{ .Release.Namespace }}
-{{- with .annotations  }}
+{{- with .Values.persistence.annotations  }}
   annotations:
 {{ toYaml . | indent 4 }}
 {{- end }}
@@ -17,10 +15,15 @@ metadata:
     heritage: "{{ .Release.Service }}"
 spec:
   accessModes:
-    - {{ .accessMode | quote }}
+    - {{ .Values.persistence.accessMode | quote }}
   resources:
     requests:
-      storage: {{ .size | quote }}
-  storageClassName: "{{ .storageClass }}"
+      storage: {{ .Values.persistence.size | quote }}
+{{- if .Values.persistence.storageClass }}
+{{- if (eq "-" .Values.persistence.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.storageClass }}"
+{{- end }}
 {{- end }}
 {{- end }}
