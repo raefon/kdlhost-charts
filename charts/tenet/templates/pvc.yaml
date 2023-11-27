@@ -2,14 +2,14 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ template "tenet.fullname" . }}
+  name: "{{ .Values.persistence.name }}"
   namespace: {{ .Release.Namespace }}
 {{- with .Values.persistence.annotations  }}
   annotations:
 {{ toYaml . | indent 4 }}
 {{- end }}
   labels:
-    app: "{{ .Values.persistence.name }}"
+    app: {{ template "tenet.fullname" . }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
