@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.0.4
+version: 0.0.5
 name: tenet
 description: Used to provision tenets
 type: application
@@ -11,6 +11,9 @@ dependencies:
   - name: syncthing
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
+  - name: plex
+    version: ~0.1.0
+    repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - tenet
 maintainers:
@@ -18,4 +21,4 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - changed syncthing dependency to ~0.2.0
+    - Added plex to tenets
