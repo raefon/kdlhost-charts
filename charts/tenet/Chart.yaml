@@ -9,7 +9,7 @@ home: "https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet"
 deprecated: false
 dependencies:
   - name: syncthing
-    version: ~0.1.8
+    version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - tenet
@@ -18,4 +18,4 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - update persistentvolumeclaims
+    - changed syncthing dependency to ~0.2.0
