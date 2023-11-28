@@ -21,4 +21,3 @@ spec:
       storage: {{ .Values.data.size | quote }}
   storageClassName: "{{ .Values.data.storageClass }}"
 {{- end }}
-{{- end }}
