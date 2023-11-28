@@ -58,6 +58,35 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/local-path-provisioner-0.0.25-dev/local-path-provisioner-0.0.25-dev.tgz
     version: 0.0.25-dev
+  plex:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial
+      artifacthub.io/images: |
+        - Initial
+    apiVersion: v2
+    appVersion: v1.32.7.7621-871adbd44-ls194
+    created: "2023-11-28T23:06:10.527236696Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: The Media Server.
+    digest: ec0c21755bb23dc73e5b96d1d398abac53f998c6d85d5f312b94d52b27b7e01f
+    home: https://github.com/kdlhost-charts/charts/plex
+    keywords:
+    - media
+    - plex
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: plex
+    sources:
+    - https://plex.tv/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/plex-0.1.0/plex-0.1.0.tgz
+    version: 0.1.0
   syncthing:
   - annotations:
       artifacthub.io/changes: |
@@ -250,4 +279,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-11-28T03:56:52.991539062Z"
+generated: "2023-11-28T23:06:10.756607602Z"
