@@ -3,18 +3,18 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 image:
-  repository: syncthing/syncthing
+  repository: lscr.io/linuxserver/syncthing
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.26.1"
+  tag: "v1.26.1-ls121"
 
 secret: {}
 
 env:
   # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   TZ: "America/Los_Angeles"
-  # PUID: "1000"
-  # PGID: "1000"
+  PUID: "1000"
+  PGID: "1000"
 
 service:
   port:
@@ -40,7 +40,7 @@ persistence:
   config:
     enabled: false
     emptyDir: false
-    mountPath: /var/syncthing
+    mountPath: /config
     ## Template downloads data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
