@@ -61,6 +61,39 @@ entries:
   syncthing:
   - annotations:
       artifacthub.io/changes: |
+        - Bumped tag to v1.26.1-ls121
+        - changed to lscr.io/linuxserver/syncthing
+      artifacthub.io/images: |
+        - changed to lscr.io/linuxserver/syncthing
+          tag: v1.26.1-ls121
+    apiVersion: v2
+    appVersion: v1.26.1-ls121
+    created: "2023-11-28T03:53:40.619880943Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: A continuous file synchronization program.
+    digest: f0e920e1da654bdf4ce66a0d87aa35abf90691974782f7ae39197129fee8e433
+    home: https://github.com/nicholaswilde/helm-charts/tree/main/charts/syncthing
+    icon: https://github.com/syncthing/syncthing/raw/main/assets/logo-128.png
+    keywords:
+    - sync
+    - thing
+    - syncronization
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: syncthing
+    sources:
+    - https://syncthing.net/
+    - https://hub.docker.com/r/syncthing/syncthing
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/syncthing-0.2.0/syncthing-0.2.0.tgz
+    version: 0.2.0
+  - annotations:
+      artifacthub.io/changes: |
         - Bumped tag to 1.26.1
         - Removed nginx ingress annotation
       artifacthub.io/images: |
@@ -195,4 +228,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-11-27T23:23:14.568604571Z"
+generated: "2023-11-28T03:53:40.758012365Z"
