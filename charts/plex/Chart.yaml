@@ -22,6 +22,6 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Add DOCKERMODS
+    - Add DOCKER_MODS
   artifacthub.io/images: |
-    - Add DOCKERMODS
+    - Add DOCKER_MODS
