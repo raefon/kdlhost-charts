@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "v1.26.1-ls121"
-version: 0.2.0
+version: 0.2.1
 name: syncthing
 description: A continuous file synchronization program.
 type: application
@@ -24,8 +24,6 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Bumped tag to v1.26.1-ls121
-    - changed to lscr.io/linuxserver/syncthing
+    - Add DOCKER_MODS
   artifacthub.io/images: |
-    - changed to lscr.io/linuxserver/syncthing
-      tag: v1.26.1-ls121
+    - Add DOCKER_MODS
