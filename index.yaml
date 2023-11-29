@@ -217,6 +217,31 @@ entries:
     version: 0.1.8
   tenet:
   - annotations:
+      artifacthub.io/changes: '- Update Plex'
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-11-29T04:33:38.667370679Z"
+    dependencies:
+    - name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: plex
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    description: Used to provision tenets
+    digest: a43b186e71000ec9533ca70b3a0bfb4439c91f83ebf5cc413b6c094da29960ba
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.6/tenet-0.0.6.tgz
+    version: 0.0.6
+  - annotations:
       artifacthub.io/changes: '- Added plex to tenets'
     apiVersion: v2
     appVersion: 1.0.0
@@ -332,4 +357,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-11-29T04:31:50.179044129Z"
+generated: "2023-11-29T04:33:38.667412177Z"
