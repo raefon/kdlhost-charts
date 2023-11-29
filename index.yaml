@@ -118,6 +118,36 @@ entries:
   syncthing:
   - annotations:
       artifacthub.io/changes: |
+        - Add DOCKER_MODS
+      artifacthub.io/images: '- Add DOCKER_MODS'
+    apiVersion: v2
+    appVersion: v1.26.1-ls121
+    created: "2023-11-29T21:57:53.343634133Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: A continuous file synchronization program.
+    digest: d59e3503924a6154a0ba560b8226fa4410fa0c11e660127d18562b0b69e31ee4
+    home: https://github.com/nicholaswilde/helm-charts/tree/main/charts/syncthing
+    icon: https://github.com/syncthing/syncthing/raw/main/assets/logo-128.png
+    keywords:
+    - sync
+    - thing
+    - syncronization
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: syncthing
+    sources:
+    - https://syncthing.net/
+    - https://hub.docker.com/r/syncthing/syncthing
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/syncthing-0.2.1/syncthing-0.2.1.tgz
+    version: 0.2.1
+  - annotations:
+      artifacthub.io/changes: |
         - Bumped tag to v1.26.1-ls121
         - changed to lscr.io/linuxserver/syncthing
       artifacthub.io/images: |
@@ -407,4 +437,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-11-29T05:33:46.504264974Z"
+generated: "2023-11-29T21:57:53.343677684Z"
