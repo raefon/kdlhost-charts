@@ -15,7 +15,6 @@ env:
   TZ: "America/Los_Angeles"
   PUID: "1000"
   PGID: "1000"
-  DOCKER_MODS: "raefon/plex-docker-mod"
 
 service:
   port:
