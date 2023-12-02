@@ -1,0 +1,25 @@
+---
+apiVersion: v2
+appVersion: "v2.22.4"
+version: 0.1.0
+name: syncthing
+description: Middleware or standalone app that provides a web-based file manager within a specified directory. 
+type: application
+deprecated: false
+dependencies:
+  - name: common
+    version: ~0.1.8
+    repository: https://raefon.github.io/kdlhost-charts/
+keywords:
+  - file
+  - browser
+sources:
+  - https://hub.docker.com/r/filebrowser/filebrowser
+maintainers:
+  - name: raefon
+    email: raefon@users.noreply.github.com 
+annotations:
+  artifacthub.io/changes: |
+    - Initial
+  artifacthub.io/images: |
+    - Docker version v2.22.4
