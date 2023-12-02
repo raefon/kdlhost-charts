@@ -2,7 +2,7 @@
 apiVersion: v2
 appVersion: "v2.22.4"
 version: 0.1.0
-name: syncthing
+name: filebrowser
 description: Middleware or standalone app that provides a web-based file manager within a specified directory. 
 type: application
 deprecated: false
