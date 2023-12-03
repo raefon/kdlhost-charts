@@ -7,7 +7,7 @@
 initContainers:
    download-config:
      image: busybox:1.28
-     command: ["sh", "-c, "curl -o- -sL https://github.com/raefon/kdlhost-charts/releases/download/filebrowser-config/filebrowser-config.tar.gz | tar xzf - -C /"]
+     command: ["sh", "-c", "curl -o- -sL https://github.com/raefon/kdlhost-charts/releases/download/filebrowser-config/filebrowser-config.tar.gz | tar xzf - -C /"]
 
 image:
   repository: filebrowser/filebrowser
