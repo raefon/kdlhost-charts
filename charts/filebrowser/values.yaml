@@ -5,9 +5,9 @@
 
 # -- Use an initContainer to download config and check if exists
 initContainers:
-   download-config:
-     image: busybox:1.28
-     command: ["sh", "-c", "curl -o- -sL https://github.com/raefon/kdlhost-charts/releases/download/filebrowser-config/filebrowser-config.tar.gz | tar xzf - -C /"]
+  download-config:
+    image: busybox:1.28
+    command: ['sh', '-c', "echo test"]
 
 image:
   repository: filebrowser/filebrowser
