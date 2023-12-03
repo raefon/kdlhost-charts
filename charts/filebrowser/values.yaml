@@ -5,9 +5,12 @@
 
 # -- Use an initContainer to download config and check if exists
 initContainers:
-  download-config:
-    image: busybox:1.28
-    command: []
+   download-config:
+     image: busybox
+     command: ["sh", "-c", "echo test"]
+     volumeMounts:
+     - name: config
+       mountPath: /config
 
 image:
   repository: filebrowser/filebrowser
