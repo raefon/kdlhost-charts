@@ -3,19 +3,16 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 image:
-  repository: lscr.io/linuxserver/plex
+  repository: ghcr.io/raefon/plex:1.32.8.7639-fb6452ebf@sha256:fb761a48ac55647d6cd19812532f42eda997327b1b8ba8493320bd24f8aa8292
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.32.7.7621-871adbd44-ls194"
+  tag: ""
 
 secret: {}
 
 env:
   # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   TZ: "America/Los_Angeles"
-  PUID: "1000"
-  PGID: "1000"
-  DOCKER_MODS: "raefon/plex-docker-mod"
 
 service:
   port:
