@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
-appVersion: "v1.32.7.7621-871adbd44-ls194"
-version: 0.1.2
+appVersion: "rolling@sha256:8d9ac1576a2abd15a7d7d18299ac38501adf76fbe245bbd9be87c03ddc187a58"
+version: 0.1.4
 name: plex
 description: The Media Server.
 type: application
@@ -24,4 +24,4 @@ annotations:
   artifacthub.io/changes: |
     - Update docker container image
   artifacthub.io/images: |
-    - ghcr.io/raefon/plex:1.32.8.7639-fb6452ebf@sha256:fb761a48ac55647d6cd19812532f42eda997327b1b8ba8493320bd24f8aa8292
+    - ghcr.io/raefon/plex:rolling@sha256:8d9ac1576a2abd15a7d7d18299ac38501adf76fbe245bbd9be87c03ddc187a58
