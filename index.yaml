@@ -176,6 +176,34 @@ entries:
       artifacthub.io/changes: |
         - Update docker container image
       artifacthub.io/images: |
+        - ghcr.io/raefon/plex:rolling@sha256:8d9ac1576a2abd15a7d7d18299ac38501adf76fbe245bbd9be87c03ddc187a58
+    apiVersion: v2
+    appVersion: rolling@sha256:8d9ac1576a2abd15a7d7d18299ac38501adf76fbe245bbd9be87c03ddc187a58
+    created: "2023-12-05T17:29:28.127083573Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: The Media Server.
+    digest: 841739546f4e039b562c6902bf504309994b54963dd0c49146549ddb03110308
+    home: https://github.com/kdlhost-charts/charts/plex
+    keywords:
+    - media
+    - plex
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: plex
+    sources:
+    - https://plex.tv/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/plex-0.1.4/plex-0.1.4.tgz
+    version: 0.1.4
+  - annotations:
+      artifacthub.io/changes: |
+        - Update docker container image
+      artifacthub.io/images: |
         - ghcr.io/raefon/plex:1.32.8.7639-fb6452ebf@sha256:fb761a48ac55647d6cd19812532f42eda997327b1b8ba8493320bd24f8aa8292
     apiVersion: v2
     appVersion: v1.32.7.7621-871adbd44-ls194
@@ -714,4 +742,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-05T16:49:04.052548534Z"
+generated: "2023-12-05T17:29:28.127147472Z"
