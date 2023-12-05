@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "v2.22.4"
-version: 0.1.2
+version: 0.1.3
 name: filebrowser
 description: Middleware or standalone app that provides a web-based file manager within a specified directory. 
 type: application
@@ -20,6 +20,6 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Add initContainer for config
+    - Remove initContainer for now
   artifacthub.io/images: |
     - Docker version v2.22.4

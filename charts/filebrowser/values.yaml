@@ -3,15 +3,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# -- Use an initContainer to download config and check if exists
-initContainers:
-   download-config:
-     image: busybox
-     command: ["sh", "-c", "echo test"]
-     volumeMounts:
-     - name: config
-       mountPath: /config
-
 image:
   repository: filebrowser/filebrowser
   pullPolicy: IfNotPresent
