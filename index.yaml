@@ -146,6 +146,34 @@ entries:
   plex:
   - annotations:
       artifacthub.io/changes: |
+        - Update docker container image
+      artifacthub.io/images: |
+        - ghcr.io/raefon/plex:1.32.8.7639-fb6452ebf@sha256:fb761a48ac55647d6cd19812532f42eda997327b1b8ba8493320bd24f8aa8292
+    apiVersion: v2
+    appVersion: v1.32.7.7621-871adbd44-ls194
+    created: "2023-12-05T16:18:50.349156398Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: The Media Server.
+    digest: 08d42a2a906b7aa4b9a13d7832fa7d480929e6c88f7f6a98eaf5b31a71262a8b
+    home: https://github.com/kdlhost-charts/charts/plex
+    keywords:
+    - media
+    - plex
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: plex
+    sources:
+    - https://plex.tv/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/plex-0.1.2/plex-0.1.2.tgz
+    version: 0.1.2
+  - annotations:
+      artifacthub.io/changes: |
         - Add DOCKERMODS
       artifacthub.io/images: |
         - Add DOCKERMODS
@@ -602,4 +630,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-03T05:30:09.556499153Z"
+generated: "2023-12-05T16:18:50.34921112Z"
