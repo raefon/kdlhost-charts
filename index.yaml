@@ -44,6 +44,34 @@ entries:
   filebrowser:
   - annotations:
       artifacthub.io/changes: |
+        - Change pull policy to Always
+      artifacthub.io/images: |
+        - ghcr.io/raefon/filebrowser:rolling
+    apiVersion: v2
+    appVersion: rolling
+    created: "2023-12-08T18:15:02.824676945Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: Middleware or standalone app that provides a web-based file manager
+      within a specified directory.
+    digest: 47032dd6d35ecc042e4a2b28152b219fcb7b561002256ea0a2cf8e2694c6657d
+    keywords:
+    - file
+    - browser
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: filebrowser
+    sources:
+    - https://hub.docker.com/r/filebrowser/filebrowser
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/filebrowser-0.1.6/filebrowser-0.1.6.tgz
+    version: 0.1.6
+  - annotations:
+      artifacthub.io/changes: |
         - Update docker image to ghcr.io/raefon/filebrowser:rolling
       artifacthub.io/images: |
         - ghcr.io/raefon/filebrowser:rolling
@@ -230,6 +258,34 @@ entries:
   plex:
   - annotations:
       artifacthub.io/changes: |
+        - Change pull policy to Always
+      artifacthub.io/images: |
+        - ghcr.io/raefon/plex:rolling
+    apiVersion: v2
+    appVersion: rolling
+    created: "2023-12-08T18:15:02.958564088Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: The Media Server.
+    digest: 535dd11b608dcac89a1d90550b191c2f6b00614f1b1ab36580d27530fd13c24e
+    home: https://github.com/kdlhost-charts/charts/plex
+    keywords:
+    - media
+    - plex
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: plex
+    sources:
+    - https://plex.tv/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/plex-0.1.5/plex-0.1.5.tgz
+    version: 0.1.5
+  - annotations:
+      artifacthub.io/changes: |
         - Update docker container image
       artifacthub.io/images: |
         - ghcr.io/raefon/plex:rolling@sha256:8d9ac1576a2abd15a7d7d18299ac38501adf76fbe245bbd9be87c03ddc187a58
@@ -341,6 +397,36 @@ entries:
     - https://github.com/raefon/kdlhost-charts/releases/download/plex-0.1.0/plex-0.1.0.tgz
     version: 0.1.0
   syncthing:
+  - annotations:
+      artifacthub.io/changes: |
+        - Change pull policy to Always
+      artifacthub.io/images: '- ghcr.io/raefon/syncthing:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2023-12-08T18:15:03.091413342Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: A continuous file synchronization program.
+    digest: 4fa422e6d94b64862731569368e1d7082b9fa945cb9b786c43379abd3f2fcddb
+    home: https://github.com/nicholaswilde/helm-charts/tree/main/charts/syncthing
+    icon: https://github.com/syncthing/syncthing/raw/main/assets/logo-128.png
+    keywords:
+    - sync
+    - thing
+    - syncronization
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: syncthing
+    sources:
+    - https://syncthing.net/
+    - https://hub.docker.com/r/syncthing/syncthing
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/syncthing-0.2.3/syncthing-0.2.3.tgz
+    version: 0.2.3
   - annotations:
       artifacthub.io/changes: |
         - Update docker image to ghcr.io/raefon/syncthing:rolling
@@ -528,6 +614,34 @@ entries:
     - https://github.com/raefon/kdlhost-charts/releases/download/syncthing-0.1.0/syncthing-0.1.0.tgz
     version: 0.1.0
   tenet:
+  - annotations:
+      artifacthub.io/changes: '- Change Containers pull policy to Always'
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-12-08T18:15:03.269516959Z"
+    dependencies:
+    - name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: plex
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    - name: filebrowser
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    description: Used to provision tenets
+    digest: c5525f87e4b09faccb4e6726a0c8c6b92c39a824922ef79e056baa4696448ffa
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.1.7/tenet-0.1.7.tgz
+    version: 0.1.7
   - annotations:
       artifacthub.io/changes: '- Update Containers'
     apiVersion: v2
@@ -912,4 +1026,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-08T17:11:09.378904426Z"
+generated: "2023-12-08T18:15:03.269668951Z"
