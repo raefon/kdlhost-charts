@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.2.2
+version: 0.2.3
 name: syncthing
 description: A continuous file synchronization program.
 type: application
@@ -24,6 +24,6 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Update docker image to ghcr.io/raefon/syncthing:rolling
+    - Change pull policy to Always
   artifacthub.io/images: |
     - ghcr.io/raefon/syncthing:rolling

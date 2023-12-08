@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.1.4
+version: 0.1.5
 name: plex
 description: The Media Server.
 type: application
@@ -22,6 +22,6 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Update docker container image
+    - Change pull policy to Always
   artifacthub.io/images: |
     - ghcr.io/raefon/plex:rolling
