@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
-appVersion: "v1.26.1-ls121"
-version: 0.2.1
+appVersion: "rolling"
+version: 0.2.2
 name: syncthing
 description: A continuous file synchronization program.
 type: application
@@ -24,6 +24,6 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Add DOCKER_MODS
+    - Update docker image to ghcr.io/raefon/syncthing:rolling
   artifacthub.io/images: |
-    - Add DOCKER_MODS
+    - ghcr.io/raefon/syncthing:rolling

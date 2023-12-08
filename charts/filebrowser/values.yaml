@@ -4,10 +4,10 @@
 # Declare variables to be passed into your templates.
 
 image:
-  repository: filebrowser/filebrowser
+  repository: ghcr.io/raefon/filebrowser
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v2.22.4"
+  tag: ""
 
 secret: {}
 
