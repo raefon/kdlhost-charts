@@ -44,6 +44,34 @@ entries:
   filebrowser:
   - annotations:
       artifacthub.io/changes: |
+        - Update docker image to ghcr.io/raefon/filebrowser:rolling
+      artifacthub.io/images: |
+        - ghcr.io/raefon/filebrowser:rolling
+    apiVersion: v2
+    appVersion: v2.22.4
+    created: "2023-12-08T16:57:17.866456867Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: Middleware or standalone app that provides a web-based file manager
+      within a specified directory.
+    digest: 679aa261f29359f4414edbcf3fa481b3aea07e2ab40296284dec0600092dd9e3
+    keywords:
+    - file
+    - browser
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: filebrowser
+    sources:
+    - https://hub.docker.com/r/filebrowser/filebrowser
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/filebrowser-0.1.4/filebrowser-0.1.4.tgz
+    version: 0.1.4
+  - annotations:
+      artifacthub.io/changes: |
         - Remove initContainer for now
       artifacthub.io/images: |
         - Docker version v2.22.4
@@ -285,6 +313,36 @@ entries:
     - https://github.com/raefon/kdlhost-charts/releases/download/plex-0.1.0/plex-0.1.0.tgz
     version: 0.1.0
   syncthing:
+  - annotations:
+      artifacthub.io/changes: |
+        - Update docker image to ghcr.io/raefon/syncthing:rolling
+      artifacthub.io/images: '- ghcr.io/raefon/syncthing:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2023-12-08T16:57:18.325405938Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: A continuous file synchronization program.
+    digest: 28cad1252378ec9273f61c738a8ffb7bf434688bf0b2038a5faf313758bd4494
+    home: https://github.com/nicholaswilde/helm-charts/tree/main/charts/syncthing
+    icon: https://github.com/syncthing/syncthing/raw/main/assets/logo-128.png
+    keywords:
+    - sync
+    - thing
+    - syncronization
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: syncthing
+    sources:
+    - https://syncthing.net/
+    - https://hub.docker.com/r/syncthing/syncthing
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/syncthing-0.2.2/syncthing-0.2.2.tgz
+    version: 0.2.2
   - annotations:
       artifacthub.io/changes: |
         - Add DOCKER_MODS
@@ -770,4 +828,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-05T17:31:36.764374577Z"
+generated: "2023-12-08T16:57:18.325498771Z"
