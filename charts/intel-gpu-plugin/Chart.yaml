@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 name: intel-gpu-plugin
-version: 4.4.3
+version: 4.4.4
 appVersion: 0.20.0
 description: The Intel GPU plugin facilitates offloading the processing of computation intensive workloads to GPU hardware
 keywords:
@@ -18,9 +18,9 @@ maintainers:
     email: raefon@users.noreply.github.com 
 dependencies:
   - name: common
-    version: ~0.1.8
+    version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: Added size: 1Gi and accessMode: ReadWriteOnce
+      description: Update common to ~0.2.0
