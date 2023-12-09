@@ -1,23 +1,27 @@
 {{/*
-Render all the ports and additionalPorts for a Service object.
+Return the primary port for a given Service object.
 */}}
-{{- define "common.classes.service.ports" -}}
-  {{- $ports := list -}}
-  {{- $values := .values -}}
-  {{- $ports = mustAppend $ports $values.port -}}
-  {{- range $_ := $values.additionalPorts -}}
-    {{- $ports = mustAppend $ports . -}}
+{{- define "common.classes.service.ports.primary" -}}
+  {{- $enabledPorts := dict -}}
+  {{- range $name, $port := .values.ports -}}
+    {{- if $port.enabled -}}
+      {{- $_ := set $enabledPorts $name . -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if eq 0 (len $enabledPorts) }}
+    {{- fail (printf "No ports are enabled for service \"%s\"!" .serviceName) }}
   {{- end }}
-  {{- if $ports -}}
-  ports:
-  {{- range $_ := $ports }}
-  - port: {{ .port }}
-    targetPort: {{ .targetPort | default "http" }}
-    protocol: {{ .protocol | default "TCP" }}
-    name: {{ .name | default "http" }}
-    {{- if (and (eq $.svcType "NodePort") (not (empty .nodePort))) }}
-    nodePort: {{ .nodePort }}
-    {{ end }}
+
+  {{- $result := "" -}}
+  {{- range $name, $port := $enabledPorts -}}
+    {{- if and (hasKey $port "primary") $port.primary -}}
+      {{- $result = $name -}}
+    {{- end -}}
   {{- end -}}
+
+  {{- if not $result -}}
+    {{- $result = keys $enabledPorts | first -}}
   {{- end -}}
-{{- end }}
+  {{- $result -}}
+{{- end -}}

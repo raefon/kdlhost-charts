@@ -1,72 +1,62 @@
 {{/*
-This template serves as the blueprint for the StatefulSet objects that are created 
+This template serves as the blueprint for the StatefulSet objects that are created
 within the common library.
 */}}
-{{- define "common.statefulset" -}}
-apiVersion: {{ include "common.capabilities.statefulset.apiVersion" . }}
+{{- define "common.statefulset" }}
+---
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "common.names.fullname" . }}
-  labels:
-  {{- include "common.labels" . | nindent 4 }}
-  {{- with .Values.controllerLabels }}
-  {{- toYaml . | nindent 4 }}
+  {{- with (merge (.Values.controller.labels | default dict) (include "common.labels" $ | fromYaml)) }}
+  labels: {{- toYaml . | nindent 4 }}
   {{- end }}
-  {{- with .Values.controllerAnnotations }}
-  annotations:
-  {{- toYaml . | nindent 4 }}
+  {{- with (merge (.Values.controller.annotations | default dict) (include "common.annotations" $ | fromYaml)) }}
+  annotations: {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  replicas: {{ .Values.replicas }}
-  {{- with .Values.strategy }}
-  updateStrategy:
-    {{- toYaml . | nindent 4 }}
+  revisionHistoryLimit: {{ .Values.controller.revisionHistoryLimit }}
+  replicas: {{ .Values.controller.replicas }}
+  podManagementPolicy: {{ default "OrderedReady" .Values.controller.podManagementPolicy }}
+  {{- $strategy := default "RollingUpdate" .Values.controller.strategy }}
+  {{- if and (ne $strategy "OnDelete") (ne $strategy "RollingUpdate") }}
+    {{- fail (printf "Not a valid strategy type for StatefulSet (%s)" $strategy) }}
   {{- end }}
+  updateStrategy:
+    type: {{ $strategy }}
+    {{- if and (eq $strategy "RollingUpdate") .Values.controller.rollingUpdate.partition }}
+    rollingUpdate:
+      partition: {{ .Values.controller.rollingUpdate.partition }}
+    {{- end }}
   selector:
     matchLabels:
-    {{- include "common.labels.selectorLabels" . | nindent 6 }}
+      {{- include "common.labels.selectorLabels" . | nindent 6 }}
   serviceName: {{ include "common.names.fullname" . }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
+      {{- with include ("common.podAnnotations") . }}
       annotations:
-      {{- toYaml . | nindent 8 }}
+        {{- . | nindent 8 }}
       {{- end }}
       labels:
-      {{- include "common.labels.selectorLabels" . | nindent 8 }}
+        {{- include "common.labels.selectorLabels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      serviceAccountName: {{ include "common.names.serviceAccountName" . }}
-      {{- with .Values.podSecurityContext }}
-      securityContext:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.initContainers }}
-      initContainers:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      containers:
-      {{- include "common.controller.mainContainer" . | nindent 6 }}
-      {{- with .Values.additionalContainers }}
-        {{- toYaml . | nindent 6 }}
-      {{- end }}
-      {{- with (include "common.controller.volumes" . | trim) }}
-      volumes:
-        {{- . | nindent 6 }}
-      {{- end }}
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+      {{- include "common.controller.pod" . | nindent 6 }}
+  volumeClaimTemplates:
+    {{- range $index, $vct := .Values.volumeClaimTemplates }}
+    - metadata:
+        name: {{ $vct.name }}
+      spec:
+        accessModes:
+          - {{ required (printf "accessMode is required for vCT %v" $vct.name) $vct.accessMode  | quote }}
+        resources:
+          requests:
+            storage: {{ required (printf "size is required for PVC %v" $vct.name) $vct.size | quote }}
+        {{- if $vct.storageClass }}
+        storageClassName: {{ if (eq "-" $vct.storageClass) }}""{{- else }}{{ $vct.storageClass | quote }}{{- end }}
+        {{- end }}
+    {{- end }}
 {{- end }}

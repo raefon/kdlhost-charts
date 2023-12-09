@@ -1,45 +1,19 @@
-{{/*
-Return the appropriate apiVersion for DaemonSet objects.
-*/}}
-{{- define "common.capabilities.daemonset.apiVersion" -}}
-{{- if semverCompare "<1.14-0" .Capabilities.KubeVersion.GitVersion -}}
-{{- print "extensions/v1beta1" -}}
-{{- else -}}
-{{- print "apps/v1" -}}
-{{- end -}}
+{{/* Allow KubeVersion to be overridden. */}}
+{{- define "common.capabilities.ingress.kubeVersion" -}}
+  {{- default .Capabilities.KubeVersion.Version .Values.kubeVersionOverride -}}
 {{- end -}}
 
-{{/*
-Return the appropriate apiVersion for Deployment objects.
-*/}}
-{{- define "common.capabilities.deployment.apiVersion" -}}
-{{- if semverCompare "<1.14-0" .Capabilities.KubeVersion.GitVersion -}}
-{{- print "extensions/v1beta1" -}}
-{{- else -}}
-{{- print "apps/v1" -}}
-{{- end -}}
-{{- end -}}
-
-{{/*
-Return the appropriate apiVersion for StatefulSet objects.
-*/}}
-{{- define "common.capabilities.statefulset.apiVersion" -}}
-{{- if semverCompare "<1.14-0" .Capabilities.KubeVersion.GitVersion -}}
-{{- print "apps/v1beta1" -}}
-{{- else -}}
-{{- print "apps/v1" -}}
-{{- end -}}
-{{- end -}}
-
-{{/*
-Return the appropriate apiVersion for Ingress objects.
-*/}}
+{{/* Return the appropriate apiVersion for Ingress objects */}}
 {{- define "common.capabilities.ingress.apiVersion" -}}
-{{- if semverCompare "<1.14-0" .Capabilities.KubeVersion.GitVersion -}}
-{{- print "extensions/v1beta1" -}}
-{{- else if semverCompare "<1.19-0" .Capabilities.KubeVersion.GitVersion -}}
-{{- print "networking.k8s.io/v1beta1" -}}
-{{- else -}}
-{{- print "networking.k8s.io/v1" -}}
+  {{- print "networking.k8s.io/v1" -}}
+  {{- if semverCompare "<1.19" (include "common.capabilities.ingress.kubeVersion" .) -}}
+    {{- print "beta1" -}}
+  {{- end -}}
 {{- end -}}
+
+{{/* Check Ingress stability */}}
+{{- define "common.capabilities.ingress.isStable" -}}
+  {{- if eq (include "common.capabilities.ingress.apiVersion" .) "networking.k8s.io/v1" -}}
+    {{- true -}}
+  {{- end -}}
 {{- end -}}
