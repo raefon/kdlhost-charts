@@ -6,6 +6,26 @@ entries:
         - kind: changed
           description: Changed default ingress from values.yaml
     apiVersion: v2
+    created: "2023-12-09T21:12:38.793191171Z"
+    description: Function library for kdlhost helm charts
+    digest: 945b32e2071dc3e00cb188101d53ba4169a2af87214dc176e02f608771679d5f
+    home: https://raefon.github.io/kdlhost-charts/common
+    keywords:
+    - kdlhost-charts
+    - common
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: common
+    type: library
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/common-0.2.0/common-0.2.0.tgz
+    version: 0.2.0
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: Changed default ingress from values.yaml
+    apiVersion: v2
     created: "2023-11-26T17:40:13.249962461Z"
     description: Function library for kdlhost helm charts
     digest: 2d48e5067edca630a46352749885895b265ccae733e1e5806d834b4b38ec7996
@@ -1087,4 +1107,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-09T20:58:04.573987595Z"
+generated: "2023-12-09T21:12:38.793318317Z"
