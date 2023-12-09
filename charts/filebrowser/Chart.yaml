@@ -8,7 +8,7 @@ type: application
 deprecated: false
 dependencies:
   - name: common
-    version: ~0.1.8
+    version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - file
