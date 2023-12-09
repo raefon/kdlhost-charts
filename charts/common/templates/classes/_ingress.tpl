@@ -2,81 +2,84 @@
 This template serves as a blueprint for all Ingress objects that are created
 within the common library.
 */}}
-{{- define "common.classes.ingress" -}}
-  {{- $fullName := include "common.names.fullname" . -}}
-  {{- $ingressName := $fullName -}}
-  {{- $values := .Values.ingress -}}
 
-  {{- if hasKey . "ObjectValues" -}}
-    {{- with .ObjectValues.ingress -}}
-      {{- $values = . -}}
-    {{- end -}}
-  {{ end -}}
+{{- define "bjw-s.common.class.ingress" -}}
+  {{- $rootContext := .rootContext -}}
+  {{- $ingressObject := .object -}}
 
-  {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
-    {{- $ingressName = printf "%v-%v" $ingressName $values.nameOverride -}}
-  {{- end -}}
-
-  {{- $primaryService := get .Values.service (include "common.service.primary" .) -}}
-  {{- $defaultServiceName := $fullName -}}
-  {{- if and (hasKey $primaryService "nameOverride") $primaryService.nameOverride -}}
-    {{- $defaultServiceName = printf "%v-%v" $defaultServiceName $primaryService.nameOverride -}}
-  {{- end -}}
-  {{- $defaultServicePort := get $primaryService.ports (include "common.classes.service.ports.primary" (dict "values" $primaryService)) -}}
-  {{- $isStable := include "common.capabilities.ingress.isStable" . }}
+  {{- $labels := merge
+    ($ingressObject.labels | default dict)
+    (include "bjw-s.common.lib.metadata.allLabels" $rootContext | fromYaml)
+  -}}
+  {{- $annotations := merge
+    ($ingressObject.annotations | default dict)
+    (include "bjw-s.common.lib.metadata.globalAnnotations" $rootContext | fromYaml)
+  -}}
 ---
-apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ $ingressName }}
-  {{- with (merge ($values.labels | default dict) (include "common.labels" $ | fromYaml)) }}
-  labels: {{- toYaml . | nindent 4 }}
+  name: {{ $ingressObject.name }}
+  {{- with $labels }}
+  labels: {{- toYaml . | nindent 4 -}}
   {{- end }}
-  {{- with (merge ($values.annotations | default dict) (include "common.annotations" $ | fromYaml)) }}
-  annotations: {{- toYaml . | nindent 4 }}
+  {{- with $annotations }}
+  annotations: {{- toYaml . | nindent 4 -}}
   {{- end }}
 spec:
-  {{- if and $isStable $values.ingressClassName }}
-  ingressClassName: {{ $values.ingressClassName }}
+  {{- if $ingressObject.className }}
+  ingressClassName: {{ $ingressObject.className }}
   {{- end }}
-  {{- if $values.tls }}
+  {{- if $ingressObject.tls }}
   tls:
-    {{- range $values.tls }}
+    {{- range $ingressObject.tls }}
     - hosts:
         {{- range .hosts }}
-        - {{ tpl . $ | quote }}
+        - {{ tpl . $rootContext | quote }}
         {{- end }}
-      {{- if .secretName }}
-      secretName: {{ tpl .secretName $ | quote}}
+      {{- $secretName := tpl (default "" .secretName) $rootContext }}
+      {{- if $secretName }}
+      secretName: {{ $secretName | quote}}
       {{- end }}
     {{- end }}
   {{- end }}
+  {{- if $ingressObject.defaultBackend }}
+  defaultBackend: {{ $ingressObject.defaultBackend }}
+  {{- else }}
   rules:
-  {{- range $values.hosts }}
-    - host: {{ tpl .host $ | quote }}
+  {{- range $ingressObject.hosts }}
+    - host: {{ tpl .host $rootContext | quote }}
       http:
         paths:
           {{- range .paths }}
-          {{- $service := $defaultServiceName -}}
-          {{- $port := $defaultServicePort.port -}}
-          {{- if .service -}}
-            {{- $service = default $service .service.name -}}
-            {{- $port = default $port .service.port -}}
-          {{- end }}
-          - path: {{ tpl .path $ | quote }}
-            {{- if $isStable }}
+          - path: {{ tpl .path $rootContext | quote }}
             pathType: {{ default "Prefix" .pathType }}
-            {{- end }}
             backend:
-              {{- if $isStable }}
               service:
-                name: {{ $service }}
+                {{ $service := include "bjw-s.common.lib.service.getByIdentifier" (dict "rootContext" $rootContext "id" .service.name) | fromYaml -}}
+                {{ $servicePort := 0 -}}
+
+                {{ if empty (dig "port" nil .service) -}}
+                  {{/* Default to the Service primary port if no port has been specified */ -}}
+                  {{ if $service -}}
+                    {{ $defaultServicePort := include "bjw-s.common.lib.service.primaryPort" (dict "rootContext" $rootContext "serviceObject" $service) | fromYaml -}}
+                    {{ if $defaultServicePort -}}
+                      {{ $servicePort = $defaultServicePort.port -}}
+                    {{ end -}}
+                  {{ end -}}
+                {{ else -}}
+                  {{/* If a port number is given, use that */ -}}
+                  {{ if kindIs "float64" .service.port -}}
+                    {{ $servicePort = .service.port -}}
+                  {{ else if kindIs "string" .service.port -}}
+                    {{/* If a port name is given, try to resolve to a number */ -}}
+                    {{ $servicePort = include "bjw-s.common.lib.service.getPortNumberByName" (dict "rootContext" $rootContext "serviceID" .service.name "portName" .service.port) -}}
+                  {{ end -}}
+                {{ end -}}
+                name: {{ default .service.name $service.name }}
                 port:
-                  number: {{ $port }}
-              {{- else }}
-              serviceName: {{ $service }}
-              servicePort: {{ $port }}
-              {{- end }}
+                  number: {{ $servicePort }}
           {{- end }}
+  {{- end }}
   {{- end }}
 {{- end }}
