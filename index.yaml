@@ -238,6 +238,37 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/filebrowser-0.1.0/filebrowser-0.1.0.tgz
     version: 0.1.0
+  intel-gpu-plugin:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Upgraded `common` chart dependency to version ~0.1.8
+    apiVersion: v2
+    appVersion: 0.20.0
+    created: "2023-12-09T20:36:27.340024597Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.8
+    description: The Intel GPU plugin facilitates offloading the processing of computation
+      intensive workloads to GPU hardware
+    digest: 2dbb4dfb07217cac12e199745008f2bf91f9afb5fd0ba14b8e02971584cc2c08
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/intel-gpu-plugin
+    icon: https://avatars0.githubusercontent.com/u/17888862?s=400&v=4
+    keywords:
+    - kubernetes
+    - cluster
+    - hardware
+    - gpu
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: intel-gpu-plugin
+    sources:
+    - https://github.com/intel/intel-device-plugins-for-kubernetes/blob/master/cmd/gpu_plugin
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/intel-gpu-plugin-4.4.2/intel-gpu-plugin-4.4.2.tgz
+    version: 4.4.2
   local-path-provisioner:
   - apiVersion: v1
     appVersion: v0.0.25-dev
@@ -1026,4 +1057,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-08T18:15:03.269668951Z"
+generated: "2023-12-09T20:36:27.340110718Z"
