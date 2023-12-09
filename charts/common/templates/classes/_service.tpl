@@ -2,103 +2,97 @@
 This template serves as a blueprint for all Service objects that are created
 within the common library.
 */}}
-{{- define "bjw-s.common.class.service" -}}
-  {{- $rootContext := .rootContext -}}
-  {{- $serviceObject := .object -}}
+{{- define "common.classes.service" -}}
+{{- $values := .Values.service -}}
+{{- if hasKey . "ObjectValues" -}}
+  {{- with .ObjectValues.service -}}
+    {{- $values = . -}}
+  {{- end -}}
+{{ end -}}
 
-  {{- $svcType := $serviceObject.type | default "" -}}
-  {{- $enabledPorts := include "bjw-s.common.lib.service.enabledPorts" (dict "rootContext" $rootContext "serviceObject" $serviceObject) | fromYaml }}
-  {{- $labels := merge
-    (dict "app.kubernetes.io/service" $serviceObject.name)
-    ($serviceObject.labels | default dict)
-    (include "bjw-s.common.lib.metadata.allLabels" $rootContext | fromYaml)
-  -}}
-  {{- $annotations := merge
-    ($serviceObject.annotations | default dict)
-    (include "bjw-s.common.lib.metadata.globalAnnotations" $rootContext | fromYaml)
-  -}}
+{{- $serviceName := include "common.names.fullname" . -}}
+{{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
+  {{- $serviceName = printf "%v-%v" $serviceName $values.nameOverride -}}
+{{ end -}}
+{{- $svcType := $values.type | default "" -}}
+{{- $primaryPort := get $values.ports (include "common.classes.service.ports.primary" (dict "values" $values)) }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $serviceObject.name }}
-  {{- with $labels }}
-  labels: {{- toYaml . | nindent 4 -}}
+  name: {{ $serviceName }}
+  {{- with (merge ($values.labels | default dict) (include "common.labels" $ | fromYaml)) }}
+  labels: {{- toYaml . | nindent 4 }}
   {{- end }}
-  {{- with $annotations }}
-  annotations: {{- toYaml . | nindent 4 -}}
+  annotations:
+  {{- if eq ( $primaryPort.protocol | default "" ) "HTTPS" }}
+    traefik.ingress.kubernetes.io/service.serversscheme: https
+  {{- end }}
+  {{- with (merge ($values.annotations | default dict) (include "common.annotations" $ | fromYaml)) }}
+    {{ toYaml . | nindent 4 }}
   {{- end }}
 spec:
   {{- if (or (eq $svcType "ClusterIP") (empty $svcType)) }}
   type: ClusterIP
-  {{- if $serviceObject.clusterIP }}
-  clusterIP: {{ $serviceObject.clusterIP }}
+  {{- if $values.clusterIP }}
+  clusterIP: {{ $values.clusterIP }}
   {{end}}
   {{- else if eq $svcType "LoadBalancer" }}
   type: {{ $svcType }}
-  {{- if $serviceObject.loadBalancerIP }}
-  loadBalancerIP: {{ $serviceObject.loadBalancerIP }}
+  {{- if $values.loadBalancerIP }}
+  loadBalancerIP: {{ $values.loadBalancerIP }}
   {{- end }}
-  {{- if $serviceObject.loadBalancerSourceRanges }}
+  {{- if $values.loadBalancerSourceRanges }}
   loadBalancerSourceRanges:
-    {{ toYaml $serviceObject.loadBalancerSourceRanges | nindent 4 }}
+    {{ toYaml $values.loadBalancerSourceRanges | nindent 4 }}
   {{- end -}}
   {{- else }}
   type: {{ $svcType }}
   {{- end }}
-  {{- if $serviceObject.externalTrafficPolicy }}
-  externalTrafficPolicy: {{ $serviceObject.externalTrafficPolicy }}
+  {{- if $values.externalTrafficPolicy }}
+  externalTrafficPolicy: {{ $values.externalTrafficPolicy }}
   {{- end }}
-  {{- if hasKey $serviceObject "allocateLoadBalancerNodePorts" }}
-  allocateLoadBalancerNodePorts: {{ $serviceObject.allocateLoadBalancerNodePorts }}
-  {{- end }}
-  {{- if $serviceObject.sessionAffinity }}
-  sessionAffinity: {{ $serviceObject.sessionAffinity }}
-  {{- if $serviceObject.sessionAffinityConfig }}
+  {{- if $values.sessionAffinity }}
+  sessionAffinity: {{ $values.sessionAffinity }}
+  {{- if $values.sessionAffinityConfig }}
   sessionAffinityConfig:
-    {{ toYaml $serviceObject.sessionAffinityConfig | nindent 4 }}
+    {{ toYaml $values.sessionAffinityConfig | nindent 4 }}
   {{- end -}}
   {{- end }}
-  {{- with $serviceObject.externalIPs }}
+  {{- with $values.externalIPs }}
   externalIPs:
     {{- toYaml . | nindent 4 }}
   {{- end }}
-  {{- if $serviceObject.publishNotReadyAddresses }}
-  publishNotReadyAddresses: {{ $serviceObject.publishNotReadyAddresses }}
+  {{- if $values.publishNotReadyAddresses }}
+  publishNotReadyAddresses: {{ $values.publishNotReadyAddresses }}
   {{- end }}
-  {{- if $serviceObject.ipFamilyPolicy }}
-  ipFamilyPolicy: {{ $serviceObject.ipFamilyPolicy }}
+  {{- if $values.ipFamilyPolicy }}
+  ipFamilyPolicy: {{ $values.ipFamilyPolicy }}
   {{- end }}
-  {{- with $serviceObject.ipFamilies }}
+  {{- with $values.ipFamilies }}
   ipFamilies:
     {{ toYaml . | nindent 4 }}
   {{- end }}
   ports:
-  {{- range $name, $port := $enabledPorts }}
-    - port: {{ $port.port }}
-      targetPort: {{ $port.targetPort | default $port.port }}
-        {{- if $port.protocol }}
-          {{- if or ( eq $port.protocol "HTTP" ) ( eq $port.protocol "HTTPS" ) ( eq $port.protocol "TCP" ) }}
-      protocol: TCP
-          {{- else }}
-      protocol: {{ $port.protocol }}
-          {{- end }}
-        {{- else }}
-      protocol: TCP
-        {{- end }}
-      name: {{ $name }}
-        {{- if (and (eq $svcType "NodePort") (not (empty $port.nodePort))) }}
-      nodePort: {{ $port.nodePort }}
-        {{ end }}
-        {{- if (not (empty $port.appProtocol)) }}
-      appProtocol: {{ $port.appProtocol }}
-        {{ end }}
-      {{- end -}}
-  {{- with (merge
-    ($serviceObject.extraSelectorLabels | default dict)
-    (dict "app.kubernetes.io/component" $serviceObject.controller)
-    (include "bjw-s.common.lib.metadata.selectorLabels" $rootContext | fromYaml)
-  ) }}
-  selector: {{- toYaml . | nindent 4 }}
+  {{- range $name, $port := $values.ports }}
+  {{- if $port.enabled }}
+  - port: {{ $port.port }}
+    targetPort: {{ $port.targetPort | default $name }}
+    {{- if $port.protocol }}
+    {{- if or ( eq $port.protocol "HTTP" ) ( eq $port.protocol "HTTPS" ) ( eq $port.protocol "TCP" ) }}
+    protocol: TCP
+    {{- else }}
+    protocol: {{ $port.protocol }}
+    {{- end }}
+    {{- else }}
+    protocol: TCP
+    {{- end }}
+    name: {{ $name }}
+    {{- if (and (eq $svcType "NodePort") (not (empty $port.nodePort))) }}
+    nodePort: {{ $port.nodePort }}
+    {{ end }}
   {{- end }}
+  {{- end }}
+  selector:
+    {{- include "common.labels.selectorLabels" . | nindent 4 }}
 {{- end }}

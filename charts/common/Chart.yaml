@@ -1,33 +1,17 @@
 ---
 apiVersion: v2
 name: common
-description: Function library for Helm charts
+description: Function library for kdlhost helm charts
 type: library
 version: 0.2.0
-kubeVersion: ">=1.22.0-0"
 keywords:
+  - kdlhost-charts
   - common
-home: https://raefon.github.io/kdlhost-charts/charts/common
+home: https://raefon.github.io/kdlhost-charts/common
 maintainers:
   - name: raefon
-    email: raefon@users.noreply.github.com 
+    email: raefon@users.noreply.github.com
 annotations:
-  artifacthub.io/changes: |-
-    - kind: added
-      description: |-
-        Add support for `appProtocol` in Kubernetes services.
-    - kind: added
-      description: |-
-        Add support for route filters for HTTPRoute and GRPCRoute.
-    - kind: added
-      description: |-
-        Add support `dataSource` and `dataSourceRef` fields in StatefulSet volumeClaimTemplates.
-    - kind: added
-      description: |-
-        Add support `dataSource` and `dataSourceRef` fields in persistentVolumeClaim persistence items.
-    - kind: fixed
-      description: |-
-        GRPCRoute support for matches was not supported.
-    - kind: fixed
-      description: |-
-        `valuefrom`-style environment variables can now use Helm templating again.
+  artifacthub.io/changes: |
+    - kind: changed
+      description: Changed default ingress from values.yaml
