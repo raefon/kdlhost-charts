@@ -30,7 +30,7 @@ Include this chart as a dependency in your `Chart.yaml` e.g.
 dependencies:
 - name: common
   version: 0.2.1
-  repository: https://k8s-at-home.com/charts/
+  repository: https://raefon.github.io/kdlhost-charts/
 ```
 
 ## Configuration
