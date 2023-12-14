@@ -101,6 +101,16 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/common-0.1.14/common-0.1.14.tgz
     version: 0.1.14
+  csi-driver-nfs:
+  - apiVersion: v1
+    appVersion: v4.5.0
+    created: "2023-12-14T04:32:08.74347273Z"
+    description: CSI NFS Driver for Kubernetes
+    digest: 9487d21d58af015ac14134856bb461fe9408a6da0c7ec567d4e900b25d1bd049
+    name: csi-driver-nfs
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/csi-driver-nfs-v4.5.0/csi-driver-nfs-v4.5.0.tgz
+    version: v4.5.0
   filebrowser:
   - annotations:
       artifacthub.io/changes: |
@@ -1207,4 +1217,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-10T05:22:55.307615538Z"
+generated: "2023-12-14T04:32:08.743604575Z"
