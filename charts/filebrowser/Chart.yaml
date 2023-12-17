@@ -1,14 +1,14 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.1.6
+version: 0.2.0
 name: filebrowser
 description: Middleware or standalone app that provides a web-based file manager within a specified directory. 
 type: application
 deprecated: false
 dependencies:
   - name: common
-    version: ~0.1.8
+    version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - file
@@ -20,6 +20,6 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Change pull policy to Always
+    - Update common library to ~0.2.0
   artifacthub.io/images: |
     - ghcr.io/raefon/filebrowser:rolling
