@@ -140,6 +140,34 @@ entries:
   filebrowser:
   - annotations:
       artifacthub.io/changes: |
+        - Testing
+      artifacthub.io/images: |
+        - ghcr.io/raefon/filebrowser:rolling
+    apiVersion: v2
+    appVersion: rolling
+    created: "2023-12-18T18:59:56.795889378Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: Middleware or standalone app that provides a web-based file manager
+      within a specified directory.
+    digest: dbdaf9c830beb8bba2ea8c7b197c9beeabe66bde7cd2787a65784ce28c1b60f2
+    keywords:
+    - file
+    - browser
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: filebrowser
+    sources:
+    - https://hub.docker.com/r/filebrowser/filebrowser
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/filebrowser-0.2.2/filebrowser-0.2.2.tgz
+    version: 0.2.2
+  - annotations:
+      artifacthub.io/changes: |
         - Add app-watcher
       artifacthub.io/images: |
         - ghcr.io/raefon/filebrowser:rolling
@@ -1330,4 +1358,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-18T18:57:11.07935286Z"
+generated: "2023-12-18T18:59:56.796855217Z"
