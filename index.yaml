@@ -587,6 +587,35 @@ entries:
   plex:
   - annotations:
       artifacthub.io/changes: |
+        - Update to common library ~0.2.0
+        - Update chart version to match
+      artifacthub.io/images: |
+        - ghcr.io/raefon/plex:rolling
+    apiVersion: v2
+    appVersion: rolling
+    created: "2023-12-18T20:07:48.130212673Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: The Media Server.
+    digest: 56762919cf9bfea56fad3579f04aaa40565d8c8451ce397ed1b45e94b2580fb9
+    home: https://github.com/kdlhost-charts/charts/plex
+    keywords:
+    - media
+    - plex
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: plex
+    sources:
+    - https://plex.tv/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/plex-0.2.0/plex-0.2.0.tgz
+    version: 0.2.0
+  - annotations:
+      artifacthub.io/changes: |
         - Change pull policy to Always
       artifacthub.io/images: |
         - ghcr.io/raefon/plex:rolling
@@ -1472,4 +1501,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-18T19:43:44.849033407Z"
+generated: "2023-12-18T20:07:48.130302241Z"
