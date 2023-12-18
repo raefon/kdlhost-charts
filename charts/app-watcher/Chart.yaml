@@ -1,0 +1,23 @@
+---
+apiVersion: v2
+appVersion: "rolling"
+version: 0.1.0
+name: app-watcher
+description: app-watcher
+type: application
+deprecated: false
+dependencies:
+  - name: common
+    version: ~0.2.0
+    repository: https://raefon.github.io/kdlhost-charts/
+keywords:
+  - app
+  - watcher
+maintainers:
+  - name: raefon
+    email: raefon@users.noreply.github.com 
+annotations:
+  artifacthub.io/changes: |
+    - Initial
+  artifacthub.io/images: |
+    - ghcr.io/raefon/app-watcher:rolling
