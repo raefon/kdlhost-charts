@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.1.5
+version: 0.2.0
 name: plex
 description: The Media Server.
 type: application
@@ -10,7 +10,7 @@ icon: ""
 deprecated: false
 dependencies:
   - name: common
-    version: ~0.1.8
+    version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - media
@@ -22,6 +22,7 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Change pull policy to Always
+    - Update to common library ~0.2.0
+    - Update chart version to match
   artifacthub.io/images: |
     - ghcr.io/raefon/plex:rolling
