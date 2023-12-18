@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.1.7
+version: 0.1.8
 name: tenet
 description: Used to provision tenets
 type: application
@@ -17,6 +17,9 @@ dependencies:
   - name: filebrowser
     version: ~0.1.0
     repository: https://raefon.github.io/kdlhost-charts/
+  - name: app-watcher
+    version: ~0.1.0
+    repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - tenet
 maintainers:
@@ -24,4 +27,4 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Change Containers pull policy to Always
+    - Add app-watcher
