@@ -728,6 +728,36 @@ entries:
   syncthing:
   - annotations:
       artifacthub.io/changes: |
+        - Update common to ~0.2.0
+      artifacthub.io/images: '- ghcr.io/raefon/syncthing:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2023-12-18T19:29:18.570785329Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: A continuous file synchronization program.
+    digest: e6b4fa3a59b3d8525faa1964682f86455e10f12b312866fba55ff2dd4e89d5f4
+    home: https://github.com/nicholaswilde/helm-charts/tree/main/charts/syncthing
+    icon: https://github.com/syncthing/syncthing/raw/main/assets/logo-128.png
+    keywords:
+    - sync
+    - thing
+    - syncronization
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: syncthing
+    sources:
+    - https://syncthing.net/
+    - https://hub.docker.com/r/syncthing/syncthing
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/syncthing-0.2.4/syncthing-0.2.4.tgz
+    version: 0.2.4
+  - annotations:
+      artifacthub.io/changes: |
         - Change pull policy to Always
       artifacthub.io/images: '- ghcr.io/raefon/syncthing:rolling'
     apiVersion: v2
@@ -1414,4 +1444,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-18T19:11:52.095423189Z"
+generated: "2023-12-18T19:29:18.570917585Z"
