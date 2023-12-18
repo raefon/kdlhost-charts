@@ -1,5 +1,31 @@
 apiVersion: v1
 entries:
+  app-watcher:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial
+      artifacthub.io/images: |
+        - ghcr.io/raefon/app-watcher:rolling
+    apiVersion: v2
+    appVersion: rolling
+    created: "2023-12-18T18:20:36.095151229Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: app-watcher
+    digest: abd8393f76b6135a5af844c0732c2b87b3e3b592f71f52706a86df7d359da0f8
+    keywords:
+    - app
+    - watcher
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: app-watcher
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/app-watcher-0.1.0/app-watcher-0.1.0.tgz
+    version: 0.1.0
   common:
   - annotations:
       artifacthub.io/changes: |
@@ -1245,4 +1271,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-17T16:55:18.264907452Z"
+generated: "2023-12-18T18:20:36.095238242Z"
