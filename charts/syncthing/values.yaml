@@ -8,33 +8,32 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
-secret: {}
-
 env:
   # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   TZ: "America/Los_Angeles"
-  PUID: "1000"
-  PGID: "1000"
 
 service:
-  port:
-    port: 8384
-  additionalPorts:
-    - name: "22000-tcp"
-      port: 22000
+  main:
+    ports:
+      http:
+        port: 8384
+      22000-tcp:
+        port: 22000
+        protocol: TCP
 
 ingress:
-  enabled: false
-  hosts:
-    - host: "cluster.local"
-      paths:
-        - path: /
-          # Ignored if not kubeVersion >= 1.14-0
-          pathType: Prefix
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  main:
+    enabled: false
+    hosts:
+      - host: "cluster.local"
+        paths:
+          - path: /
+            # Ignored if not kubeVersion >= 1.14-0
+            pathType: Prefix
+    tls: []
+    #  - secretName: chart-example-tls
+    #    hosts:
+    #      - chart-example.local
 
 persistence:
   config:
