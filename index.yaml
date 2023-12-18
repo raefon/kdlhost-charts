@@ -860,6 +860,37 @@ entries:
     version: 0.1.0
   tenet:
   - annotations:
+      artifacthub.io/changes: '- Add app-watcher'
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-12-18T18:22:41.29173301Z"
+    dependencies:
+    - name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: plex
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    - name: filebrowser
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    - name: app-watcher
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    description: Used to provision tenets
+    digest: 6b0ac480e101ce9c027d9c7ba056aa4530b3562534864fac8407e11bc950ac2a
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.1.8/tenet-0.1.8.tgz
+    version: 0.1.8
+  - annotations:
       artifacthub.io/changes: '- Change Containers pull policy to Always'
     apiVersion: v2
     appVersion: 1.0.0
@@ -1271,4 +1302,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-18T18:20:36.095238242Z"
+generated: "2023-12-18T18:22:41.292027814Z"
