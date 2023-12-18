@@ -55,7 +55,7 @@ persistence:
     ## Do not delete the pvc upon helm uninstall
     skipuninstall: false
   appwatcher:
-    enabled: false
+    enabled: true
     emptyDir: false
     mountPath: /app-watcher
     ## Template downloads data Persistent Volume Storage Class
