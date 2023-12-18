@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.1.9
+version: 0.2.0
 name: tenet
 description: Used to provision tenets
 type: application
@@ -24,4 +24,4 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Add appwatcher pvc
+    - Update to 0.2.0
