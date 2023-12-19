@@ -1003,6 +1003,34 @@ entries:
     version: 0.1.0
   tenet:
   - annotations:
+      artifacthub.io/changes: '- Add if to additionalLabels'
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-12-19T21:30:00.378997076Z"
+    dependencies:
+    - name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: plex
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: filebrowser
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: Used to provision tenets
+    digest: d92c59923bdfb9dfa2ae7a5d24fb424cdbf01f772d68935ec0f6a500ee841523
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.2.5/tenet-0.2.5.tgz
+    version: 0.2.5
+  - annotations:
       artifacthub.io/changes: '- Ability to add labels to pvcs'
     apiVersion: v2
     appVersion: 1.0.0
@@ -1613,4 +1641,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-19T21:17:48.186366369Z"
+generated: "2023-12-19T21:30:00.379245648Z"
