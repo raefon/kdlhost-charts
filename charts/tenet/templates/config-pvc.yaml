@@ -13,7 +13,9 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
+    {{- if .Values.config.additionalLabels }}
     {{ toYaml .Values.config.additionalLabels | nindent 4 }}
+    {{- end }}
 spec:
   accessModes:
     - {{ .Values.config.accessMode | quote }}

@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.2.4
+version: 0.2.5
 name: tenet
 description: Used to provision tenets
 type: application
@@ -24,4 +24,4 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Ability to add labels to pvcs
+    - Add if to additionalLabels
