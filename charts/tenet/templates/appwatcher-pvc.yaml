@@ -13,6 +13,7 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
+    {{ toYaml .Values.appwatcher.additionalLabels | nindent 4 }}
 spec:
   accessModes:
     - {{ .Values.appwatcher.accessMode | quote }}

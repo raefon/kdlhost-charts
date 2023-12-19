@@ -16,6 +16,7 @@ config:
   accessMode: ReadWriteMany
   size: 1Gi
   annotations: {}
+  additionalLabels: {}
 
 ## data pvc
 data:
@@ -31,6 +32,7 @@ data:
   accessMode: ReadWriteMany
   size: 1Gi
   annotations: {}
+  additionalLabels: {}
 
 ## appwatcher pvc
 appwatcher:
@@ -46,6 +48,7 @@ appwatcher:
   accessMode: ReadWriteMany
   size: 1Gi
   annotations: {}
+  additionalLabels: {}
 
 ## rbac
 rbac:
