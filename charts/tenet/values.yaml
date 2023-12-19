@@ -52,7 +52,7 @@ rbac:
   enabled: false
 
 ## role
-role:
+roles:
   name: tenet
 
 # rolebinding
