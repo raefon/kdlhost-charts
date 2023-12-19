@@ -46,3 +46,15 @@ appwatcher:
   accessMode: ReadWriteMany
   size: 1Gi
   annotations: {}
+
+## rbac
+rbac:
+  enabled: false
+
+## role
+role:
+  name: tenet
+
+# rolebinding
+rolebinding:
+  name: tenet

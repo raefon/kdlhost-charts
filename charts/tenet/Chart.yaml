@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.2.1
+version: 0.2.2
 name: tenet
 description: Used to provision tenets
 type: application
@@ -24,4 +24,4 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Update plex to 0.2.0
+    - Add rbac
