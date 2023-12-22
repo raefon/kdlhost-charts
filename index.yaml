@@ -785,6 +785,33 @@ entries:
   qbittorrent:
   - annotations:
       artifacthub.io/changes: |
+        - Update Values
+      artifacthub.io/images: '- ghcr.io/raefon/qbittorrent:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2023-12-22T21:30:58.346686633Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: bittorrent client
+    digest: 7effc404a4a141cf2e4029bb02db508873d50e6ba8b252f87bd9b7eb18a95a0e
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/qbittorrent
+    keywords:
+    - qbittorrent
+    - bittorrent
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: qbittorrent
+    sources:
+    - https://qbittorrent.org/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/qbittorrent-0.2.1/qbittorrent-0.2.1.tgz
+    version: 0.2.1
+  - annotations:
+      artifacthub.io/changes: |
         - Initial
       artifacthub.io/images: '- ghcr.io/raefon/qbittorrent:rolling'
     apiVersion: v2
@@ -1728,4 +1755,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-22T18:15:40.456180674Z"
+generated: "2023-12-22T21:30:58.346812308Z"
