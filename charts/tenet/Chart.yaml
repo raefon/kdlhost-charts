@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.2.5
+version: 0.2.6
 name: tenet
 description: Used to provision tenets
 type: application
