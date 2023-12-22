@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.2.4
+version: 0.2.0
 name: qbittorrent
 description: bittorrent client
 type: application
