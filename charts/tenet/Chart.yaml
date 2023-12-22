@@ -17,6 +17,9 @@ dependencies:
   - name: filebrowser
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
+  - name: qbittorrent
+    version: ~0.2.0
+    repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - tenet
 maintainers:
@@ -24,4 +27,4 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Add if to additionalLabels
+    - Add qbittorrent
