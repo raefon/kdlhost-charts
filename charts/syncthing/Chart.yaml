@@ -24,6 +24,6 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Update common to ~0.2.0
+    - Update ports
   artifacthub.io/images: |
     - ghcr.io/raefon/syncthing:rolling
