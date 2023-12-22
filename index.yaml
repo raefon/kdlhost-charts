@@ -789,33 +789,6 @@ entries:
       artifacthub.io/images: '- ghcr.io/raefon/qbittorrent:rolling'
     apiVersion: v2
     appVersion: rolling
-    created: "2023-12-22T18:10:03.661033208Z"
-    dependencies:
-    - name: common
-      repository: https://raefon.github.io/kdlhost-charts/
-      version: ~0.2.0
-    description: bittorrent client
-    digest: 0ec34723bf7fdeb3a68b4a12c66dcff6d2fd884bae1463aec761ee2bb86a657e
-    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/qbittorrent
-    keywords:
-    - qbittorrent
-    - bittorrent
-    maintainers:
-    - email: raefon@users.noreply.github.com
-      name: raefon
-    name: qbittorrent
-    sources:
-    - https://qbittorrent.org/
-    type: application
-    urls:
-    - https://github.com/raefon/kdlhost-charts/releases/download/qbittorrent-0.2.4/qbittorrent-0.2.4.tgz
-    version: 0.2.4
-  - annotations:
-      artifacthub.io/changes: |
-        - Initial
-      artifacthub.io/images: '- ghcr.io/raefon/qbittorrent:rolling'
-    apiVersion: v2
-    appVersion: rolling
     created: "2023-12-22T18:10:55.833853191Z"
     dependencies:
     - name: common
