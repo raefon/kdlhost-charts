@@ -14,24 +14,17 @@ env:
 
 service:
   main:
-    enabled: false
-    primary: true
-    type: ClusterIP
     ports:
       http:
-        enabled: true
-        primary: true
         port: 8080
-        protocol: HTTP
-        targetport: 8080
   bittorrent:
     enabled: false
-    type: LoadBalancer
+    type: ClusterIP
     ports:
       bittorrent:
         enabled: true
         port: 6881
-        protocol: UDP
+        protocol: TCP
         targetPort: 6881
 
 ingress:
