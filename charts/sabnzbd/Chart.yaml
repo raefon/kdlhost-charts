@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.2.0
+version: 0.2.1
 name: sabnzbd
 description: nzb client
 type: application
@@ -21,6 +21,6 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Initial
+    - enable default service
   artifacthub.io/images: |
     - ghcr.io/raefon/sabnzbd:rolling

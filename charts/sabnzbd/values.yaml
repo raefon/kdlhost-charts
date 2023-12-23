@@ -14,7 +14,7 @@ env:
 
 service:
   main:
-    enabled: false
+    enabled: true
     primary: true
     type: ClusterIP
     ports:
