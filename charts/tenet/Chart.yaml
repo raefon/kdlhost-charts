@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.2.6
+version: 0.2.7
 name: tenet
 description: Used to provision tenets
 type: application
@@ -20,6 +20,12 @@ dependencies:
   - name: qbittorrent
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
+  - name: sabnzbd
+    version: ~0.2.0
+    repository: https://raefon.github.io/kdlhost-charts/
+  - name: sonarr
+    version: ~0.2.0
+    repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - tenet
 maintainers:
@@ -27,4 +33,5 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Add qbittorrent
+    - Add sabnzbd
+    - Add sonarr
