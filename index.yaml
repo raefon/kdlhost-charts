@@ -789,6 +789,33 @@ entries:
       artifacthub.io/images: '- ghcr.io/raefon/qbittorrent:rolling'
     apiVersion: v2
     appVersion: rolling
+    created: "2023-12-23T05:33:44.283528147Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: bittorrent client
+    digest: 52716769b7ea642528f5a39f7d3ec9d5cbd53ddd0dda96c31f21bce3d5d6f57e
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/qbittorrent
+    keywords:
+    - qbittorrent
+    - bittorrent
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: qbittorrent
+    sources:
+    - https://qbittorrent.org/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/qbittorrent-0.2.2/qbittorrent-0.2.2.tgz
+    version: 0.2.2
+  - annotations:
+      artifacthub.io/changes: |
+        - Update Values
+      artifacthub.io/images: '- ghcr.io/raefon/qbittorrent:rolling'
+    apiVersion: v2
+    appVersion: rolling
     created: "2023-12-22T21:30:58.346686633Z"
     dependencies:
     - name: common
@@ -844,6 +871,33 @@ entries:
       artifacthub.io/images: '- ghcr.io/raefon/sabnzbd:rolling'
     apiVersion: v2
     appVersion: rolling
+    created: "2023-12-23T05:33:44.457038021Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: nzb client
+    digest: db06d08f918be945b0e13333ce5f6f8e8533f73c9035650d6746df798aea072d
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/sabnzbd
+    keywords:
+    - sabnzbd
+    - nzb
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: sabnzbd
+    sources:
+    - https://sabnzbd.org/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/sabnzbd-0.2.2/sabnzbd-0.2.2.tgz
+    version: 0.2.2
+  - annotations:
+      artifacthub.io/changes: |
+        - enable default service
+      artifacthub.io/images: '- ghcr.io/raefon/sabnzbd:rolling'
+    apiVersion: v2
+    appVersion: rolling
     created: "2023-12-23T05:14:06.237072737Z"
     dependencies:
     - name: common
@@ -893,6 +947,32 @@ entries:
     - https://github.com/raefon/kdlhost-charts/releases/download/sabnzbd-0.2.0/sabnzbd-0.2.0.tgz
     version: 0.2.0
   sonarr:
+  - annotations:
+      artifacthub.io/changes: |
+        - Enable default service
+      artifacthub.io/images: '- ghcr.io/raefon/sonarr:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2023-12-23T05:33:44.626580079Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: TV Shows/Anime Downloader
+    digest: be3fc89cc685f3bac7a6599c0220e552999c68b82128e9be5eb5541637c0007f
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/sonarr
+    keywords:
+    - sonarr
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: sonarr
+    sources:
+    - https://sonarr.tv/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/sonarr-0.2.2/sonarr-0.2.2.tgz
+    version: 0.2.2
   - annotations:
       artifacthub.io/changes: |
         - Enable default service
@@ -1900,4 +1980,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-23T05:22:53.997697032Z"
+generated: "2023-12-23T05:33:44.62670986Z"
