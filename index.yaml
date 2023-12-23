@@ -840,6 +840,33 @@ entries:
   sabnzbd:
   - annotations:
       artifacthub.io/changes: |
+        - enable default service
+      artifacthub.io/images: '- ghcr.io/raefon/sabnzbd:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2023-12-23T05:14:06.237072737Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: nzb client
+    digest: 2a4717780c56ed1b3905f9d4a541b7bd7d72a5fcbee79fdff5b4de234221e34a
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/sabnzbd
+    keywords:
+    - sabnzbd
+    - nzb
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: sabnzbd
+    sources:
+    - https://sabnzbd.org/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/sabnzbd-0.2.1/sabnzbd-0.2.1.tgz
+    version: 0.2.1
+  - annotations:
+      artifacthub.io/changes: |
         - Initial
       artifacthub.io/images: '- ghcr.io/raefon/sabnzbd:rolling'
     apiVersion: v2
@@ -1849,4 +1876,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-23T04:59:27.514587436Z"
+generated: "2023-12-23T05:14:06.491921488Z"
