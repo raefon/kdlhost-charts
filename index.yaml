@@ -1141,6 +1141,45 @@ entries:
     version: 0.1.0
   tenet:
   - annotations:
+      artifacthub.io/changes: |-
+        - Add sabnzbd
+        - Add sonarr
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-12-23T04:59:27.514339112Z"
+    dependencies:
+    - name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: plex
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: filebrowser
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: qbittorrent
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: sabnzbd
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: sonarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: Used to provision tenets
+    digest: e75e879c9fa3c058647c27c6e6d625bbec58bef9ec5c9a53baf1baabd1e54718
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.2.7/tenet-0.2.7.tgz
+    version: 0.2.7
+  - annotations:
       artifacthub.io/changes: '- Add qbittorrent'
     apiVersion: v2
     appVersion: 1.0.0
@@ -1810,4 +1849,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-23T04:57:46.195363392Z"
+generated: "2023-12-23T04:59:27.514587436Z"
