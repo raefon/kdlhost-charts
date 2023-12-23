@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.2.0
+version: 0.2.1
 name: sonarr
 description: TV Shows/Anime Downloader
 type: application
@@ -9,7 +9,7 @@ home: "https://github.com/raefon/kdlhost-charts/tree/main/charts/sonarr"
 deprecated: false
 dependencies:
   - name: common
-    version: ~0.2.1
+    version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - sonarr
