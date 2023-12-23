@@ -9,7 +9,7 @@ home: "https://github.com/raefon/kdlhost-charts/tree/main/charts/sonarr"
 deprecated: false
 dependencies:
   - name: common
-    version: ~0.2.0
+    version: ~0.2.1
     repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - sonarr
@@ -20,6 +20,6 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Initial
+    - Enable default service
   artifacthub.io/images: |
     - ghcr.io/raefon/sonarr:rolling
