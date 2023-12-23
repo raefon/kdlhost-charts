@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.2.8
+version: 0.2.9
 name: tenet
 description: Used to provision tenets
 type: application
@@ -33,4 +33,4 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Bump to 0.2.8
+    - Bump to 0.2.9
