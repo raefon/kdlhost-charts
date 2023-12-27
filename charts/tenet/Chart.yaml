@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.2.9
+version: 0.3.0
 name: tenet
 description: Used to provision tenets
 type: application
@@ -11,21 +11,27 @@ dependencies:
   - name: syncthing
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
+    condition: syncthing.enabled
   - name: plex
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
+    condition: plex.enabled
   - name: filebrowser
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
+    condtion: filebrowser.enabled
   - name: qbittorrent
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
+    condition: qbittorrent.enabled
   - name: sabnzbd
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
+    condition: sabnzbd.enabled
   - name: sonarr
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
+    condition: sonarr.enabled
 keywords:
   - tenet
 maintainers:
@@ -33,4 +39,5 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Bump to 0.2.9
+    - Bump to 0.3.0
+    - Add conditionals

@@ -2,6 +2,24 @@
 persistence:
   enabled: false
 
+filebrowser:
+  enabled: true
+
+sonarr:
+  enabled: false
+
+syncthing:
+  enabled: false
+
+sabnzbd:
+  enabled: false
+
+qbittorrent:
+  enabled: false
+
+plex:
+  enabled: false
+
 ## config pvc
 config:
   name: "config"
