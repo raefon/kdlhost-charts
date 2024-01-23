@@ -1,9 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", ":dependencyDashboard"]
-  "commitMessageTopic": "helm values {{depName}}",
-  "fileMatch": [
-    "(^|/)values\\.ya?ml$"
-  ],
-  "pinDigests": false
+  "extends": ["config:recommended", ":dependencyDashboard"],
+  "helm": {
+    "commitMessageTopic": "helm values {{depName}}",
+    "fileMatch": [
+      "(^|/)values\\.ya?ml$"
+    ],
+    "pinDigests": false
+  }
 }
