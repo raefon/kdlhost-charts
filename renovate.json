@@ -3,4 +3,5 @@
   "extends": ["config:recommended", ":dependencyDashboard"],
   "helm": {
     "fileMatch": ["(^|/)values\\.ya?ml$"]
+  }
 }
