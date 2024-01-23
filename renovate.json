@@ -3,4 +3,9 @@
   "extends": [
     "config:recommended"
   ]
+  "commitMessageTopic": "helm values {{depName}}",
+  "fileMatch": [
+    "(^|/)values\\.ya?ml$"
+  ],
+  "pinDigests": false
 }
