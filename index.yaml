@@ -137,6 +137,38 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/csi-driver-nfs-v4.5.0/csi-driver-nfs-v4.5.0.tgz
     version: v4.5.0
+  docker-nvidia-glx-desktop:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial
+      artifacthub.io/images: |
+        - ghcr.io/selkies-project/nvidia-glx-desktop
+    apiVersion: v2
+    appVersion: rolling
+    created: "2024-06-21T19:49:17.189092343Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: TEST
+    digest: 232fb8aa859b872c960c491c92639619df56a05f21a2f47931a4af314c78440e
+    home: https://github.com/kdlhost-charts/charts/docker-nvidia-glx-desktop
+    keywords:
+    - selkies
+    - docker
+    - glx
+    - nvidia
+    - desktop
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: docker-nvidia-glx-desktop
+    sources:
+    - https://github.com/selkies-project/docker-nvidia-glx-desktop/pkgs/container/nvidia-glx-desktop
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/docker-nvidia-glx-desktop-0.0.1/docker-nvidia-glx-desktop-0.0.1.tgz
+    version: 0.0.1
   filebrowser:
   - annotations:
       artifacthub.io/changes: |
@@ -2024,4 +2056,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-27T18:19:24.711422439Z"
+generated: "2024-06-21T19:49:17.189213008Z"
