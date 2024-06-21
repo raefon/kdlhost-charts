@@ -1,6 +1,6 @@
 ---
 apiVersion: v2
-appVersion: "rolling"
+appVersion: ""
 version: 0.0.1
 name: docker-nvidia-glx-desktop
 description: TEST
