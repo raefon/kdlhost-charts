@@ -144,6 +144,37 @@ entries:
       artifacthub.io/images: |
         - ghcr.io/selkies-project/nvidia-glx-desktop
     apiVersion: v2
+    appVersion: latest
+    created: "2024-06-21T20:01:48.967725554Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: TEST
+    digest: d1aeafdd209801bd9d3c29061649ec1746253babe21be542167c2b988278fe89
+    home: https://github.com/kdlhost-charts/charts/docker-nvidia-glx-desktop
+    keywords:
+    - selkies
+    - docker
+    - glx
+    - nvidia
+    - desktop
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: docker-nvidia-glx-desktop
+    sources:
+    - https://github.com/selkies-project/docker-nvidia-glx-desktop/pkgs/container/nvidia-glx-desktop
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/docker-nvidia-glx-desktop-0.0.3/docker-nvidia-glx-desktop-0.0.3.tgz
+    version: 0.0.3
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial
+      artifacthub.io/images: |
+        - ghcr.io/selkies-project/nvidia-glx-desktop
+    apiVersion: v2
     created: "2024-06-21T19:55:26.61182544Z"
     dependencies:
     - name: common
@@ -2086,4 +2117,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-06-21T19:55:26.611945406Z"
+generated: "2024-06-21T20:01:48.967837603Z"
