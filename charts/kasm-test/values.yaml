@@ -1,0 +1,56 @@
+---
+# Default values for template.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+image:
+  repository: lscr.io/linuxserver/kasm
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+secret: {}
+
+env:
+  # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  TZ: "America/Los_Angeles"
+  KASM_PORT: "443"
+  DOCKER_HUB_USERNAME: ""
+  DOCKER_HUB_PASSWORD: ""
+  DOCKER_MTU: ""
+
+service:
+  main:
+    primary: true
+    ports:
+      https:
+        port: 443
+
+ingress:
+  main:
+    enabled: false
+    hosts:
+      - host: "cluster.local"
+        paths:
+          - path: /
+            # Ignored if not kubeVersion >= 1.14-0
+            pathType: Prefix
+    tls: []
+    #  - secretName: chart-example-tls
+    #    hosts:
+    #      - chart-example.local
+
+persistence:
+  dshm:
+    enabled: false
+    type: emptyDir
+    mountPath: /dev/shm
+    medium: Memory
+
+  opt:
+    enabled: false
+    emptyDir: false
+    mountPath: /opt
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    ## Do not delete the pvc upon helm uninstall
+    skipuninstall: false

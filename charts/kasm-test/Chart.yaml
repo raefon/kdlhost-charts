@@ -1,0 +1,29 @@
+---
+apiVersion: v2
+appVersion: "latest"
+version: 0.0.1
+name: kasm-test
+description: TEST
+type: application
+home: "https://github.com/kdlhost-charts/charts/kasm-test"
+icon: ""
+deprecated: false
+dependencies:
+  - name: common
+    version: ~0.2.0
+    repository: https://raefon.github.io/kdlhost-charts/
+keywords:
+  - docker
+  - kasm
+  - nvidia
+  - desktop
+sources:
+  - https://github.com/linuxserver/docker-kasm
+maintainers:
+  - name: raefon
+    email: raefon@users.noreply.github.com
+annotations:
+  artifacthub.io/changes: |
+    - Initial
+  artifacthub.io/images: |
+    - lscr.io/linuxserver/kasm
