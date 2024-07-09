@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "latest"
-version: 0.0.7
+version: 0.0.8
 name: kasm-test
 description: TEST
 type: application
@@ -24,6 +24,6 @@ maintainers:
     email: raefon@users.noreply.github.com
 annotations:
   artifacthub.io/changes: |
-    - Update main port
+    - Update ports
   artifacthub.io/images: |
     - lscr.io/linuxserver/kasm
