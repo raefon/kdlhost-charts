@@ -668,6 +668,36 @@ entries:
         - lscr.io/linuxserver/kasm
     apiVersion: v2
     appVersion: latest
+    created: "2024-07-09T22:07:23.960924163Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: TEST
+    digest: c95249a7d0b343f1a1fbab76fe1aaa7e9507ff6ed27672bfa42eae96ee51b610
+    home: https://github.com/kdlhost-charts/charts/kasm-test
+    keywords:
+    - docker
+    - kasm
+    - nvidia
+    - desktop
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: kasm-test
+    sources:
+    - https://github.com/linuxserver/docker-kasm
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/kasm-test-0.1.0/kasm-test-0.1.0.tgz
+    version: 0.1.0
+  - annotations:
+      artifacthub.io/changes: |
+        - Update ports
+      artifacthub.io/images: |
+        - lscr.io/linuxserver/kasm
+    apiVersion: v2
+    appVersion: latest
     created: "2024-07-09T20:44:39.402445527Z"
     dependencies:
     - name: common
@@ -2358,4 +2388,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-07-09T20:44:39.402582082Z"
+generated: "2024-07-09T22:07:23.96108356Z"
