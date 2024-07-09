@@ -22,8 +22,9 @@ service:
   main:
     primary: true
     ports:
-      https:
+      http:
         port: 443
+        protocol: HTTPS
 
 ingress:
   main:
