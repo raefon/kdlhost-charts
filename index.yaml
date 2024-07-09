@@ -660,6 +660,37 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/intel-gpu-plugin-4.4.2/intel-gpu-plugin-4.4.2.tgz
     version: 4.4.2
+  kasm-test:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial
+      artifacthub.io/images: |
+        - lscr.io/linuxserver/kasm
+    apiVersion: v2
+    appVersion: latest
+    created: "2024-07-09T19:06:14.360978957Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: TEST
+    digest: e27eb81482035b3b8bc7aa3d289e7f3499eeb2914e79c4d97c84ad151d2d50a2
+    home: https://github.com/kdlhost-charts/charts/kasm-test
+    keywords:
+    - docker
+    - kasm
+    - nvidia
+    - desktop
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: kasm-test
+    sources:
+    - https://github.com/linuxserver/docker-kasm
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/kasm-test-0.0.1/kasm-test-0.0.1.tgz
+    version: 0.0.1
   local-path-provisioner:
   - apiVersion: v1
     appVersion: v0.0.25-dev
@@ -2117,4 +2148,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-06-21T20:01:48.967837603Z"
+generated: "2024-07-09T19:06:14.361143414Z"
