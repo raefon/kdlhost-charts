@@ -13,7 +13,7 @@ secret: {}
 env:
   # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   TZ: "America/Los_Angeles"
-  KASM_PORT: "443"
+  KASM_PORT: "3000"
   DOCKER_HUB_USERNAME: ""
   DOCKER_HUB_PASSWORD: ""
   DOCKER_MTU: ""
@@ -23,8 +23,7 @@ service:
     primary: true
     ports:
       http:
-        port: 443
-        protocol: HTTPS
+        port: 3000
 
 ingress:
   main:
