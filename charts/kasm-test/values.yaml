@@ -55,5 +55,5 @@ persistence:
     ## Do not delete the pvc upon helm uninstall
     skipuninstall: false
 
-podSecurityContext:
+securityContext:
   privileged: true
