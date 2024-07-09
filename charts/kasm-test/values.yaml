@@ -24,6 +24,7 @@ service:
     ports:
       http:
         port: 443
+        protocol: "HTTPS"
 
 ingress:
   main:
