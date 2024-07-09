@@ -24,14 +24,6 @@ service:
     ports:
       http:
         port: 3000
-  https:
-    ports:
-      https:
-        enabled: true
-        port: 443
-        protocol: "HTTPS"
-        targetPort: 443
-
 
 ingress:
   main:
