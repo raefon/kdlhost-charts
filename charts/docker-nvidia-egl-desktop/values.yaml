@@ -1,0 +1,64 @@
+---
+# Default values for template.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+image:
+  repository: ghcr.io/selkies-project/nvidia-egl-desktop
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+secret: {}
+
+env:
+  # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  TZ: "America/Los_Angeles"
+  DESKTOP_SIZEW: "1920"
+  DESKTOP_SIZEH: "1080"
+  DESKTOP_REFRESH: "60"
+  DESKTOP_DPI: "96"
+  DESKTOP_CDEPTH: "24"
+  # Change to DP-0 or any other DP-* port for larger resolution support if you are NOT using datacenter GPUs
+  VIDEO_PORT: "DFP"
+  # Selkies-GStreamer parameters, for additional configurations see `selkies-gstreamer --help`
+  SELKIES_ENCODER: "nvh264enc"
+  SELKIES_ENABLE_RESIZE: "false"
+  SELKIES_ENABLE_BASIC_AUTH: "false"
+  SELKIES_ENABLE_HTTPS_WEB: "false"
+
+service:
+  main:
+    primary: true
+    ports:
+      http:
+        port: 8080
+
+ingress:
+  main:
+    enabled: false
+    hosts:
+      - host: "cluster.local"
+        paths:
+          - path: /
+            # Ignored if not kubeVersion >= 1.14-0
+            pathType: Prefix
+    tls: []
+    #  - secretName: chart-example-tls
+    #    hosts:
+    #      - chart-example.local
+
+persistence:
+  dshm:
+    enabled: false
+    type: emptyDir
+    mountPath: /dev/shm
+    medium: Memory
+
+  egl-root-vol:
+    enabled: false
+    emptyDir: false
+    mountPath: /home/ubuntu
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    ## Do not delete the pvc upon helm uninstall
+    skipuninstall: false
