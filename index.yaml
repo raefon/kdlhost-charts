@@ -1671,6 +1671,54 @@ entries:
   tenet:
   - annotations:
       artifacthub.io/changes: |-
+        - Bump to 0.3.2
+        - Fix typo
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-07-13T15:37:07.088056002Z"
+    dependencies:
+    - condition: syncthing.enabled
+      name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: plex.enabled
+      name: plex
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: filebrowser
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: qbittorrent.enabled
+      name: qbittorrent
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sabnzbd.enabled
+      name: sabnzbd
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sonarr.enabled
+      name: sonarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: docker-nvidia-egl-desktop.enabled
+      name: docker-nvidia-egl-desktop
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.0.3
+    description: Used to provision tenets
+    digest: f326d4c642478c3197e96947a82e680da9d3d8118d8b62b3255ca1625c1717f4
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.3.2/tenet-0.3.2.tgz
+    version: 0.3.2
+  - annotations:
+      artifacthub.io/changes: |-
         - Bump to 0.3.1
         - Add docker-nvidia-egl-desktop
     apiVersion: v2
@@ -2468,4 +2516,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-07-13T14:25:06.93323721Z"
+generated: "2024-07-13T15:37:07.088270761Z"
