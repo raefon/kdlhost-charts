@@ -33,7 +33,7 @@ dependencies:
     repository: https://raefon.github.io/kdlhost-charts/
     condition: sonarr.enabled
   - name: docker-nvidia-egl-desktop
-    version: ~0.2.0
+    version: ~0.0.3
     repository: https://raefon.github.io/kdlhost-charts/
     condition: dokcer-nvidia-egl-desktop.enabled
 keywords:

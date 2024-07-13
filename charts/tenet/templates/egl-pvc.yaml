@@ -1,0 +1,26 @@
+{{- if and .Values.persistence.enabled }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: "{{ .Values.egl.name }}"
+  namespace: {{ .Release.Namespace }}
+{{- with .Values.egl.annotations  }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+  labels:
+    app: {{ template "tenet.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+    {{- if .Values.egl.additionalLabels }}
+    {{ toYaml .Values.egl.additionalLabels | nindent 4 }}
+    {{- end }}
+spec:
+  accessModes:
+    - {{ .Values.egl.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.egl.size | quote }}
+  storageClassName: "{{ .Values.egl.storageClass }}"
+{{- end }}

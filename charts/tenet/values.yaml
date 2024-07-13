@@ -72,7 +72,7 @@ appwatcher:
   additionalLabels: {}
 
 ## docker-nvidia-egl-desktop pvc
-data:
+egl:
   name: "egl-root-vol"
   ## database data Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>
