@@ -25,6 +25,13 @@ env:
   SELKIES_ENABLE_RESIZE: "false"
   SELKIES_ENABLE_BASIC_AUTH: "false"
   SELKIES_ENABLE_HTTPS_WEB: "false"
+  PASSWD: ""
+  SELKIES_TURN_HOST: ""
+  SELKIES_TURN_PORT: ""
+  SELKIES_TURN_USERNAME: ""
+  SELKIES_TURN_PASSWORD: ""
+
+envFrom: []
 
 service:
   main:
