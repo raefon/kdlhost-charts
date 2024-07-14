@@ -1702,6 +1702,54 @@ entries:
   tenet:
   - annotations:
       artifacthub.io/changes: |-
+        - Bump to 0.3.3
+        - Fix typo
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-07-14T05:23:12.697389027Z"
+    dependencies:
+    - condition: syncthing.enabled
+      name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: plex.enabled
+      name: plex
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: filebrowser
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: qbittorrent.enabled
+      name: qbittorrent
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sabnzbd.enabled
+      name: sabnzbd
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sonarr.enabled
+      name: sonarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: docker-nvidia-egl-desktop.enabled
+      name: docker-nvidia-egl-desktop
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.0.4
+    description: Used to provision tenets
+    digest: bf1e81ac0e6e0f305b2930510d19ff3f3cad99c3ff1aa352861c7e8a63f6bdd0
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.3.3/tenet-0.3.3.tgz
+    version: 0.3.3
+  - annotations:
+      artifacthub.io/changes: |-
         - Bump to 0.3.2
         - Fix typo
     apiVersion: v2
@@ -2547,4 +2595,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-07-14T05:21:53.475722178Z"
+generated: "2024-07-14T05:23:12.697616934Z"
