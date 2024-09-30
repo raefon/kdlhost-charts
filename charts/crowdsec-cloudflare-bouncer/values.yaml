@@ -1,0 +1,35 @@
+---
+# Default values for template.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+image:
+  repository: ghcr.io/crowdsecurity/cloudflare-bouncer
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+env:
+  # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  TZ: "America/Los_Angeles"
+
+controller:
+  # -- Run this chart as a daemonset. Do not modify unless you know what you are doing.
+  type: daemonset
+
+ingress:
+  main:
+    # -- Ingress is disabled for this chart. Do not modify unless you know what you are doing.
+    enabled: false
+
+service:
+  main:
+    # -- Main service is disabled for this chart. Do not modify unless you know what you are doing.
+    enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
