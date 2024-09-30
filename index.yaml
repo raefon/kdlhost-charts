@@ -127,6 +127,37 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/common-0.1.14/common-0.1.14.tgz
     version: 0.1.14
+  crowdsec-cloudflare-bouncer:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: Added
+          description: Initial appver v0.3.0
+    apiVersion: v2
+    appVersion: v0.3.0
+    created: "2024-09-30T20:10:57.92943051Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: A CrowdSec Bouncer that syncs the decisions made by CrowdSec with
+      CloudFlare's firewall. Manages multi user, multi account, multi zone setup.
+      Supports IP, Country and AS scoped decisions.
+    digest: 973e68b01236c61c7c8b0aa3f29a73ab7816ebe5c526a4bda63a5737093c1ddc
+    keywords:
+    - kubernetes
+    - cluster
+    - crowdsec
+    - cloudflare
+    - bouncer
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: crowdsec-cloudflare-bouncer
+    sources:
+    - https://github.com/intel/intel-device-plugins-for-kubernetes/blob/master/cmd/gpu_plugin
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/crowdsec-cloudflare-bouncer-1.0.0/crowdsec-cloudflare-bouncer-1.0.0.tgz
+    version: 1.0.0
   csi-driver-nfs:
   - apiVersion: v1
     appVersion: v4.5.0
@@ -2595,4 +2626,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-07-14T05:23:12.697616934Z"
+generated: "2024-09-30T20:10:57.929561303Z"
