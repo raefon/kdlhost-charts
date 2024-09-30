@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 name: crowdsec-cloudflare-bouncer
-version: 1.0.0
+version: 2.0.0
 appVersion: v0.3.0
 description: A CrowdSec Bouncer that syncs the decisions made by CrowdSec with CloudFlare's firewall. Manages multi user, multi account, multi zone setup. Supports IP, Country and AS scoped decisions.
 keywords:
@@ -21,5 +21,5 @@ dependencies:
     repository: https://raefon.github.io/kdlhost-charts/
 annotations:
   artifacthub.io/changes: |-
-    - kind: Added
-      description: Initial appver v0.3.0
+    - kind: Changed
+      description: Changed to Deployment from Daemonset, added service for prometheus

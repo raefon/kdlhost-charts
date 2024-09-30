@@ -12,10 +12,6 @@ env:
   # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   TZ: "America/Los_Angeles"
 
-controller:
-  # -- Run this chart as a daemonset. Do not modify unless you know what you are doing.
-  type: daemonset
-
 ingress:
   main:
     # -- Ingress is disabled for this chart. Do not modify unless you know what you are doing.
@@ -23,13 +19,6 @@ ingress:
 
 service:
   main:
-    # -- Main service is disabled for this chart. Do not modify unless you know what you are doing.
-    enabled: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+    ports:
+      http:
+        port: 2112
