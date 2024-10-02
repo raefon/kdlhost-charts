@@ -3,7 +3,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 image:
-  repository: ghcr.io/crowdsecurity/cloudflare-bouncer
+  repository: ghcr.io/crowdsecurity/cloudflare-worker-bouncer
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
