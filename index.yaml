@@ -133,6 +133,36 @@ entries:
         - kind: Changed
           description: Changed to Deployment from Daemonset, added service for prometheus
     apiVersion: v2
+    appVersion: v0.0.10
+    created: "2024-10-02T22:24:06.243710549Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: A CrowdSec Bouncer that syncs the decisions made by CrowdSec with
+      CloudFlare's firewall. Manages multi user, multi account, multi zone setup.
+      Supports IP, Country and AS scoped decisions.
+    digest: 5c9d0717ffe0355e1a8c1491878d02c955b1553830af7988e3f1212ab3ce5fca
+    keywords:
+    - kubernetes
+    - cluster
+    - crowdsec
+    - cloudflare
+    - bouncer
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: crowdsec-cloudflare-bouncer
+    sources:
+    - https://github.com/intel/intel-device-plugins-for-kubernetes/blob/master/cmd/gpu_plugin
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/crowdsec-cloudflare-bouncer-2.0.1/crowdsec-cloudflare-bouncer-2.0.1.tgz
+    version: 2.0.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: Changed
+          description: Changed to Deployment from Daemonset, added service for prometheus
+    apiVersion: v2
     appVersion: v0.3.0
     created: "2024-09-30T23:52:50.138852245Z"
     dependencies:
@@ -2656,4 +2686,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-09-30T23:52:50.139014367Z"
+generated: "2024-10-02T22:24:06.243848508Z"
