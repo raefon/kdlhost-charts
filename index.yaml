@@ -823,6 +823,35 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/intel-gpu-plugin-4.4.2/intel-gpu-plugin-4.4.2.tgz
     version: 4.4.2
+  jellyfin:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial
+      artifacthub.io/images: |
+        - ghcr.io/raefon/jellyfin:rolling
+    apiVersion: v2
+    appVersion: rolling
+    created: "2024-12-07T15:36:47.230918458Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: The Other Media Server.
+    digest: 7addeadd1466b87d38ace3d3695335a93a2db868f94b2e21719de537efa22c3d
+    home: https://github.com/kdlhost-charts/charts/jellyfin
+    keywords:
+    - media
+    - jellyfin
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: jellyfin
+    sources:
+    - https://jellyfin.org/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/jellyfin-0.1.0/jellyfin-0.1.0.tgz
+    version: 0.1.0
   kasm-test:
   - annotations:
       artifacthub.io/changes: |
@@ -2695,4 +2724,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-11-27T05:18:53.805158231Z"
+generated: "2024-12-07T15:36:47.231107893Z"
