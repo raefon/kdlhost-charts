@@ -23,6 +23,9 @@ plex:
 docker-nvidia-egl-desktop:
   enabled: false
 
+jellyfin:
+  enabled: false
+
 ## config pvc
 config:
   name: "config"
