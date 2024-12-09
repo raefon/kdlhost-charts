@@ -1886,6 +1886,63 @@ entries:
   tenet:
   - annotations:
       artifacthub.io/changes: |-
+        - Bump to 0.3.6
+        - Add radarr
+        - remove sonarr-develop
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-12-09T17:23:31.928433Z"
+    dependencies:
+    - condition: syncthing.enabled
+      name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: plex.enabled
+      name: plex
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: filebrowser
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: qbittorrent.enabled
+      name: qbittorrent
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sabnzbd.enabled
+      name: sabnzbd
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sonarr.enabled
+      name: sonarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: radarr.enabled
+      name: radarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: docker-nvidia-egl-desktop.enabled
+      name: docker-nvidia-egl-desktop
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.0.4
+    - condition: jellyfin.enabled
+      name: jellyfin
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    description: Used to provision tenets
+    digest: 42e487c1ec8df41dffb8a49c2f952faa54e8fafce60b2e59c7888f81d36ea502
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.3.6/tenet-0.3.6.tgz
+    version: 0.3.6
+  - annotations:
+      artifacthub.io/changes: |-
         - Bump to 0.3.5
         - Add sonarr-develop
     apiVersion: v2
@@ -2887,4 +2944,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-12-09T17:20:55.198708546Z"
+generated: "2024-12-09T17:23:31.928707984Z"
