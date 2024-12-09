@@ -1420,6 +1420,33 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/qbittorrent-0.2.0/qbittorrent-0.2.0.tgz
     version: 0.2.0
+  radarr:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial
+      artifacthub.io/images: '- ghcr.io/raefon/radarr:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2024-12-09T17:20:55.198514544Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: TV Shows/Anime Downloader
+    digest: 4c674c3747050580d95f4bacc975cb5922bb25f3f055fa2a8f4d8a7c387c76e7
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/radarr
+    keywords:
+    - radarr
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: radarr
+    sources:
+    - https://radarr.video/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/radarr-0.2.0/radarr-0.2.0.tgz
+    version: 0.2.0
   sabnzbd:
   - annotations:
       artifacthub.io/changes: |
@@ -2860,4 +2887,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-12-09T03:49:18.399767818Z"
+generated: "2024-12-09T17:20:55.198708546Z"
