@@ -1581,6 +1581,34 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/sonarr-0.2.0/sonarr-0.2.0.tgz
     version: 0.2.0
+  sonarr-develop:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial
+      artifacthub.io/images: '- ghcr.io/raefon/sonarr-develop:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2024-12-09T03:43:58.386090531Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: TV Shows/Anime Downloader
+    digest: c010ac01e530d006f33b6fa28b4bc3ffeff9300b904da347a6e3af91926c3123
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/sonarr-develop
+    keywords:
+    - sonarr
+    - develop
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: sonarr-develop
+    sources:
+    - https://sonarr.tv/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/sonarr-develop-0.2.0/sonarr-develop-0.2.0.tgz
+    version: 0.2.0
   syncthing:
   - annotations:
       artifacthub.io/changes: |
@@ -2776,4 +2804,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-12-07T16:07:29.88567211Z"
+generated: "2024-12-09T03:43:58.386220945Z"
