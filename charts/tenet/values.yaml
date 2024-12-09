@@ -8,7 +8,7 @@ filebrowser:
 sonarr:
   enabled: false
 
-sonarr-develop:
+radarr:
   enabled: false
 
 syncthing:

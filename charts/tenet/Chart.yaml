@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.3.5
+version: 0.3.6
 name: tenet
 description: Used to provision tenets
 type: application
@@ -32,10 +32,10 @@ dependencies:
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
     condition: sonarr.enabled
-  - name: sonarr-develop
+  - name: radarr
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
-    condition: sonarr-develop.enabled
+    condition: radarr.enabled
   - name: docker-nvidia-egl-desktop
     version: ~0.0.4
     repository: https://raefon.github.io/kdlhost-charts/
@@ -51,5 +51,6 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Bump to 0.3.5
-    - Add sonarr-develop
+    - Bump to 0.3.6
+    - Add radarr
+    - remove sonarr-develop
