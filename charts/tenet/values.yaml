@@ -8,6 +8,9 @@ filebrowser:
 sonarr:
   enabled: false
 
+sonarr-develop:
+  enabled: false
+
 syncthing:
   enabled: false
 
