@@ -1,0 +1,25 @@
+---
+apiVersion: v2
+appVersion: "rolling"
+version: 0.2.0
+name: overseerr
+description: request management and media discovery tool
+type: application
+home: "https://github.com/raefon/kdlhost-charts/tree/main/charts/overseerr"
+deprecated: false
+dependencies:
+  - name: common
+    version: ~0.2.0
+    repository: https://raefon.github.io/kdlhost-charts/
+keywords:
+  - overseerr
+sources:
+  - https://overseerr.dev/
+maintainers:
+  - name: raefon
+    email: raefon@users.noreply.github.com 
+annotations:
+  artifacthub.io/changes: |
+    - Initial
+  artifacthub.io/images: |
+    - ghcr.io/raefon/overseerr:rolling
