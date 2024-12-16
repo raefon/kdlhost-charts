@@ -1973,6 +1973,71 @@ entries:
   tenet:
   - annotations:
       artifacthub.io/changes: |-
+        - Bump to 0.3.8
+        - Fix overseerr entrypoint.sh
+        - Fix kdlhost-term port
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-12-16T21:27:16.879202937Z"
+    dependencies:
+    - condition: syncthing.enabled
+      name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: plex.enabled
+      name: plex
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: filebrowser
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: qbittorrent.enabled
+      name: qbittorrent
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sabnzbd.enabled
+      name: sabnzbd
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sonarr.enabled
+      name: sonarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: radarr.enabled
+      name: radarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: docker-nvidia-egl-desktop.enabled
+      name: docker-nvidia-egl-desktop
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.0.4
+    - condition: jellyfin.enabled
+      name: jellyfin
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    - condition: overseerr.enabled
+      name: overseerr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: kdlhost-term.enabled
+      name: kdlhost-term
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: Used to provision tenets
+    digest: c5c800df2d011772898fc4ffd64b7bbd8fdd23fd7f77f207d88bc59a44138e71
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.3.8/tenet-0.3.8.tgz
+    version: 0.3.8
+  - annotations:
+      artifacthub.io/changes: |-
         - Bump to 0.3.7
         - Add overseerr
         - Add kdlhost-term
@@ -3096,4 +3161,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-12-16T21:22:27.963043516Z"
+generated: "2024-12-16T21:27:16.879539277Z"
