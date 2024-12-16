@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.3.7
+version: 0.3.8
 name: tenet
 description: Used to provision tenets
 type: application
@@ -59,6 +59,6 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Bump to 0.3.7
-    - Add overseerr
-    - Add kdlhost-term
+    - Bump to 0.3.8
+    - Fix overseerr entrypoint.sh
+    - Fix kdlhost-term port
