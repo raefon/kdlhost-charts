@@ -1140,6 +1140,33 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/local-path-provisioner-0.0.25-dev/local-path-provisioner-0.0.25-dev.tgz
     version: 0.0.25-dev
+  overseerr:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial
+      artifacthub.io/images: '- ghcr.io/raefon/overseerr:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2024-12-16T20:53:35.955122415Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: request management and media discovery tool
+    digest: 9f756ed00f7f5742f0b76671de9781c3447d49981488c888fcd366863dbff950
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/overseerr
+    keywords:
+    - overseerr
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: overseerr
+    sources:
+    - https://overseerr.dev/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/overseerr-0.2.0/overseerr-0.2.0.tgz
+    version: 0.2.0
   plex:
   - annotations:
       artifacthub.io/changes: |
@@ -2944,4 +2971,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-12-09T17:23:31.928707984Z"
+generated: "2024-12-16T20:53:35.955316468Z"
