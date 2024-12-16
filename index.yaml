@@ -1123,6 +1123,36 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/kasm-test-0.0.1/kasm-test-0.0.1.tgz
     version: 0.0.1
+  kdlhost-term:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial
+      artifacthub.io/images: '- ghcr.io/raefon/kdlhost-term:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2024-12-16T20:58:43.96159183Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: In-House terminal based on ttyd/fish
+    digest: 97a678145ad3058c010da822d3c034e2eac5c6e33ec26eccee185a9649c1779d
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/kdlhost-term
+    keywords:
+    - kdlhost-term
+    - terminal
+    - ttyd
+    - fish
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: kdlhost-term
+    sources:
+    - https://github.com/raefon/containers
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/kdlhost-term-0.2.0/kdlhost-term-0.2.0.tgz
+    version: 0.2.0
   local-path-provisioner:
   - apiVersion: v1
     appVersion: v0.0.25-dev
@@ -2971,4 +3001,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-12-16T20:53:35.955316468Z"
+generated: "2024-12-16T20:58:43.961807272Z"
