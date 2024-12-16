@@ -29,6 +29,12 @@ docker-nvidia-egl-desktop:
 jellyfin:
   enabled: false
 
+overseerr:
+  enabled: false
+
+kdlhost-term:
+  enabled: false
+
 ## config pvc
 config:
   name: "config"
