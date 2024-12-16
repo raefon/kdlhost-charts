@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.2.0
+version: 0.2.1
 name: kdlhost-term
 description: In-House terminal based on ttyd/fish
 type: application
@@ -23,6 +23,7 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Initial
+    - Update: 0.2.1
+    - fix port
   artifacthub.io/images: |
     - ghcr.io/raefon/kdlhost-term:rolling
