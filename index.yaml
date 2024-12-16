@@ -1126,6 +1126,36 @@ entries:
   kdlhost-term:
   - annotations:
       artifacthub.io/changes: |
+        - Update: 0.2.1
+        - fix port
+      artifacthub.io/images: '- ghcr.io/raefon/kdlhost-term:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2024-12-16T21:22:27.962818134Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: In-House terminal based on ttyd/fish
+    digest: 66751431a940ad1d2755d2a697d307c7802da7c2d2c8e6f4ba8074674814665e
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/kdlhost-term
+    keywords:
+    - kdlhost-term
+    - terminal
+    - ttyd
+    - fish
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: kdlhost-term
+    sources:
+    - https://github.com/raefon/containers
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/kdlhost-term-0.2.1/kdlhost-term-0.2.1.tgz
+    version: 0.2.1
+  - annotations:
+      artifacthub.io/changes: |
         - Initial
       artifacthub.io/images: '- ghcr.io/raefon/kdlhost-term:rolling'
     apiVersion: v2
@@ -3066,4 +3096,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2024-12-16T21:02:34.603867771Z"
+generated: "2024-12-16T21:22:27.963043516Z"
