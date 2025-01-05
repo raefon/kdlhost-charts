@@ -5,7 +5,39 @@ metadata:
   namespace: {{ .Release.Namespace }}
   name: "{{ .Values.roles.name }}"
 rules:
-  - apiGroups: ["apps", "extensions"]
-    resources: ["deployments"]
-    verbs: ["get", "patch"]
+- apiGroups:
+  - "*"
+  resources:
+  - configmaps
+  - cronjobs
+  - daemonsets
+  - deployments
+  - events
+  - ingresses
+  - jobs
+  - persistentvolumeclaims
+  - persistentvolumes
+  - pods
+  - pods/log
+  - replicasets
+  - replicationcontrollers
+  - services
+  - statefulsets
+  verbs:
+  - describe
+  - get
+  - list
+  - watch
+- apiGroups:
+  - "*"
+  resources:
+  - pods
+  verbs:
+  - delete
+- apiGroups:
+  - "*"
+  resources:
+  - configmaps
+  verbs:
+  - create
 {{- end }}
