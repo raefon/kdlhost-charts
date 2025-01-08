@@ -3,7 +3,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 image:
-  repository: ghcr.io/raefon/panel:latest
+  repository: ghcr.io/raefon/panel:v0.1.0-beta
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
