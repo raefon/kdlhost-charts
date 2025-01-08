@@ -1,16 +1,19 @@
----
 apiVersion: v2
-appVersion: "v0.1.0-beta"
-version: v0.1.0-beta
 name: kubectyl
-description: Free, open-source game server management panel built with PHP, React, and Go. Inspired by Pterodactyl/Kubectyl
-type: application
-home: "https://github.com/raefon/kdlhost-charts/tree/main/charts/kubectyl"
-deprecated: false
-dependencies:
-  - name: common
-    version: ~0.2.0
-    repository: https://raefon.github.io/kdlhost-charts/
+home: https://kubectyl.org
+description: Put your servers on autopilot with Kubernetes implementation and get rid of Pterodactyl nodes.
+sources:
+  - https://github.com/kubectyl/panel
+  - https://github.com/kubectyl/kuber
+  - https://github.com/pterodactyl/panel
+  - https://github.com/pterodactyl/wings
+  - https://github.com/raefon/panel
+  - https://github.com/raefon/kuber
+maintainers:
+  - name: andrei0465
+    email: andrei.mociu@kubectyl.org
+  - name: raefon
+    email: raefon@users.noreply.github.com
 keywords:
   - kubectyl
   - panel
@@ -19,14 +22,13 @@ keywords:
   - kubernetes
   - k8s
   - autopilot
-sources:
-  - https://github.com/raefon/panel
-  - https://github.com/raefon/kuber
-maintainers:
-  - name: raefon
-    email: raefon@users.noreply.github.com 
-annotations:
-  artifacthub.io/changes: |
-    - Initial
-  artifacthub.io/images: |
-    - ghcr.io/raefon/panel:v0.1.0-beta
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+dependencies:
+- name: mariadb
+  version: "11.3.0"
+  repository: https://charts.bitnami.com/bitnami
+- name: redis
+  version: "17.3.11"
+  repository: https://charts.bitnami.com/bitnami
