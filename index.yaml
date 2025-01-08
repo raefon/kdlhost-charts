@@ -1183,6 +1183,47 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/kdlhost-term-0.2.0/kdlhost-term-0.2.0.tgz
     version: 0.2.0
+  kubectyl:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial
+      artifacthub.io/images: '- ghcr.io/raefon/panel:latest'
+    apiVersion: v2
+    appVersion: latest
+    created: "2025-01-08T17:57:18.690427271Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.3.0
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.3.11
+    description: Free, open-source game server management panel built with PHP, React,
+      and Go. Inspired by Pterodactyl/Kubectyl
+    digest: a9fbd5da727584f60b392e7bb3676db162c7e4cd3053530c419ac5b9e6eae962
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/kubectyl
+    keywords:
+    - kubectyl
+    - panel
+    - kuber
+    - client
+    - kubernetes
+    - k8s
+    - autopilot
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: kubectyl
+    sources:
+    - https://github.com/raefon/panel
+    - https://github.com/raefon/kuber
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/kubectyl-v0.1.0-beta/kubectyl-v0.1.0-beta.tgz
+    version: v0.1.0-beta
   local-path-provisioner:
   - apiVersion: v1
     appVersion: v0.0.25-dev
@@ -3225,4 +3266,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2025-01-05T03:52:50.009596422Z"
+generated: "2025-01-08T17:57:18.690606436Z"
