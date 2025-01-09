@@ -35,7 +35,7 @@ spec:
             port:
               number: 443
   tls:
-    - secretName: {{ .Release.Name }}-tls
+    - secretName: {{ if .Values.ingress.customTlsSecretName }}{{ .Values.ingress.customTlsSecretName }}{{ else }}{{ .Release.Name }}-tls{{ end }}
       hosts:
       - {{ .Values.ingress.panel }}
       - {{ .Values.ingress.kuber }}

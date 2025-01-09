@@ -14,6 +14,9 @@ ingress:
   kuber: kuber.example.com
   # The issuer to use for obtaining TLS certificates
   clusterIssuer: letsencrypt-prod
+  # Use existing secret if needed
+  customTlsSecretName: ""
+
 panel:
   # The image for the Panel application
   image: ghcr.io/raefon/panel:latest
