@@ -20,6 +20,8 @@ ingress:
     create: true
     # The issuer to use for obtaining TLS certificates
     clusterIssuer: letsencrypt-prod
+    # Set to name of existing TLS certificates
+    secretName: ""
   # Extra annotations for ingress resource
   # nginx known annotations
   # annotations:

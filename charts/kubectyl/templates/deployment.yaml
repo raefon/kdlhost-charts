@@ -25,7 +25,7 @@ spec:
       initContainers:
       - name: tmp
         image: busybox
-        command: ["sh", "-c", "cp /tmp/kubectyl/config.yml /etc/kubectyl/config.yml"]
+        command: ["sh", "-c", "cp /tmp/kubectyl/config.yml /etc/kubectyl/config.yml && chmod 777 /etc/kubectyl/config.yml"]
         volumeMounts:
           - name: config
             mountPath: "/tmp/kubectyl"

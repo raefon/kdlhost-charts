@@ -26,7 +26,7 @@ spec:
             port:
               number: 8081
   tls:
-    - secretName: {{ include "panel.fullname" . }}-tls
+    - secretName: {{ .Values.ingress.tls.secretName | default (include "kuber.fullname" .) | printf "%s-tls" }}
       hosts:
       - {{ .Values.ingress.panel }}
 ---
@@ -58,6 +58,6 @@ spec:
             port:
               number: 8080
   tls:
-    - secretName: {{ include "kuber.fullname" . }}-tls
+    - secretName: {{ .Values.ingress.tls.secretName | default (include "kuber.fullname" .) | printf "%s-tls" }}
       hosts:
       - {{ .Values.ingress.kuber }}
