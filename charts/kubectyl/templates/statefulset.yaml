@@ -35,9 +35,11 @@ spec:
         - containerPort: 80
           name: web
         volumeMounts:
+        {{- if .Values.ingress.tls.create }}
         - name: ssl-certs
           mountPath: /etc/nginx/certs
           readOnly: true
+        {{- end }}
         - name: panel
           mountPath: /app/var/
           subPath: var
@@ -48,9 +50,11 @@ spec:
           mountPath: /app/storage/logs/
           subPath: logs
       volumes:
+      {{- if .Values.ingress.tls.create }}
         - name: ssl-certs
           secret:
             secretName: {{ .Release.Name }}-tls
+      {{- end }}
       {{- if and (.Values.panel.existingVolumeClaim) (not .Values.panel.storageClass) }}
         - name: panel
           persistentVolumeClaim:

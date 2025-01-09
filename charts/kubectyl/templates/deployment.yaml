@@ -47,18 +47,22 @@ spec:
       - name: kuber
         image: {{ .Values.kuber.image }}
         volumeMounts:
+        {{- if .Values.ingress.tls.create }}
           - name: ssl-certs
             mountPath: /etc/kubectyl/certs
             readOnly: true
+        {{- end }}
           - name: tmp
             mountPath: "/etc/kubectyl"
         ports:
         - containerPort: 80
           name: web
       volumes:
+      {{- if .Values.ingress.tls.create }}
         - name: ssl-certs
           secret:
             secretName: {{ .Release.Name }}-tls
+      {{- end }}
         - name: tmp
           emptyDir: {}
         - name: config
