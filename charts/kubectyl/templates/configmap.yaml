@@ -19,12 +19,13 @@ data:
   QUEUE_DRIVER: redis
   {{- if .Values.redis.externalHost }}
   REDIS_HOST: {{ .Values.redis.externalHost }}
-  {{- else -}}
+  {{- else }}
   REDIS_HOST: {{ .Release.Name }}-redis-headless
   {{- end }}
   {{- if .Values.mariadb.externalHost }}
   DB_HOST: {{ .Values.mariadb.externalHost }}
-  {{- else -}}
+  {{- else }}
+  DB_HOST: {{ .Release.Name }}-mariadb
   {{- end }}
   DB_USERNAME: {{ .Values.mariadb.auth.username | default "kubectyl" }}
   DB_PORT: "3306"
@@ -35,3 +36,4 @@ data:
   {{- if .Values.panel.email }}
   LE_EMAIL: {{ .Values.panel.email }}
   {{- end }}
+  
