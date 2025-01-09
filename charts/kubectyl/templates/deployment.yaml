@@ -33,13 +33,13 @@ spec:
             mountPath: "/etc/kubectyl"
       - name: port
         image: mikefarah/yq
-        command: ["sh", "-c", "yq --inplace '.api.port == \"80\"' /etc/kubectyl/config.yml"]
+        command: ["sh", "-c", "yq --inplace '.api.port = 80' /etc/kubectyl/config.yml"]
         volumeMounts:
           - name: tmp
             mountPath: "/etc/kubectyl"
       - name: disable
         image: mikefarah/yq
-        command: ["sh", "-c", "yq --inplace '.api.ssl.enabled == \"false\"' /etc/kubectyl/config.yml"]
+        command: ["sh", "-c", "yq --inplace '.api.ssl.enabled = false' /etc/kubectyl/config.yml"]
         volumeMounts:
           - name: tmp
             mountPath: "/etc/kubectyl"
