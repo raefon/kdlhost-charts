@@ -37,7 +37,7 @@ spec:
       volumes:
         - name: ssl-certs
           secret:
-            secretName: {{ .Release.Name }}-tls
+            secretName: {{ if .Values.ingress.customTlsSecretName }}{{ .Values.ingress.customTlsSecretName }}{{ else }}{{ .Release.Name }}-tls{{ end }}
         - name: tmp
           emptyDir: {}
         - name: config
