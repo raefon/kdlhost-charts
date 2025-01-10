@@ -43,6 +43,12 @@ spec:
         volumeMounts:
           - name: tmp
             mountPath: "/etc/kubectyl"
+      - name: sftp-server
+        image: mikefarah/yq
+        command: ["sh", "-c", "yq --inplace '.system.sftp.sftp_image = ghcr.io/raefon/sftp-server:latest' /etc/kubectyl/config.yml"]
+        volumeMounts:
+          - name: tmp
+            mountPath: "/etc/kubectyl"
       containers:
       - name: kuber
         image: {{ .Values.kuber.image }}
