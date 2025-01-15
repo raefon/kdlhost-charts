@@ -28,6 +28,7 @@ spec:
       containers:
       - name: panel
         image: {{ .Values.panel.image }}
+        imagePullPolicy: {{ .Values.panel.imagePullPolicy }}
         envFrom:
         - configMapRef:
             name: panel-config

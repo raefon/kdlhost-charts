@@ -33,6 +33,8 @@ ingress:
 panel:
   # The image for the Panel application
   image: quay.io/kubectyl/panel:develop
+  # Image pull policy
+  imagePullPolicy: "Always"
   # The storage class to use for Panel's persistent volume
   # To use default K8s storage class set this value to ""
   # This is mutually exclusive with panel.existingVolumeClaim
@@ -50,6 +52,8 @@ panel:
 kuber:
   # The image for the Kuber application
   image: quay.io/kubectyl/kuber:develop
+  # Image pull policy
+  imagePullPolicy: "Always"
   # Will be automatically set to 1 after Panel installation
   replicaCount: 0
   # Annotatations to apply to the Service
