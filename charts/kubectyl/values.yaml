@@ -60,6 +60,36 @@ kuber:
   serviceAnnotations: {}
   # Annoatations to apply to the Deployment
   deploymentAnnotations: {}
+  # initContainers - follow examples to create new ones. Allows you to modify kuber config
+  initContainers:
+    ## DEFAULT INITCONTAINERS ##
+    - name: tmp
+      image: busybox
+      command: ["sh", "-c", "cp /tmp/kubectyl/config.yml /etc/kubectyl/config.yml && chmod 777 /etc/kubectyl/config.yml"]
+      volumeMounts:
+        - name: config
+          mountPath: "/tmp/kubectyl"
+        - name: tmp
+          mountPath: "/etc/kubectyl"
+    - name: port
+      image: mikefarah/yq
+      command: ["sh", "-c", "yq --inplace '.api.port = 80' /etc/kubectyl/config.yml"]
+      volumeMounts:
+        - name: tmp
+          mountPath: "/etc/kubectyl"
+    - name: disable
+      image: mikefarah/yq
+      command: ["sh", "-c", "yq --inplace '.api.ssl.enabled = false' /etc/kubectyl/config.yml"]
+      volumeMounts:
+        - name: tmp
+          mountPath: "/etc/kubectyl"
+    - name: sftp-server
+      image: mikefarah/yq
+      command: ["sh", "-c", "yq --inplace '.system.sftp.sftp_image = \"ghcr.io/raefon/sftp-server:latest\"' /etc/kubectyl/config.yml"]
+      volumeMounts:
+        - name: tmp
+          mountPath: "/etc/kubectyl"
+    ## END DEFAULT INITCONTAINERS ##
 mariadb:
   # Boolean to control if chart should create the mariadb deployment
   create: true
