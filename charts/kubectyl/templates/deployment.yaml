@@ -31,9 +31,27 @@ spec:
             mountPath: "/tmp/kubectyl"
           - name: tmp
             mountPath: "/etc/kubectyl"
+      - name: port
+        image: mikefarah/yq
+        command: ["sh", "-c", "yq --inplace '.api.port = 80' /etc/kubectyl/config.yml"]
+        volumeMounts:
+          - name: tmp
+            mountPath: "/etc/kubectyl"
+      - name: disable
+        image: mikefarah/yq
+        command: ["sh", "-c", "yq --inplace '.api.ssl.enabled = false' /etc/kubectyl/config.yml"]
+        volumeMounts:
+          - name: tmp
+            mountPath: "/etc/kubectyl"
       - name: sftp-server
         image: mikefarah/yq
         command: ["sh", "-c", "yq --inplace '.system.sftp.sftp_image = \"ghcr.io/raefon/sftp-server:latest\"' /etc/kubectyl/config.yml"]
+        volumeMounts:
+          - name: tmp
+            mountPath: "/etc/kubectyl"
+      - name: csi
+        image: mikefarah/yq
+        command: ["sh", "-c", "yq --inplace '.cluster.snapshot_class = longhorn-backup-vsc' /etc/kubectyl/config.yml"]
         volumeMounts:
           - name: tmp
             mountPath: "/etc/kubectyl"
@@ -50,7 +68,7 @@ spec:
           - name: tmp
             mountPath: "/etc/kubectyl"
         ports:
-        - containerPort: 8080
+        - containerPort: 80
           name: web
       volumes:
       {{- if .Values.ingress.tls.create }}
