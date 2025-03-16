@@ -2041,6 +2041,33 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/plex-0.1.0/plex-0.1.0.tgz
     version: 0.1.0
+  prowlarr:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial
+      artifacthub.io/images: '- ghcr.io/raefon/prowlarr:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2025-03-16T19:08:40.544940159Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: The Ultimate Indexer Manager
+    digest: b7e9885ef25c7927a6db59eb22cf4f824392a2c58aad531aecdafa778aea7c31
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/prowlarr
+    keywords:
+    - prowlarr
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: prowlarr
+    sources:
+    - https://prowlarr.com/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/prowlarr-0.1.0/prowlarr-0.1.0.tgz
+    version: 0.1.0
   qbittorrent:
   - annotations:
       artifacthub.io/changes: |
@@ -3841,4 +3868,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2025-01-16T17:33:29.822316135Z"
+generated: "2025-03-16T19:08:40.545153498Z"
