@@ -29,6 +29,9 @@ docker-nvidia-egl-desktop:
 jellyfin:
   enabled: false
 
+prowlarr:
+  enabled: false
+
 overseerr:
   enabled: false
 
