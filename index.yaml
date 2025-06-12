@@ -2259,6 +2259,26 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/sabnzbd-0.2.0/sabnzbd-0.2.0.tgz
     version: 0.2.0
+  shulker-operator:
+  - apiVersion: v2
+    appVersion: 0.13.0
+    created: "2025-06-12T20:17:28.872952855Z"
+    dependencies:
+    - condition: shulker-addon-matchmaking.enabled
+      name: shulker-addon-matchmaking
+      repository: file://./charts/shulker-addon-matchmaking
+      version: 0.0.0-internal
+    description: A Kubernetes operator for managing complex and dynamic Minecraft
+      infrastructures.
+    digest: 6ce8f1f922f663da60175ec475bf1dfed1711236f2c52a55fc0e5ccd4669c5ce
+    home: https://shulker.jeremylvln.fr
+    name: shulker-operator
+    sources:
+    - https://github.com/jeremylvln/Shulker
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/shulker-operator-0.13.0/shulker-operator-0.13.0.tgz
+    version: 0.13.0
   sonarr:
   - annotations:
       artifacthub.io/changes: |
@@ -3936,4 +3956,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2025-03-16T19:15:47.131173425Z"
+generated: "2025-06-12T20:17:28.87312173Z"
