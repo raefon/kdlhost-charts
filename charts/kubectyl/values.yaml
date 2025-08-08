@@ -3,66 +3,48 @@
 # Declare name/value pairs to be passed into your templates.
 # name: value
 
+# Usage:
+# - Set database.type to 'mariadb' (default) or 'postgres'
+# - If using postgres, fill in postgres.externalHost and postgres.auth.*
+# - If using postgres, mariadb.create should be set to false (can be handled in your templates)
+# - The Helm template will set Laravel's DB_CONNECTION and SESSION_DRIVER accordingly
+
+## Database selection for Laravel DB_CONNECTION and session driver
+## Set to 'mariadb' (default) or 'postgres'
+database:
+  type: mariadb  # Options: mariadb, postgres
+
 ## Overrides for generated resource names
 # See templates/_helpers.tpl
 global:
   timezone: UTC
+
 ingress:
-  # The Ingress class for routing external traffic to services
   class: nginx
-  # The hostname for the Panel application
   panel: panel.example.com
-  # The hostname for the Kuber application
   kuber: kuber.example.com
   tls:
-    # Boolean to create the certificate resource
-    # false is useful for cert-manager + traefik automation
     create: true
-    # The issuer to use for obtaining TLS certificates
     clusterIssuer: letsencrypt-prod
-    # Set to name of existing TLS certificates
     secretName: ""
-  # Extra annotations for ingress resource
-  # nginx known annotations
-  # annotations:
-  #   nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-  #   nginx.ingress.kubernetes.io/proxy-body-size: 100m
-  #   nginx.ingress.kubernetes.io/proxy-read-timeout: "120s"
-  #   nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
   annotations: {}
+
 panel:
-  # The image for the Panel application
   image: quay.io/kubectyl/panel:develop
-  # Image pull policy
   imagePullPolicy: "Always"
-  # The storage class to use for Panel's persistent volume
-  # To use default K8s storage class set this value to ""
-  # This is mutually exclusive with panel.existingVolumeClaim
   storageClass: ""
-  # Provide existing volume claim to be used instead of created claim
-  # This is mutually exclusive with panel.storageClass
   existingVolumeClaim: ""
-  # The email address for Letsencrypt
-  # Used for Panel only as a reference to enable cert-manager
   email: abc@example.com
-  # Annoatations to apply to the Service
   serviceAnnotations: {}
-  # Annoatations to apply to the StatefulSet
   statefulSetAnnotations: {}
+
 kuber:
-  # The image for the Kuber application
   image: quay.io/kubectyl/kuber:develop
-  # Image pull policy
   imagePullPolicy: "Always"
-  # Will be automatically set to 1 after Panel installation
   replicaCount: 0
-  # Annotatations to apply to the Service
   serviceAnnotations: {}
-  # Annoatations to apply to the Deployment
   deploymentAnnotations: {}
-  # initContainers - follow examples to create new ones. Allows you to modify kuber config
   initContainers:
-    ## DEFAULT INITCONTAINERS ##
     - name: tmp
       image: busybox
       command: ["sh", "-c", "cp /tmp/kubectyl/config.yml /etc/kubectyl/config.yml && chmod 777 /etc/kubectyl/config.yml"]
@@ -89,62 +71,56 @@ kuber:
       volumeMounts:
         - name: tmp
           mountPath: "/etc/kubectyl"
-    ## END DEFAULT INITCONTAINERS ##
+
+# MariaDB configuration (default)
+# If using Postgres, mariadb.create will be set to false in your templates
 mariadb:
-  # Boolean to control if chart should create the mariadb deployment
+  # This should be set to false if database.type is 'postgres'
   create: true
   global:
     storageClass: ""
-  # Specify external MariaDB host if applicable
-  # Do not use with mariadb.create:true
   externalHost: ""
   volumePermissions:
     enabled: true
   image:
     debug: true
   auth:
-    # The MariaDB database name
     database: panel
-    # The MariaDB username
     username: kubectyl
-    # The MariaDB password for the user
     password: SecretPassword
-    # The MariaDB root password
     rootPassword: SuperSecretPassword
   primary:
     persistence:
-      # The size of the primary MariaDB pod's persistent volume
       size: 1Gi
   secondary:
-    # The number of secondary MariaDB replicas
     replicaCount: 0
-redis:
-  # Boolean to control if chart should create the mariadb deployment
-  create: true
-  global:
-    # The storage class to use for redis' persistent volume
-    # To use default K8s storage class set this value to ""
-    storageClass: ""
-  # Specify external MariaDB host if applicable
-  # Do not use with mariadb.create:true
+
+# External Postgres configuration (used if database.type is 'postgres')
+postgres:
+  # No create flag, always external
   externalHost: ""
   auth:
-    # Enable authentication for Redis
+    database: panel
+    username: kubectyl
+    password: SecretPassword
+    # Optionally add superuserPassword if needed
+
+redis:
+  create: true
+  global:
+    storageClass: ""
+  externalHost: ""
+  auth:
     enabled: false
-    # Password for Redis authentication
     password: ""
   master:
     persistence:
-      # The size of the Redis master pod's persistent volume
       size: 1Gi
   replica:
-    # The number of Redis replicas
     replicaCount: 0
   sentinel:
-    # Enable Redis sentinel for high availability
     enabled: false
+
 serviceAccount:
-  # Enable the creation of a ServiceAccount for MariaDB pods
   create: true
-  # If not set and create is true, a name is generated using the mariadb.fullname template
   name: ""

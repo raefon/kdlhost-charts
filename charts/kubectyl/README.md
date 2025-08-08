@@ -2,6 +2,24 @@
 
 ## Configuration
 
+### Database Selection
+
+Kubectyl supports either **MariaDB** (default, bundled chart) or an **external PostgreSQL** database for the Panel.  
+You can specify which database to use via the `database.type` value in your `values.yaml`:
+
+- `mariadb` (default): Uses the bundled MariaDB chart unless `mariadb.create` is set to `false`.
+- `postgres`: Uses an external PostgreSQL instance. The bundled MariaDB chart will be disabled automatically if you set `database.type: postgres`.
+
+The chart will automatically set the following Laravel environment variables:
+- `DB_CONNECTION`: `mysql` for MariaDB, `pgsql` for Postgres.
+- `SESSION_DRIVER`: `mysql` for MariaDB, `pgsql` for Postgres.
+
+**Note:**  
+- When using Postgres, you must provide connection details under the `postgres` section.
+- The Postgres database is always external; there is no bundled Postgres chart.
+
+---
+
 ### Global Values
 
 | Key  | Type | Default | Description |
@@ -40,30 +58,41 @@
 
 | Key  | Type | Default | Description |
 | :--: | :-----------------: | :-----: | ----------- |
-| `kuber.image` | `string` | `quay.io/kubectyl/kuber:deveop` | The image for the Kuber application container. |
+| `kuber.image` | `string` | `quay.io/kubectyl/kuber:develop` | The image for the Kuber application container. |
 | `kuber.replicaCount` | `int` | `0` | Set to 0. Will be automatically set to 1 by panel after installation. |
 | `kuber.serviceAnnotations` | `map(string\|int\|bool)` | `{}` | Map of additional annotations to add to kuber's Service resource. |
 | `kuber.deploymentAnnotations` | `map(string\|int\|bool)` | `{}` | Map of additional annotations to add to kuber's Deployment resource. |
 
 ---
 
-### MariaDB
+### Database Configuration
+
+#### Database Type
 
 | Key  | Type | Default | Description |
 | :--: | :-----------------: | :-----: | ----------- |
-| `mariadb.create` | `bool` | `true` | Boolean to control creation of mariadb chart resources. Useful if you plan on using an external mariadb instance. |
-| `mariadb.global.storageClass` | `string` | `""` | The storage class to use for mariadb's persistent volume. To use default K8s storage class set this value to "". |
+| `database.type` | `string` | `mariadb` | Set to `mariadb` (default) or `postgres` to select the database backend. |
+
+#### MariaDB
+
+| Key  | Type | Default | Description |
+| :--: | :-----------------: | :-----: | ----------- |
+| `mariadb.create` | `bool` | `true` | Boolean to control creation of mariadb chart resources. Set to `false` if using Postgres. |
+| `mariadb.global.storageClass` | `string` | `""` | The storage class to use for mariadb's persistent volume. |
 | `mariadb.externalHost` | `string` | `""` | Hostname of external mariadb instance if you intend to use one. If using built-in mariadb chart, leave this blank or don't include it at all. |
-| `mariadb.volumePermissions.enabled` | `bool` | `true` | Enable init container that changes the owner and group of the persistent volume(s) mountpoint to `runAsUser:fsGroup`. |
-| `mariadb.image.debug` | `bool` | `true` | Boolean to control if debug logs should be enabled. |
 | `mariadb.auth.database` | `string` | `panel` | Name of mariadb database to use for panel installation. |
 | `mariadb.auth.username` | `string` | `kubectyl` | User to authenticate to mariadb with. |
 | `mariadb.auth.password` | `string` | `SecretPassword` | Password for user `mariadb.auth.username`. |
 | `mariadb.auth.rootPassword` | `string` | `SuperSecretPassword` | If creating host with chart, password to use for `root` user upon creation. |
-| `mariadb.primary.persistence.size` | `(int)Gi` | `1Gi` | The size of the primary mariadb pod's persistent volume. |
-| `mariadb.secondary.replicaCount` | `int` | `0` | The number of mariadb replicas to create. |
 
-For more in-depth explanation of the configuration and additional options you can specify to the `mariadb` chart, please see [Bitnami's documentation](https://github.com/bitnami/charts/tree/main/bitnami/mariadb).
+#### External Postgres
+
+| Key  | Type | Default | Description |
+| :--: | :-----------------: | :-----: | ----------- |
+| `postgres.externalHost` | `string` | `""` | Hostname of external Postgres instance. Required if `database.type` is `postgres`. |
+| `postgres.auth.database` | `string` | `panel` | Name of Postgres database to use for panel installation. |
+| `postgres.auth.username` | `string` | `kubectyl` | User to authenticate to Postgres with. |
+| `postgres.auth.password` | `string` | `SecretPassword` | Password for user `postgres.auth.username`. |
 
 ---
 
@@ -77,10 +106,8 @@ For more in-depth explanation of the configuration and additional options you ca
 | `redis.auth.enabled` | `bool` | `false` | Boolean to control whether we should try to authenticate when connecting to redis. |
 | `redis.auth.password` | `string` | `""` | Password to use for redis authentication. |
 | `redis.master.persistence.size` | `(int)Gi` | `1Gi` | The size of the master redis pod's persistent volume. |
-| `redis.secondary.replicaCount` | `int` | `0` | The number of redis replicas to create. |
+| `redis.replica.replicaCount` | `int` | `0` | The number of redis replicas to create. |
 | `redis.sentinel.enabled` | `bool` | `false` | Boolean to enable redis sentinel for high availability. |
-
-For more in-depth explanation of the configuration and additional options you can specify to the `redis` chart, please see [Bitnami's documentation](https://github.com/bitnami/charts/tree/main/bitnami/redis).
 
 ---
 
@@ -91,4 +118,25 @@ For more in-depth explanation of the configuration and additional options you ca
 | `serviceAccount.create` | `bool` | `true` | Boolean to enable the creation of a service account for our services. |
 | `serviceAccount.name` | `string` | `""` | Name of service account to create. If not set, a name is generated. |
 
+---
 
+## Example values.yaml
+
+```yaml
+database:
+  type: mariadb  # or "postgres"
+
+mariadb:
+  create: true   # Set to false if using Postgres
+  externalHost: ""
+  auth:
+    username: kubectyl
+    password: "your-mariadb-password"
+    database: panel
+
+postgres:
+  externalHost: "your-postgres-host"
+  auth:
+    username: kubectyl
+    password: "your-postgres-password"
+    database: panel
