@@ -30,6 +30,26 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: changed
+          description: Fix _addon.tpl for prometheus serviceMonitor
+    apiVersion: v2
+    created: "2025-11-29T20:54:28.044775393Z"
+    description: Function library for kdlhost helm charts
+    digest: 3b7fb2ddf113c1b1d5fb35271e661d588e37388f562346365a79f7cb7ecccd77
+    home: https://raefon.github.io/kdlhost-charts/common
+    keywords:
+    - kdlhost-charts
+    - common
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: common
+    type: library
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/common-0.2.4/common-0.2.4.tgz
+    version: 0.2.4
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
           description: Add prometheus servicemonitor addon template
     apiVersion: v2
     created: "2025-11-29T18:41:00.59450404Z"
@@ -4142,4 +4162,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2025-11-29T19:42:19.635666516Z"
+generated: "2025-11-29T20:54:28.0449731Z"
