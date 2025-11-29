@@ -47,3 +47,14 @@ persistence:
     accessMode: ReadWriteOnce
     size: 1Gi
     skipuninstall: false
+
+addons:
+  prometheus:
+    serviceMonitor:
+      enabled: false
+      namespace: ""      # if empty, uses any namespace (namespaceSelector.any: true)
+      interval: "30s"
+      scrapeTimeout: "10s"
+      labels:
+        release: kube-prometheus-stack
+      endpoints: []

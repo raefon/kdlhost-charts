@@ -4,8 +4,6 @@
 
 Prometheus Exporter for NUT (Network UPS Tools)
 
-**Homepage:** <https://github.com/druggeri/nut_exporter>
-
 ## Maintainers
 
 | Name | Email | Url |
@@ -26,8 +24,15 @@ Prometheus Exporter for NUT (Network UPS Tools)
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| addons.prometheus.serviceMonitor.enabled | bool | `false` |  |
+| addons.prometheus.serviceMonitor.endpoints | list | `[]` |  |
+| addons.prometheus.serviceMonitor.interval | string | `"30s"` |  |
+| addons.prometheus.serviceMonitor.labels.release | string | `"kube-prometheus-stack"` |  |
+| addons.prometheus.serviceMonitor.namespace | string | `""` |  |
+| addons.prometheus.serviceMonitor.scrapeTimeout | string | `"10s"` |  |
+| args | list | `[]` |  |
 | env.TZ | string | `"America/Los_Angeles"` |  |
-| image.pullPolicy | string | `"Always"` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"druggeri/nut_exporter"` |  |
 | image.tag | string | `""` |  |
 | ingress.main.enabled | bool | `false` |  |
@@ -35,17 +40,18 @@ Prometheus Exporter for NUT (Network UPS Tools)
 | ingress.main.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.main.hosts[0].paths[0].pathType | string | `"Prefix"` |  |
 | ingress.main.tls | list | `[]` |  |
+| nut.name | string | `"ups"` |  |
 | nut.password | string | `""` |  |
 | nut.port | int | `3493` |  |
 | nut.server | string | `"192.168.1.10"` |  |
-| nut.upsName | string | `"ups"` |  |
 | nut.username | string | `""` |  |
 | nut.vars[0] | string | `"ups.status"` |  |
-| nut.vars[1] | string | `"ups.load"` |  |
-| nut.vars[2] | string | `"battery.charge"` |  |
-| nut.vars[3] | string | `"battery.runtime"` |  |
+| nut.vars[1] | string | `"battery.charge"` |  |
+| nut.vars[2] | string | `"battery.runtime"` |  |
+| nut.vars[3] | string | `"ups.load"` |  |
+| nut.vars[4] | string | `"ups.realpower.nominal"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.config.emptyDir | bool | `true` |  |
+| persistence.config.emptyDir | bool | `false` |  |
 | persistence.config.enabled | bool | `false` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"1Gi"` |  |
