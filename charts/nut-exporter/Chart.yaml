@@ -5,8 +5,6 @@ description: Prometheus Exporter for NUT (Network UPS Tools)
 type: application
 version: 0.1.0
 appVersion: "latest"
-
-home: "https://github.com/kdlhost-charts/charts/nut-exporter"
 icon: ""
 sources:
   - https://github.com/druggeri/nut_exporter

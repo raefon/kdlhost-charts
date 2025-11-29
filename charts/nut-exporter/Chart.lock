@@ -1,6 +1,0 @@
-dependencies:
-- name: common
-  repository: https://raefon.github.io/kdlhost-charts/
-  version: 0.2.2
-digest: sha256:72b0bdcbe740f760cf24c7f6eb1b998a230095dcc0d73f5ba60eb0840ea58509
-generated: "2025-11-29T09:25:58.997803-08:00"
