@@ -1,0 +1,49 @@
+image:
+  repository: druggeri/nut_exporter
+  pullPolicy: IfNotPresent
+  tag: ""  # defaults to chart appVersion
+
+env:
+  TZ: "America/Los_Angeles"
+
+# Nut Exporter configuration
+nut:
+  server: "192.168.1.10"  # your NUT server IP or hostname
+  port: 3493
+  name: "ups"
+  username: ""            # optional
+  password: ""            # optional
+  vars:
+    - ups.status
+    - battery.charge
+    - battery.runtime
+    - ups.load
+    - ups.realpower.nominal
+
+# Extra static args (plain strings). Keep empty if you don't need extras.
+args: []
+
+service:
+  main:
+    ports:
+      metrics:
+        port: 9199
+
+ingress:
+  main:
+    enabled: false
+    hosts:
+      - host: "cluster.local"
+        paths:
+          - path: /
+            pathType: Prefix
+    tls: []
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+    mountPath: /config
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    skipuninstall: false
