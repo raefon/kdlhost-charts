@@ -25,10 +25,18 @@ args: []
 
 service:
   main:
+    annotations: {}
+    enabled: true
+    labels: {}
+    nameOverride: ""
     primary: true
+    type: ClusterIP
     ports:
-      http:
+      metrics:
+        enabled: true
         port: 9199
+        protocol: TCP
+        targetPort: metrics
 
 ingress:
   main:
