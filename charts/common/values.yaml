@@ -761,3 +761,13 @@ addons:
       capabilities:
         add:
           - NET_ADMIN
+
+  # -- Prometheus ServiceMonitor configuration for the Prometheus add-on
+  prometheus:
+    serviceMonitor:
+      enabled: false
+      namespace: ""      # if empty, uses any namespace (namespaceSelector.any: true)
+      interval: "30s"
+      scrapeTimeout: "10s"
+      labels: {}
+      endpoints: []
