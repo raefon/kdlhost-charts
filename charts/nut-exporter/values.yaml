@@ -25,8 +25,9 @@ args: []
 
 service:
   main:
+    primary: true
     ports:
-      metrics:
+      http:
         port: 9199
 
 ingress:
