@@ -19,6 +19,7 @@ args: []
 service:
   main:
     enabled: true
+    primary: true
     ports:
       metrics:
         enabled: true

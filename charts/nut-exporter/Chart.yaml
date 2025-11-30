@@ -3,7 +3,7 @@ apiVersion: v2
 name: nut-exporter
 description: Prometheus Exporter for NUT (Network UPS Tools)
 type: application
-version: 0.1.9
+version: 0.2.0
 appVersion: "latest"
 icon: ""
 sources:
@@ -26,6 +26,6 @@ maintainers:
 
 annotations:
   artifacthub.io/changes: |
-    - Refactor NUT Exporter configuration in values.yaml for clarity and update ServiceMonitor endpoints
+    - add primary: true to main port
   artifacthub.io/images: |
     - druggeri/nut_exporter:latest
