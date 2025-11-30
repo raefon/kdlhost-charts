@@ -14,4 +14,4 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: fixed
-      description: Add separator for Prometheus ServiceMonitor definition in template
+      description: Bump common chart version to 0.2.7 and improve ServiceMonitor endpoint validation
