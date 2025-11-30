@@ -30,6 +30,26 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: fixed
+          description: Add separator for Prometheus ServiceMonitor definition in template
+    apiVersion: v2
+    created: "2025-11-30T03:32:06.913277027Z"
+    description: Function library for kdlhost helm charts
+    digest: 8e90140d07d433b0879f17fdc52b843f369277721ec6b53b0fc6e59e7f94d5ea
+    home: https://raefon.github.io/kdlhost-charts/common
+    keywords:
+    - kdlhost-charts
+    - common
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: common
+    type: library
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/common-0.2.6/common-0.2.6.tgz
+    version: 0.2.6
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: fixed
           description: Add rendering for prometheus servicemonitor addon in common template
     apiVersion: v2
     created: "2025-11-30T03:18:41.329865715Z"
@@ -4298,4 +4318,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2025-11-30T03:19:58.922625006Z"
+generated: "2025-11-30T03:32:06.913465069Z"
