@@ -2022,6 +2022,35 @@ entries:
         - druggeri/nut_exporter:latest
     apiVersion: v2
     appVersion: latest
+    created: "2025-11-30T05:04:45.702986975Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: Prometheus Exporter for NUT (Network UPS Tools)
+    digest: 542d3546a632c944e878e0dc92b5e8f6cc3f3825e102a697364532bd2d98a8ab
+    keywords:
+    - ups
+    - nut
+    - exporter
+    - prometheus
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: nut-exporter
+    sources:
+    - https://github.com/druggeri/nut_exporter
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/nut-exporter-0.1.9/nut-exporter-0.1.9.tgz
+    version: 0.1.9
+  - annotations:
+      artifacthub.io/changes: |
+        - Refactor NUT Exporter configuration in values.yaml for clarity and update ServiceMonitor endpoints
+      artifacthub.io/images: |
+        - druggeri/nut_exporter:latest
+    apiVersion: v2
+    appVersion: latest
     created: "2025-11-30T04:23:56.708618395Z"
     dependencies:
     - name: common
@@ -4416,4 +4445,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2025-11-30T05:03:09.078919613Z"
+generated: "2025-11-30T05:04:45.703208126Z"
