@@ -29,6 +29,26 @@ entries:
   common:
   - annotations:
       artifacthub.io/changes: |
+        - kind: fixed
+          description: Add rendering for prometheus servicemonitor addon in common template
+    apiVersion: v2
+    created: "2025-11-30T03:18:41.329865715Z"
+    description: Function library for kdlhost helm charts
+    digest: f435eea2f20e12268eadf89a6c54bcb0baf2c29fdbea8a14ab79c29439764bb5
+    home: https://raefon.github.io/kdlhost-charts/common
+    keywords:
+    - kdlhost-charts
+    - common
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: common
+    type: library
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/common-0.2.5/common-0.2.5.tgz
+    version: 0.2.5
+  - annotations:
+      artifacthub.io/changes: |
         - kind: changed
           description: Fix _addon.tpl for prometheus serviceMonitor
     apiVersion: v2
@@ -4249,4 +4269,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2025-11-29T22:46:59.196578286Z"
+generated: "2025-11-30T03:18:41.330072843Z"
