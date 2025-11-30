@@ -3,7 +3,7 @@ apiVersion: v2
 name: common
 description: Function library for kdlhost helm charts
 type: library
-version: 0.2.4
+version: 0.2.5
 keywords:
   - kdlhost-charts
   - common
@@ -13,5 +13,5 @@ maintainers:
     email: raefon@users.noreply.github.com
 annotations:
   artifacthub.io/changes: |
-    - kind: changed
-      description: Fix _addon.tpl for prometheus serviceMonitor
+    - kind: fixed
+      description: Add rendering for prometheus servicemonitor addon in common template

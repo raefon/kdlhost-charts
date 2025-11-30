@@ -55,4 +55,7 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{- if .Values.secret -}}
     {{ include "common.secret" .  | nindent 0 }}
   {{- end -}}
+
+  {{- /* render prometheus servicemonitor addon */ -}}
+  {{- include "common.addon.prometheus.servicemonitor" . | nindent 0 }}
 {{- end -}}
