@@ -6,6 +6,7 @@
 {{- $sm := .Values.addons.prometheus.serviceMonitor -}}
 {{- if $sm.enabled }}
 
+---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:

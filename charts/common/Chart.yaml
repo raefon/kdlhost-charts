@@ -3,7 +3,7 @@ apiVersion: v2
 name: common
 description: Function library for kdlhost helm charts
 type: library
-version: 0.2.5
+version: 0.2.6
 keywords:
   - kdlhost-charts
   - common
@@ -14,4 +14,4 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: fixed
-      description: Add rendering for prometheus servicemonitor addon in common template
+      description: Add separator for Prometheus ServiceMonitor definition in template
