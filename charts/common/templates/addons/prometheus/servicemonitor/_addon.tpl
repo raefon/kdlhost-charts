@@ -26,13 +26,10 @@ spec:
     matchNames:
       - {{ .Release.Namespace }}
   endpoints:
-    {{- if $sm.endpoints }}
-    {{- toYaml $sm.endpoints | nindent 4 }}
-    {{- else }}
-    - port: metrics
-      interval: {{ $sm.interval | default "30s" }}
-      scrapeTimeout: {{ $sm.scrapeTimeout | default "10s" }}
+    {{- if not $sm.endpoints }}
+      {{- fail "addons.prometheus.serviceMonitor.enabled is true but addons.prometheus.serviceMonitor.endpoints is empty; please provide endpoints in values.yaml" }}
     {{- end }}
+    {{- toYaml $sm.endpoints | nindent 4 }}
 
 {{- end }}
 {{- end }}
