@@ -766,8 +766,16 @@ addons:
   prometheus:
     serviceMonitor:
       enabled: false
-      namespace: ""      # if empty, uses any namespace (namespaceSelector.any: true)
-      interval: "30s"
-      scrapeTimeout: "10s"
-      labels: {}
-      endpoints: []
+      labels:
+        release: kube-prometheus-stack
+      namespaceSelector:
+        matchNames:
+          - some-namespace
+      selector:
+        matchLabels:
+          app.kubernetes.io/name: some-app
+      endpoints:
+        - port: http           # MUST be http — matches the Service port name
+          path: /metrics   # metrics path
+          interval: 30s
+          scrapeTimeout: 10s

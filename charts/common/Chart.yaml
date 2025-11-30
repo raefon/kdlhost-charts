@@ -3,7 +3,7 @@ apiVersion: v2
 name: common
 description: Function library for kdlhost helm charts
 type: library
-version: 0.2.8
+version: 0.2.9
 keywords:
   - kdlhost-charts
   - common
@@ -14,4 +14,4 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - kind: fixed
-      description: Bump common chart version to 0.2.8 and improve ServiceMonitor endpoint validation
+      description: Bump common chart version to 0.2.9 and finalize Prometheus ServiceMonitor template.
