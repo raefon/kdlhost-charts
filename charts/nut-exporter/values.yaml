@@ -5,20 +5,13 @@ image:
 
 env:
   TZ: "America/Los_Angeles"
-
-# Nut Exporter configuration
-nut:
-  server: "192.168.1.10"  # your NUT server IP or hostname
-  port: 3493
-  name: "ups"
-  username: ""            # optional
-  password: ""            # optional
-  vars:
-    - ups.status
-    - battery.charge
-    - battery.runtime
-    - ups.load
-    - ups.realpower.nominal
+  # NUT Exporter specific variables 
+  NUT_EXPORTER_SERVER: "192.16.1.10"
+  NUT_EXPORTER_USERNAME: ""
+  NUT_EXPORTER_PASSWORD: ""
+  NUT_EXPORTER_VARS: "battery.charge,battery.charge.low,battery.runtime,battery.runtime.low,battery.voltage,battery.voltage.nominal,input.voltage,input.voltage.nominal,outlet.power,output.power,output.voltage,ups.load,ups.realpower.nominal,ups.status"
+  NUT_EXPORTER_PORT: "3493"
+  NUT_EXPORTER_UPS_NAME: "ups"
 
 # Extra static args (plain strings). Keep empty if you don't need extras.
 args: []
@@ -52,9 +45,8 @@ addons:
   prometheus:
     serviceMonitor:
       enabled: false
-      namespace: ""      # if empty, uses any namespace (namespaceSelector.any: true)
-      interval: "30s"
-      scrapeTimeout: "10s"
-      labels:
-        release: kube-prometheus-stack
-      endpoints: []
+      endpoints:
+        - port: 9199        # numeric port
+          path: /ups_metrics
+          interval: 30s
+          scrapeTimeout: 10s
