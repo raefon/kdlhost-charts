@@ -20,11 +20,21 @@ metadata:
     {{- end }}
 spec:
   selector:
+    {{- if $sm.selector }}
+    {{- toYaml $sm.selector | nindent 4 }}
+    {{- else }}
     matchLabels:
       app.kubernetes.io/name: {{ include "common.names.name" . }}
+    {{- end }}
+
   namespaceSelector:
+    {{- if $sm.namespaceSelector }}
+    {{- toYaml $sm.namespaceSelector | nindent 4 }}
+    {{- else }}
     matchNames:
-      - {{ .Release.Namespace }}
+      - {{ default .Release.Namespace $sm.namespace }}
+    {{- end }}
+
   endpoints:
     {{- if not $sm.endpoints }}
       {{- fail "addons.prometheus.serviceMonitor.enabled is true but addons.prometheus.serviceMonitor.endpoints is empty; please provide endpoints in values.yaml" }}
