@@ -53,7 +53,7 @@ persistence:
 addons:
   prometheus:
     serviceMonitor:
-      enabled: true
+      enabled: false
       labels:
         release: kube-prometheus-stack
       namespaceSelector:
