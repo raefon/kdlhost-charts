@@ -18,18 +18,9 @@ args: []
 
 service:
   main:
-    enabled: true
-    primary: true
     ports:
       http:
-        enabled: true
-        port: 9199         # external service port
-        targetPort: 9199   # internal container port
-        protocol: TCP
-
-ports:
-  http:
-    port: 9199
+        port: 9199
 
 ingress:
   main:
