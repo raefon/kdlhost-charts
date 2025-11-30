@@ -18,9 +18,12 @@ args: []
 
 service:
   main:
+    enabled: true
     ports:
-      http:
+      metrics:
+        enabled: true
         port: 9199
+        protocol: TCP
 
 ingress:
   main:
@@ -41,12 +44,36 @@ persistence:
     size: 1Gi
     skipuninstall: false
 
+# --------------------------------------------------------------------------- #
+# Prometheus Addon
+# --------------------------------------------------------------------------- #
+
 addons:
   prometheus:
     serviceMonitor:
       enabled: false
+
+      # The namespace where ServiceMonitor should exist.
+      namespace: ""   # (empty = default .Release.Namespace)
+
+      # Labels applied to the ServiceMonitor itself (important for Prometheus operator discovery)
+      labels:
+        release: kube-prometheus-stack
+
+      # Selector the ServiceMonitor uses to match the Service.
+      # MUST match the Service labels exactly.
+      selector:
+        matchLabels:
+          app.kubernetes.io/name: nut-exporter
+
+      # Where Prometheus should look for the metric endpoints
+      namespaceSelector:
+        matchNames:
+          - nut-exporter
+
+      # What Prometheus scrapes
       endpoints:
-        - port: 9199        # numeric port
+        - port: metrics
           path: /ups_metrics
           interval: 30s
           scrapeTimeout: 10s
