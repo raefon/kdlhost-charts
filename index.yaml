@@ -1263,6 +1263,17 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/kasm-test-0.0.1/kasm-test-0.0.1.tgz
     version: 0.0.1
+  kdlhost-backup:
+  - apiVersion: v2
+    appVersion: v1
+    created: "2025-12-04T21:14:24.783077385Z"
+    description: Core + Tenet Velero backups with summary alerts
+    digest: 63357838dd90d35239d6a74ce2eb902bc498cf8efbf3d56e3f61a98a29c2529e
+    name: kdlhost-backup
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/kdlhost-backup-0.3.0/kdlhost-backup-0.3.0.tgz
+    version: 0.3.0
   kdlhost-term:
   - annotations:
       artifacthub.io/changes: |
@@ -4779,4 +4790,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2025-12-04T16:30:58.765969351Z"
+generated: "2025-12-04T21:14:24.783401222Z"
