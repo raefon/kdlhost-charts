@@ -1,0 +1,73 @@
+# Core backup CronJob
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: core-velero-backup
+  namespace: {{ .Release.Namespace }}
+spec:
+  schedule: {{ .Values.core.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ .Values.serviceAccountName }}
+          restartPolicy: OnFailure
+          containers:
+            - name: core-backup
+              image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+              command: ["/bin/sh", "-c"]
+              args:
+                - apk add --no-cache curl jq bash kubectl velero;
+                  /scripts/core-backup.sh
+              volumeMounts:
+                - name: script
+                  mountPath: /scripts
+                - name: alerts
+                  mountPath: /etc/alerts
+                  readOnly: true
+          volumes:
+            - name: script
+              configMap:
+                name: core-backup-script
+            - name: alerts
+              secret:
+                secretName: {{ .Values.core.alertSecretName }}
+                optional: true
+
+---
+
+# Tenet backup CronJob
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: tenet-velero-backup
+  namespace: {{ .Release.Namespace }}
+spec:
+  schedule: {{ .Values.tenet.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ .Values.serviceAccountName }}
+          restartPolicy: OnFailure
+          containers:
+            - name: tenet-backup
+              image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+              command: ["/bin/sh", "-c"]
+              args:
+                - apk add --no-cache curl jq bash kubectl velero;
+                  /scripts/tenet-backup.sh
+              volumeMounts:
+                - name: script
+                  mountPath: /scripts
+                - name: alerts
+                  mountPath: /etc/alerts
+                  readOnly: true
+          volumes:
+            - name: script
+              configMap:
+                name: tenet-backup-script
+            - name: alerts
+              secret:
+                secretName: {{ .Values.tenet.alertSecretName }}
+                optional: true

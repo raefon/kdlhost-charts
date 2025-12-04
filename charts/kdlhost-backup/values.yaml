@@ -1,0 +1,35 @@
+# Core backup schedule
+core:
+  schedule: "0 2 * * *"   # 02:00 UTC
+  storageLocation: "backblaze"
+  ttl: "720h"
+  retentionDays: 30
+  disallowedStorageClasses:
+    - local-path
+  alertSecretName: "core-backup-alerts"
+  alertSecretKey: "webhook"
+
+# Tenet backup schedule
+tenet:
+  schedule: "0 3 * * *"   # 03:00 UTC
+  namespaceLabels:
+    backup: "tenet"
+  storageLocation: "garage-s3"
+  ttl: "240h"
+  retentionDays: 30
+  disallowedStorageClasses:
+    - local-path
+  alertSecretName: "tenet-backup-alerts"
+  alertSecretKey: "webhook"
+
+# Alerts
+enableAlerts: true
+alertWebhookType: "discord"
+
+# Image for backup scripts
+image:
+  repository: alpine
+  tag: "3.19"
+
+# Service account for CronJobs (must have Velero permissions)
+serviceAccountName: velero

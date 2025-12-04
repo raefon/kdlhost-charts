@@ -1,0 +1,6 @@
+apiVersion: v2
+name: kdlhost-backup
+description: Core + Tenet Velero backups with summary alerts
+type: application
+version: 0.3.0
+appVersion: "v1"
