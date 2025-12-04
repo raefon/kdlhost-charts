@@ -54,8 +54,8 @@ config:
   annotations: {}
   additionalLabels: {}
 
-## config pvc
-config-local:
+## config-local pvc
+configlocal:
   name: "config-local"
   ## database data Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>

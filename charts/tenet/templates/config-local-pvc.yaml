@@ -2,9 +2,9 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: "{{ .Values.config-local.name }}"
+  name: "{{ .Values.configlocal.name }}"
   namespace: {{ .Release.Namespace }}
-{{- with .Values.config-local.annotations  }}
+{{- with .Values.configlocal.annotations  }}
   annotations:
 {{ toYaml . | indent 4 }}
 {{- end }}
@@ -13,14 +13,14 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
-    {{- if .Values.config-local.additionalLabels }}
-    {{ toYaml .Values.config-local.additionalLabels | nindent 4 }}
+    {{- if .Values.configlocal.additionalLabels }}
+    {{ toYaml .Values.configlocal.additionalLabels | nindent 4 }}
     {{- end }}
 spec:
   accessModes:
-    - {{ .Values.config-local.accessMode | quote }}
+    - {{ .Values.configlocal.accessMode | quote }}
   resources:
     requests:
-      storage: {{ .Values.config-local.size | quote }}
-  storageClassName: "{{ .Values.config-local.storageClass }}"
+      storage: {{ .Values.configlocal.size | quote }}
+  storageClassName: "{{ .Values.configlocal.storageClass }}"
 {{- end }}
