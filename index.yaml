@@ -1266,6 +1266,16 @@ entries:
   kdlhost-backup:
   - apiVersion: v2
     appVersion: v1
+    created: "2025-12-04T22:17:32.534606477Z"
+    description: Core + Tenet Velero backups with summary alerts
+    digest: a2a5aab5b36c28df78cffac98e27598ac3c1055b801906a7453dc05f266654a3
+    name: kdlhost-backup
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/kdlhost-backup-0.3.1/kdlhost-backup-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: v1
     created: "2025-12-04T21:14:24.783077385Z"
     description: Core + Tenet Velero backups with summary alerts
     digest: 63357838dd90d35239d6a74ce2eb902bc498cf8efbf3d56e3f61a98a29c2529e
@@ -4790,4 +4800,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2025-12-04T21:14:24.783401222Z"
+generated: "2025-12-04T22:17:32.534953458Z"
