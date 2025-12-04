@@ -29,7 +29,7 @@ alertWebhookType: "discord"
 # Image for backup scripts
 image:
   repository: alpine
-  tag: "3.19"
+  tag: "3.23"
 
 # Service account for CronJobs (must have Velero permissions)
 serviceAccountName: velero
