@@ -1,0 +1,17 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: kdlhost-backup-cr
+rules:
+  - apiGroups: ["velero.io"]
+    resources: ["backups", "restores", "schedules"]
+    verbs: ["get","list","create","delete","patch"]
+  - apiGroups: [""]
+    resources: ["namespaces", "pods", "persistentvolumeclaims", "persistentvolumes"]
+    verbs: ["get","list","watch"]
+  - apiGroups: ["", "apps", "batch"]
+    resources: ["deployments", "replicasets", "cronjobs", "jobs"]
+    verbs: ["get","list","watch"]
+  - apiGroups: [""]
+    resources: ["configmaps","secrets"]
+    verbs: ["get","list","watch"]

@@ -1,35 +1,57 @@
-# Core backup schedule
+# ===============================
+# Core backup configuration
+# ===============================
 core:
-  schedule: "0 2 * * *"   # 02:00 UTC
+  schedule: "0 2 * * *"          # 02:00 UTC daily
+  namespaceWhitelist: []          # list of namespaces to back up
   storageLocation: "backblaze"
-  ttl: "720h"
+  ttl: "720h"                    # 30 days
   retentionDays: 30
-  disallowedStorageClasses:
-    - local-path
-  alertSecretName: "core-backup-alerts"
-  alertSecretKey: "webhook"
+  snapshotVolumes: true
+  excludedNamespaces:
+    - velero
+    - databases
 
-# Tenet backup schedule
+# ===============================
+# Tenet backup configuration
+# ===============================
 tenet:
-  schedule: "0 3 * * *"   # 03:00 UTC
+  schedule: "0 3 * * *"          # 03:00 UTC daily
   namespaceLabels:
-    backup: "tenet"
+    backup: "tenet"              # backs up namespaces with this label
   storageLocation: "garage-s3"
-  ttl: "240h"
+  ttl: "240h"                    # 10 days
   retentionDays: 30
-  disallowedStorageClasses:
-    - local-path
-  alertSecretName: "tenet-backup-alerts"
-  alertSecretKey: "webhook"
+  snapshotVolumes: false
 
-# Alerts
-enableAlerts: true
-alertWebhookType: "discord"
+# ===============================
+# Discord webhook configuration
+# ===============================
+discord:
+  secretName: backup-discord-webhook
+  secretKey: webhook
 
-# Image for backup scripts
+# Example Secret:
+# kubectl create secret generic backup-discord-webhook \
+#   --from-literal=webhook=https://discord.com/api/webhooks/XXXXX/YYYYY \
+#   -n schedules
+
+# ===============================
+# Velero container image
+# ===============================
 image:
-  repository: alpine
-  tag: "3.19"
+  repository: velero/velero
+  tag: v1.17.1
+  pullPolicy: IfNotPresent
 
-# Service account for CronJobs (must have Velero permissions)
-serviceAccountName: velero
+# ===============================
+# CronJob service account
+# ===============================
+serviceAccountName: kdlhost-backup-sa
+
+# ===============================
+# Logging options
+# ===============================
+logToS3: false
+logS3BucketPrefix: "backup-logs"
+logToConfigMap: false

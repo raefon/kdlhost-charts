@@ -2,72 +2,91 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: core-velero-backup
+  name: core-backup
   namespace: {{ .Release.Namespace }}
 spec:
-  schedule: {{ .Values.core.schedule | quote }}
+  schedule: "{{ .Values.core.schedule }}"
   jobTemplate:
     spec:
       template:
         spec:
+          # Dedicated service account
           serviceAccountName: {{ .Values.serviceAccountName }}
           restartPolicy: OnFailure
-          containers:
-            - name: core-backup
-              image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-              command: ["/bin/sh", "-c"]
-              args:
-                - apk add --no-cache curl jq bash kubectl velero;
-                  /scripts/core-backup.sh
-              volumeMounts:
-                - name: script
-                  mountPath: /scripts
-                - name: alerts
-                  mountPath: /etc/alerts
-                  readOnly: true
           volumes:
             - name: script
               configMap:
                 name: core-backup-script
-            - name: alerts
+            - name: discord
               secret:
-                secretName: {{ .Values.core.alertSecretName }}
-                optional: true
-
----
+                secretName: {{ .Values.discord.secretName }}
+            - name: backup-logs
+              emptyDir: {}
+          initContainers:
+            - name: chmod-scripts
+              image: busybox
+              command: ["sh", "-c", "chmod +x /scripts/*.sh"]
+              volumeMounts:
+                - name: script
+                  mountPath: /scripts
+          containers:
+            - name: core-backup
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              command: ["/bin/sh", "-c"]
+              args: ["/scripts/core-backup.sh"]
+              volumeMounts:
+                - name: script
+                  mountPath: /scripts
+                - name: discord
+                  mountPath: /etc/discord
+                  readOnly: true
+                - name: backup-logs
+                  mountPath: /backup-logs
 
 # Tenet backup CronJob
+---
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: tenet-velero-backup
+  name: tenet-backup
   namespace: {{ .Release.Namespace }}
 spec:
-  schedule: {{ .Values.tenet.schedule | quote }}
+  schedule: "{{ .Values.tenet.schedule }}"
   jobTemplate:
     spec:
       template:
         spec:
+          # Dedicated service account
           serviceAccountName: {{ .Values.serviceAccountName }}
           restartPolicy: OnFailure
-          containers:
-            - name: tenet-backup
-              image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-              command: ["/bin/sh", "-c"]
-              args:
-                - apk add --no-cache curl jq bash kubectl velero;
-                  /scripts/tenet-backup.sh
-              volumeMounts:
-                - name: script
-                  mountPath: /scripts
-                - name: alerts
-                  mountPath: /etc/alerts
-                  readOnly: true
           volumes:
             - name: script
               configMap:
                 name: tenet-backup-script
-            - name: alerts
+            - name: discord
               secret:
-                secretName: {{ .Values.tenet.alertSecretName }}
-                optional: true
+                secretName: {{ .Values.discord.secretName }}
+            - name: backup-logs
+              emptyDir: {}
+          initContainers:
+            - name: chmod-scripts
+              image: busybox
+              command: ["sh", "-c", "chmod +x /scripts/*.sh"]
+              volumeMounts:
+                - name: script
+                  mountPath: /scripts
+          containers:
+            - name: tenet-backup
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              command: ["/bin/sh", "-c"]
+              args: ["/scripts/tenet-backup.sh"]
+              volumeMounts:
+                - name: script
+                  mountPath: /scripts
+                - name: discord
+                  mountPath: /etc/discord
+                  readOnly: true
+                - name: backup-logs
+                  mountPath: /backup-logs

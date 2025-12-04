@@ -4,73 +4,47 @@ metadata:
   name: core-backup-script
   namespace: {{ .Release.Namespace }}
 data:
-  core-backup.sh: |
+  core-backup.sh: |-
     #!/bin/sh
     set -euo pipefail
-    log() { echo "$(date -u +'%Y-%m-%dT%H:%M:%SZ') $*"; }
 
-    STORAGE="{{ .Values.core.storageLocation }}"
-    TTL="{{ .Values.core.ttl }}"
-    RETENTION={{ .Values.core.retentionDays }}
-    DISALLOWED_SCS="{{- range $i, $sc := .Values.core.disallowedStorageClasses }}{{$sc}}{{if ne (add $i 1) (len $.Values.core.disallowedStorageClasses)}} {{end}}{{- end}}"
+    LOGFILE=/backup-logs/core-backup.log
+    mkdir -p /backup-logs
+    echo "$(date -u +'%Y-%m-%dT%H:%M:%SZ') 🔄 Core backup started" >> "$LOGFILE"
+
+    DISCORD_WEBHOOK=$(cat /etc/discord/{{ .Values.discord.secretKey }} 2>/dev/null || true)
+    notify() { [ -n "$DISCORD_WEBHOOK" ] && curl -s -H "Content-Type: application/json" -d "{\"content\":\"$1\"}" "$DISCORD_WEBHOOK" >/dev/null 2>&1; }
+
     TIMESTAMP=$(date +"%Y%m%d%H%M")
-
-    ALERT_ENABLED="{{ .Values.enableAlerts }}"
-    ALERT_TYPE="{{ .Values.alertWebhookType }}"
-    ALERT_WEBHOOK=$(cat /etc/alerts/{{ .Values.core.alertSecretKey }} 2>/dev/null || echo "")
-
-    notify() {
-      [ "$ALERT_ENABLED" != "true" ] && return
-      [ -z "$ALERT_TYPE" ] || [ -z "$ALERT_WEBHOOK" ] && return
-      case "$ALERT_TYPE" in
-        discord)
-          curl -s -H "Content-Type: application/json" -d "{\"content\":\"$1\"}" "$ALERT_WEBHOOK" >/dev/null 2>&1 ;;
-      esac
-    }
-
-    notify "🔄 Core backup started"
-
-    RESULTS="Core backup summary:\n"
-
-    NS_LIST=$(kubectl get ns -o json | jq -r '.items[] | select(.metadata.labels.backup != "tenet") | .metadata.name')
-
-    for NS in $NS_LIST; do
-      bad_sc_found=0
-      PVC_SC_LIST=$(kubectl -n "$NS" get pvc -o jsonpath='{range .items[*]}{.metadata.name}::${.spec.storageClassName}{"\n"}{end}' 2>/dev/null || true)
-      if [ -n "$PVC_SC_LIST" ]; then
-        echo "$PVC_SC_LIST" | while IFS= read -r line; do
-          sc=$(printf '%s' "$line" | awk -F"::" '{print $2}')
-          [ -z "$sc" ] && sc="<none>"
-          for D in $DISALLOWED_SCS; do
-            [ "$sc" = "$D" ] && bad_sc_found=1 && break
-          done
-          [ $bad_sc_found -eq 1 ] && break
-        done
-      fi
-
+    for NS in {{ .Values.core.namespaceWhitelist }}; do
       BACKUP_NAME="core-${NS}-${TIMESTAMP}"
-
-      if [ $bad_sc_found -eq 1 ]; then
-        if velero backup create "$BACKUP_NAME" --include-namespaces "$NS" --storage-location "$STORAGE" --ttl "$TTL" --snapshot-volumes=false; then
-          RESULTS="${RESULTS}- ${BACKUP_NAME}: completed (snapshots disabled)\n"
-        else
-          RESULTS="${RESULTS}- ${BACKUP_NAME}: FAILED\n"
-        fi
-      else
-        if velero backup create "$BACKUP_NAME" --include-namespaces "$NS" --storage-location "$STORAGE" --ttl "$TTL" --snapshot-volumes=true; then
-          RESULTS="${RESULTS}- ${BACKUP_NAME}: completed\n"
-        else
-          RESULTS="${RESULTS}- ${BACKUP_NAME}: FAILED\n"
-        fi
-      fi
+      echo "$(date -u) Creating backup ${BACKUP_NAME}" >> "$LOGFILE"
+      velero backup create "$BACKUP_NAME" \
+        --include-namespaces "$NS" \
+        --storage-location "{{ .Values.core.storageLocation }}" \
+        --ttl "{{ .Values.core.ttl }}" \
+        --snapshot-volumes={{ .Values.core.snapshotVolumes }} >> "$LOGFILE" 2>&1 \
+        || notify "❌ Core backup ${BACKUP_NAME} FAILED"
+      echo "$(date -u) Backup ${BACKUP_NAME} completed" >> "$LOGFILE"
     done
 
-    OLD_BACKUPS=$(velero backup get -o json \
-      | jq -r ".[] | select(.metadata.name|startswith(\"core-\")) | select(.status.startTimestamp != null and (.status.startTimestamp | fromdateiso8601) < (now - ${RETENTION}*86400)) | .metadata.name")
+    notify "✅ Core backups completed"
 
-    for OLD in $OLD_BACKUPS; do
-      velero backup delete "$OLD" --confirm
-      RESULTS="${RESULTS}- Deleted old backup: ${OLD}\n"
-    done
+    # Cleanup old backups
+    velero backup get -o json \
+      | jq -r ".[] | select(.metadata.name|startswith(\"core-\")) | select(.status.startTimestamp != null and (.status.startTimestamp | fromdateiso8601) < (now - {{ .Values.core.retentionDays }}*86400)) | .metadata.name" \
+      | xargs -r -n1 velero backup delete --confirm >> "$LOGFILE" 2>&1
 
-    notify "✅ Core backups completed\n$RESULTS"
+{{- if .Values.logToS3 }}
+    # Optionally push log to S3
+    aws --endpoint-url=$(velero get config storage-location get "{{ .Values.core.storageLocation }}" | jq -r '.s3Url') \
+      s3 cp "$LOGFILE" "s3://{{ .Values.logS3BucketPrefix }}/core-backup-${TIMESTAMP}.log" || echo "⚠️ Failed to upload log"
+{{- end }}
+
+{{- if .Values.logToConfigMap }}
+    # Optionally update ConfigMap
+    kubectl create configmap core-backup-log \
+      --from-file=core-backup.log="$LOGFILE" \
+      --namespace {{ .Release.Namespace }} \
+      -o yaml --dry-run=client | kubectl apply -f - || true
+{{- end }}
