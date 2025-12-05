@@ -1,0 +1,44 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: core-backup
+  namespace: {{ .Release.Namespace }}
+spec:
+  schedule: "{{ .Values.core.schedule }}"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ .Values.serviceAccountName }}
+          restartPolicy: OnFailure
+          volumes:
+            - name: script
+              configMap:
+                name: core-backup-script
+                defaultMode: 0777
+            - name: discord
+              secret:
+                secretName: {{ .Values.discord.secretName }}
+            - name: backup-logs
+              emptyDir: {}
+            - name: restic-repo
+              emptyDir: {}
+          containers:
+            - name: core-backup
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              command: ["/bin/sh", "-c"]
+              args:
+                - |
+                  apt-get update && apt-get install -y restic curl jq || true
+                  /scripts/core-backup.sh
+              volumeMounts:
+                - name: script
+                  mountPath: /scripts
+                - name: discord
+                  mountPath: /etc/discord
+                  readOnly: true
+                - name: backup-logs
+                  mountPath: /backup-logs
+                - name: restic-repo
+                  mountPath: /backup-logs/restic-repo

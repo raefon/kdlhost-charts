@@ -1,57 +1,28 @@
-# ===============================
-# Core backup configuration
-# ===============================
-core:
-  schedule: "0 2 * * *"          # 02:00 UTC daily
-  namespaceWhitelist: []          # list of namespaces to back up
-  storageLocation: "backblaze"
-  ttl: "720h"                    # 30 days
-  retentionDays: 30
-  snapshotVolumes: true
-  excludedNamespaces:
-    - velero
-    - databases
-
-# ===============================
-# Tenet backup configuration
-# ===============================
-tenet:
-  schedule: "0 3 * * *"          # 03:00 UTC daily
-  namespaceLabels:
-    backup: "tenet"              # backs up namespaces with this label
-  storageLocation: "garage-s3"
-  ttl: "240h"                    # 10 days
-  retentionDays: 30
-  snapshotVolumes: false
-
-# ===============================
-# Discord webhook configuration
-# ===============================
-discord:
-  secretName: backup-discord-webhook
-  secretKey: webhook
-
-# Example Secret:
-# kubectl create secret generic backup-discord-webhook \
-#   --from-literal=webhook=https://discord.com/api/webhooks/XXXXX/YYYYY \
-#   -n schedules
-
-# ===============================
-# Velero container image
-# ===============================
 image:
-  repository: velero/velero
-  tag: v1.17.1
+  repository: ubuntu
+  tag: "22.04"
   pullPolicy: IfNotPresent
 
-# ===============================
-# CronJob service account
-# ===============================
 serviceAccountName: kdlhost-backup-sa
 
-# ===============================
-# Logging options
-# ===============================
+discord:
+  secretName: discord-webhook
+  secretKey: webhook-url
+
 logToS3: false
-logS3BucketPrefix: "backup-logs"
+logS3BucketPrefix: kdlhost-backup-logs
 logToConfigMap: false
+
+core:
+  schedule: "0 0 * * *" # UTC midnight
+  storageLocation: restic-core
+  namespaceWhitelist: ["kube-system","velero"]
+  ttl: "240h"
+  snapshotVolumes: true
+  retentionDays: 30
+
+tenet:
+  schedule: "0 3 * * *" # UTC 3AM
+  storageLocation: restic-tenets
+  snapshotVolumes: true
+  retentionDays: 30
