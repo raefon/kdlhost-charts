@@ -17,18 +17,12 @@ spec:
             - name: script
               configMap:
                 name: core-backup-script
+                defaultMode: 0777
             - name: discord
               secret:
                 secretName: {{ .Values.discord.secretName }}
             - name: backup-logs
               emptyDir: {}
-          initContainers:
-            - name: chmod-scripts
-              image: busybox
-              command: ["sh", "-c", "chmod +x /scripts/*.sh"]
-              volumeMounts:
-                - name: script
-                  mountPath: /scripts
           containers:
             - name: core-backup
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -64,18 +58,12 @@ spec:
             - name: script
               configMap:
                 name: tenet-backup-script
+                defaultMode: 0777
             - name: discord
               secret:
                 secretName: {{ .Values.discord.secretName }}
             - name: backup-logs
               emptyDir: {}
-          initContainers:
-            - name: chmod-scripts
-              image: busybox
-              command: ["sh", "-c", "chmod +x /scripts/*.sh"]
-              volumeMounts:
-                - name: script
-                  mountPath: /scripts
           containers:
             - name: tenet-backup
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
