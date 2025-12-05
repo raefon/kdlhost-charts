@@ -1,6 +1,6 @@
 image:
   repository: ubuntu
-  tag: "22.04"
+  tag: "24.04"
   pullPolicy: IfNotPresent
 
 serviceAccountName: kdlhost-backup-sa
