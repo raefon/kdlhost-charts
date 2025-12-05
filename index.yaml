@@ -1266,6 +1266,16 @@ entries:
   kdlhost-backup:
   - apiVersion: v2
     appVersion: v1
+    created: "2025-12-05T00:51:30.70969501Z"
+    description: Helm chart for core and tenet backups using Restic
+    digest: 48aaaf8b65f9da2ba0f7c05b284cb5cf31874c39ecb6b2a4963f235840e5507e
+    name: kdlhost-backup
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/kdlhost-backup-0.4.0/kdlhost-backup-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: v1
     created: "2025-12-05T00:14:05.630259763Z"
     description: Core + Tenet Velero backups with summary alerts
     digest: cb743c470b45721cfcb4bed945f5aa650748590032f7fe378159c24d29ffd105
@@ -4810,4 +4820,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2025-12-05T00:14:05.630542415Z"
+generated: "2025-12-05T00:51:30.710011126Z"
