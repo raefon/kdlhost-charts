@@ -5,10 +5,6 @@ description: Put your servers on autopilot with Kubernetes implementation and ge
 sources:
   - https://github.com/kubectyl/panel
   - https://github.com/kubectyl/kuber
-  - https://github.com/pterodactyl/panel
-  - https://github.com/pterodactyl/wings
-  - https://github.com/raefon/panel
-  - https://github.com/raefon/kuber
 maintainers:
   - name: andrei0465
     email: andrei.mociu@kubectyl.org
@@ -18,17 +14,14 @@ keywords:
   - kubectyl
   - panel
   - kuber
-  - client
   - kubernetes
-  - k8s
-  - autopilot
 type: application
-version: 0.2.4
+version: 0.2.5 # Bumped version
 appVersion: "0.1.0"
 dependencies:
-- name: mariadb
-  version: "20.2.1"
-  repository: file://charts/mariadb
-- name: redis
-  version: "20.6.2"
-  repository: file://charts/redis
+  - name: mariadb
+    version: "21.1.0" # Updated for MariaDB 11.8+
+    repository: "https://charts.bitnami.com/bitnami" # Recommended over file:// for auto-updates
+  - name: redis
+    version: "24.1.0" # Updated for Redis 8.x
+    repository: "https://charts.bitnami.com/bitnami"

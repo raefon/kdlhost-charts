@@ -1,21 +1,7 @@
 # Default values for Kubectyl.
-# This is a YAML-formatted file.
-# Declare name/value pairs to be passed into your templates.
-# name: value
-
-# Usage:
-# - Set database.type to 'mariadb' (default) or 'postgres'
-# - If using postgres, fill in postgres.externalHost and postgres.auth.*
-# - If using postgres, mariadb.create should be set to false (can be handled in your templates)
-# - The Helm template will set Laravel's DB_CONNECTION and SESSION_DRIVER accordingly
-
-## Database selection for Laravel DB_CONNECTION and session driver
-## Set to 'mariadb' (default) or 'postgres'
 database:
-  type: mariadb  # Options: mariadb, postgres
+  type: mariadb 
 
-## Overrides for generated resource names
-# See templates/_helpers.tpl
 global:
   timezone: UTC
 
@@ -26,7 +12,7 @@ ingress:
   tls:
     create: true
     clusterIssuer: letsencrypt-prod
-    secretName: ""
+    secretName: "kubectyl-tls"
   annotations: {}
 
 panel:
@@ -41,85 +27,78 @@ panel:
 kuber:
   image: quay.io/kubectyl/kuber:develop
   imagePullPolicy: "Always"
-  replicaCount: 0
+  replicaCount: 1 # Increased to 1 as default for functionality
   serviceAnnotations: {}
   deploymentAnnotations: {}
   initContainers:
     - name: tmp
-      image: busybox
+      image: busybox:latest
       command: ["sh", "-c", "cp /tmp/kubectyl/config.yml /etc/kubectyl/config.yml && chmod 777 /etc/kubectyl/config.yml"]
       volumeMounts:
         - name: config
           mountPath: "/tmp/kubectyl"
         - name: tmp
           mountPath: "/etc/kubectyl"
-    - name: port
-      image: mikefarah/yq
-      command: ["sh", "-c", "yq --inplace '.api.port = 80' /etc/kubectyl/config.yml"]
-      volumeMounts:
-        - name: tmp
-          mountPath: "/etc/kubectyl"
-    - name: disable
-      image: mikefarah/yq
-      command: ["sh", "-c", "yq --inplace '.api.ssl.enabled = false' /etc/kubectyl/config.yml"]
-      volumeMounts:
-        - name: tmp
-          mountPath: "/etc/kubectyl"
-    - name: sftp-server
-      image: mikefarah/yq
-      command: ["sh", "-c", "yq --inplace '.system.sftp.sftp_image = \"ghcr.io/raefon/sftp-server:latest\"' /etc/kubectyl/config.yml"]
+    - name: configure-kuber
+      image: mikefarah/yq:4
+      command: 
+        - "sh"
+        - "-c"
+        - |
+          yq --inplace '.api.port = 80' /etc/kubectyl/config.yml
+          yq --inplace '.api.ssl.enabled = false' /etc/kubectyl/config.yml
+          yq --inplace '.system.sftp.sftp_image = "ghcr.io/raefon/sftp-server:latest"' /etc/kubectyl/config.yml
       volumeMounts:
         - name: tmp
           mountPath: "/etc/kubectyl"
 
-# MariaDB configuration (default)
-# If using Postgres, mariadb.create will be set to false in your templates
+# MariaDB 11.8+ Configuration
 mariadb:
-  # This should be set to false if database.type is 'postgres'
-  create: true
-  global:
-    storageClass: ""
-  externalHost: ""
-  volumePermissions:
-    enabled: true
-  image:
-    debug: true
+  enabled: true
+  architecture: standalone
   auth:
     database: panel
     username: kubectyl
-    password: SecretPassword
-    rootPassword: SuperSecretPassword
+    password: "SecretPassword" # Use quotes for safety with special chars
+    rootPassword: "SuperSecretPassword"
   primary:
     persistence:
+      enabled: true
       size: 1Gi
+    # MariaDB 11+ uses improved buffer pool management; default resources are usually fine
+    resources:
+      requests:
+        cpu: 250m
+        memory: 512Mi
   secondary:
     replicaCount: 0
 
-# External Postgres configuration (used if database.type is 'postgres')
+# Redis 8.x Configuration
+redis:
+  enabled: true
+  architecture: standalone
+  auth:
+    enabled: true # Security best practice for Redis 8.x
+    password: "RedisSecretPassword"
+    sentinel: false
+  master:
+    persistence:
+      enabled: true
+      size: 1Gi
+    resources:
+      requests:
+        cpu: 100m
+        memory: 256Mi
+  replica:
+    replicaCount: 0
+
+# External Postgres (Fallback)
 postgres:
-  # No create flag, always external
   externalHost: ""
   auth:
     database: panel
     username: kubectyl
-    password: SecretPassword
-    # Optionally add superuserPassword if needed
-
-redis:
-  create: true
-  global:
-    storageClass: ""
-  externalHost: ""
-  auth:
-    enabled: false
-    password: ""
-  master:
-    persistence:
-      size: 1Gi
-  replica:
-    replicaCount: 0
-  sentinel:
-    enabled: false
+    password: "SecretPassword"
 
 serviceAccount:
   create: true
