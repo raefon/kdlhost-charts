@@ -20,8 +20,8 @@ version: 0.2.5 # Bumped version
 appVersion: "0.1.0"
 dependencies:
   - name: mariadb
-    version: "21.1.0" # Updated for MariaDB 11.8+
-    repository: "https://charts.bitnami.com/bitnami" # Recommended over file:// for auto-updates
+    version: "24.0.2" # Updated for MariaDB 11.8+
+    repository: file://charts/mariadb
   - name: redis
     version: "24.1.0" # Updated for Redis 8.x
-    repository: "https://charts.bitnami.com/bitnami"
+    repository: file://charts/redis
