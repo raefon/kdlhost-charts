@@ -1,9 +1,0 @@
-dependencies:
-- name: mariadb
-  repository: file://charts/mariadb
-  version: 24.0.2
-- name: redis
-  repository: file://charts/redis
-  version: 24.1.0
-digest: sha256:6f0338f49ba4005ba77654ec4afb6f092610f1dd0cec87893691d6b62f4182ef
-generated: "2026-01-08T20:57:23.068601-08:00"
