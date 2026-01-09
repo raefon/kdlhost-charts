@@ -1367,6 +1367,38 @@ entries:
   kubectyl:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2026-01-09T05:06:03.654416628Z"
+    dependencies:
+    - name: mariadb
+      repository: file://charts/mariadb
+      version: 24.0.2
+    - name: redis
+      repository: file://charts/redis
+      version: 24.1.0
+    description: Put your servers on autopilot with Kubernetes implementation and
+      get rid of Pterodactyl nodes.
+    digest: 19f6e1078bc86480cbf132fcbca1eafd134350985acdf6896d66a93341f36f6f
+    home: https://kubectyl.org
+    keywords:
+    - kubectyl
+    - panel
+    - kuber
+    - kubernetes
+    maintainers:
+    - email: andrei.mociu@kubectyl.org
+      name: andrei0465
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: kubectyl
+    sources:
+    - https://github.com/raefon/panel
+    - https://github.com/raefon/kuber
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/kubectyl-0.2.6/kubectyl-0.2.6.tgz
+    version: 0.2.6
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2026-01-09T04:58:27.158860383Z"
     dependencies:
     - name: mariadb
@@ -4918,4 +4950,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2026-01-09T04:58:27.159176983Z"
+generated: "2026-01-09T05:06:03.65469384Z"
