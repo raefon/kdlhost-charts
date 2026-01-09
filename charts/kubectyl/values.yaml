@@ -16,7 +16,7 @@ ingress:
   annotations: {}
 
 panel:
-  image: quay.io/kubectyl/panel:develop
+  image: ghcr.io/raefon/panel:latest
   imagePullPolicy: "Always"
   storageClass: ""
   existingVolumeClaim: ""
@@ -25,7 +25,7 @@ panel:
   statefulSetAnnotations: {}
 
 kuber:
-  image: quay.io/kubectyl/kuber:develop
+  image: ghcr.io/raefon/kuber:develop
   imagePullPolicy: "Always"
   replicaCount: 1 # Increased to 1 as default for functionality
   serviceAnnotations: {}
