@@ -2989,6 +2989,33 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/sabnzbd-0.2.0/sabnzbd-0.2.0.tgz
     version: 0.2.0
+  seerr:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial
+      artifacthub.io/images: '- ghcr.io/raefon/seerr:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-05-30T15:24:26.737624061Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: request management and media discovery tool
+    digest: 5da692c583538c66300e78f69297cb4cf52204f976e23070c18ba3086ef3b778
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/seerr
+    keywords:
+    - seerr
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: seerr
+    sources:
+    - https://seerr.dev/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/seerr-0.2.0/seerr-0.2.0.tgz
+    version: 0.2.0
   shulker-operator:
   - apiVersion: v2
     appVersion: 0.13.0
@@ -4950,4 +4977,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2026-01-09T05:06:03.65469384Z"
+generated: "2026-05-30T15:24:26.737895064Z"
