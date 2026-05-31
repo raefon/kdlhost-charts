@@ -32,7 +32,7 @@ jellyfin:
 prowlarr:
   enabled: false
 
-overseerr:
+seerr:
   enabled: false
 
 kdlhost-term:

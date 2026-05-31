@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.4.5
+version: 0.4.6
 name: tenet
 description: Used to provision tenets
 type: application
@@ -48,10 +48,10 @@ dependencies:
     version: ~0.1.0
     repository: https://raefon.github.io/kdlhost-charts/
     condition: prowlarr.enabled
-  - name: overseerr
+  - name: seerr
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
-    condition: overseerr.enabled
+    condition: seerr.enabled
   - name: kdlhost-term
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
@@ -63,4 +63,5 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Bump to 0.4.5
+    - Bump to 0.4.6
+    - Changed Overseerr to Seerr
