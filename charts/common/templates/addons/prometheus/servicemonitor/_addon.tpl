@@ -3,7 +3,9 @@
 \*==============================================*/}}
 
 {{- define "common.addon.prometheus.servicemonitor" -}}
-{{- $sm := .Values.addons.prometheus.serviceMonitor -}}
+{{- $addons := default dict .Values.addons -}}
+{{- $prometheus := default dict $addons.prometheus -}}
+{{- $sm := default dict $prometheus.serviceMonitor -}}
 {{- if $sm.enabled }}
 
 ---
