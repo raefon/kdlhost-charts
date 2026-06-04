@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.2.0
+version: 0.2.1
 name: radarr
 description: TV Shows/Anime Downloader
 type: application
@@ -9,7 +9,7 @@ home: "https://github.com/raefon/kdlhost-charts/tree/main/charts/radarr"
 deprecated: false
 dependencies:
   - name: common
-    version: ~0.2.0
+    version: ~0.3.0
     repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - radarr
@@ -20,6 +20,7 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Initial
+    - Bump to 0.2.1
+    - Update common to 0.3.0
   artifacthub.io/images: |
     - ghcr.io/raefon/radarr:rolling

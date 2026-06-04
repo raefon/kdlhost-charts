@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "latest"
-version: 0.0.4
+version: 0.0.5
 name: docker-nvidia-egl-desktop
 description: TEST
 type: application
@@ -10,7 +10,7 @@ icon: ""
 deprecated: false
 dependencies:
   - name: common
-    version: ~0.2.0
+    version: ~0.3.0
     repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - selkies

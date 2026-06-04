@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "latest"
-version: 0.0.3
+version: 0.0.4
 name: docker-nvidia-glx-desktop
 description: TEST
 type: application
@@ -10,7 +10,7 @@ icon: ""
 deprecated: false
 dependencies:
   - name: common
-    version: ~0.2.0
+    version: ~0.3.0
     repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - selkies
@@ -25,6 +25,6 @@ maintainers:
     email: raefon@users.noreply.github.com
 annotations:
   artifacthub.io/changes: |
-    - Initial
+    - Bump to 0.0.4
   artifacthub.io/images: |
     - ghcr.io/selkies-project/nvidia-glx-desktop

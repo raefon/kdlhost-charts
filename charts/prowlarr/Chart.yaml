@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.1.0
+version: 0.1.1
 name: prowlarr
 description: The Ultimate Indexer Manager
 type: application
@@ -9,7 +9,7 @@ home: "https://github.com/raefon/kdlhost-charts/tree/main/charts/prowlarr"
 deprecated: false
 dependencies:
   - name: common
-    version: ~0.2.0
+    version: ~0.3.0
     repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - prowlarr
@@ -20,6 +20,7 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Initial
+    - Bump to 0.1.1
+    - Update common to 0.3.0
   artifacthub.io/images: |
     - ghcr.io/raefon/prowlarr:rolling

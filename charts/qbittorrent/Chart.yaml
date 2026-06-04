@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.2.2
+version: 0.2.3
 name: qbittorrent
 description: bittorrent client
 type: application
@@ -9,7 +9,7 @@ home: "https://github.com/raefon/kdlhost-charts/tree/main/charts/qbittorrent"
 deprecated: false
 dependencies:
   - name: common
-    version: ~0.2.0
+    version: ~0.3.0
     repository: https://raefon.github.io/kdlhost-charts/
 keywords:
   - qbittorrent
@@ -21,6 +21,7 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Update Values
+    - Bump to 0.2.3
+    - Update common to 0.3.0
   artifacthub.io/images: |
     - ghcr.io/raefon/qbittorrent:rolling
