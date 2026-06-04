@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "latest"
-version: 0.0.5
+version: 0.0.6
 name: docker-nvidia-egl-desktop
 description: TEST
 type: application
@@ -26,5 +26,7 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - Add more ENV variables
+    - Bump to 0.0.6
+    - Update common library chart dependency
   artifacthub.io/images: |
     - ghcr.io/selkies-project/nvidia-egl-desktop

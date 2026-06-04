@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.2.2
+version: 0.2.3
 name: plex
 description: The Media Server.
 type: application
@@ -22,7 +22,8 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Bump to 0.2.2
+    - Bump to 0.2.3
+    - Update common library chart dependency
     - Update common to 0.3.0
   artifacthub.io/images: |
     - ghcr.io/raefon/plex:rolling
