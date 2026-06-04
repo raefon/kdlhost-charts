@@ -420,6 +420,36 @@ entries:
   decypharr:
   - annotations:
       artifacthub.io/changes: |
+        - Bump to 0.2.2
+        - Update common library chart dependency
+        - Update common to 0.3.0
+      artifacthub.io/images: '- ghcr.io/raefon/decypharr:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-04T17:38:28.753725013Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: Media gateway for Debrid & Usenet.
+    digest: 1b03874c83a43e53c8df5d0c5c814ea250d983124169992082f17cda63847cd8
+    home: https://github.com/nicholaswilde/helm-charts/tree/main/charts/decypharr
+    icon: https://raw.githubusercontent.com/sirrobot01/decypharr/refs/heads/main/docs/src/assets/logo.png
+    keywords:
+    - decypharr
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: decypharr
+    sources:
+    - https://docs.decypharr.com
+    - https://github.com/sirrobot01/decypharr
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/decypharr-0.2.2/decypharr-0.2.2.tgz
+    version: 0.2.2
+  - annotations:
+      artifacthub.io/changes: |
         - Bump to 0.2.1
         - Update common to 0.3.0
       artifacthub.io/images: '- ghcr.io/raefon/decypharr:rolling'
@@ -476,6 +506,39 @@ entries:
     - https://github.com/raefon/kdlhost-charts/releases/download/decypharr-0.2.0/decypharr-0.2.0.tgz
     version: 0.2.0
   docker-nvidia-egl-desktop:
+  - annotations:
+      artifacthub.io/changes: |
+        - Add more ENV variables
+        - Bump to 0.0.6
+        - Update common library chart dependency
+      artifacthub.io/images: |
+        - ghcr.io/selkies-project/nvidia-egl-desktop
+    apiVersion: v2
+    appVersion: latest
+    created: "2026-06-04T17:38:28.914088475Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: TEST
+    digest: 82f844ef876179d3c207e6a88a81678f5d82fe55a4f57b1a6cbb565118810314
+    home: https://github.com/kdlhost-charts/charts/docker-nvidia-egl-desktop
+    keywords:
+    - selkies
+    - docker
+    - glx
+    - nvidia
+    - desktop
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: docker-nvidia-egl-desktop
+    sources:
+    - https://github.com/selkies-project/docker-nvidia-glx-desktop/pkgs/container/nvidia-egl-desktop
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/docker-nvidia-egl-desktop-0.0.6/docker-nvidia-egl-desktop-0.0.6.tgz
+    version: 0.0.6
   - annotations:
       artifacthub.io/changes: |
         - Add more ENV variables
@@ -694,6 +757,36 @@ entries:
     - https://github.com/raefon/kdlhost-charts/releases/download/docker-nvidia-glx-desktop-0.0.1/docker-nvidia-glx-desktop-0.0.1.tgz
     version: 0.0.1
   filebrowser:
+  - annotations:
+      artifacthub.io/changes: |
+        - Bump to 0.2.5
+        - Update common library chart dependency
+        - Update common to 0.3.0
+      artifacthub.io/images: |
+        - ghcr.io/raefon/filebrowser:rolling
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-04T17:38:29.073365113Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: Middleware or standalone app that provides a web-based file manager
+      within a specified directory.
+    digest: 694558a3169b4c332f0302f0c48555d3dc6e72938e1fa8363b92c16cf753beed
+    keywords:
+    - file
+    - browser
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: filebrowser
+    sources:
+    - https://hub.docker.com/r/filebrowser/filebrowser
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/filebrowser-0.2.5/filebrowser-0.2.5.tgz
+    version: 0.2.5
   - annotations:
       artifacthub.io/changes: |
         - Bump to 0.2.4
@@ -1155,6 +1248,36 @@ entries:
   jellyfin:
   - annotations:
       artifacthub.io/changes: |
+        - Bump to 0.1.2
+        - Update common library chart dependency
+        - Update common to 0.3.0
+      artifacthub.io/images: |
+        - ghcr.io/raefon/jellyfin:rolling
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-04T17:38:29.235322686Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: The Other Media Server.
+    digest: 0498f13dbf92f20bb31b90a213aa517d5bfbd2feedab06c08b0b8b89fddda9f3
+    home: https://github.com/kdlhost-charts/charts/jellyfin
+    keywords:
+    - media
+    - jellyfin
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: jellyfin
+    sources:
+    - https://jellyfin.org/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/jellyfin-0.1.2/jellyfin-0.1.2.tgz
+    version: 0.1.2
+  - annotations:
+      artifacthub.io/changes: |
         - Bump to 0.1.1
         - Update common to 0.3.0
       artifacthub.io/images: |
@@ -1523,6 +1646,37 @@ entries:
     - https://github.com/raefon/kdlhost-charts/releases/download/kdlhost-backup-0.3.0/kdlhost-backup-0.3.0.tgz
     version: 0.3.0
   kdlhost-term:
+  - annotations:
+      artifacthub.io/changes: |
+        - Update: 0.2.3
+        - Update common to 0.3.0
+        - Update common library chart dependency
+      artifacthub.io/images: '- ghcr.io/raefon/kdlhost-term:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-04T17:38:29.40210495Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: In-House terminal based on ttyd/fish
+    digest: ed61cb7db5900dee1b8b3a6887dd716b158611c164bed0d6680364c9a3c2e8f3
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/kdlhost-term
+    keywords:
+    - kdlhost-term
+    - terminal
+    - ttyd
+    - fish
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: kdlhost-term
+    sources:
+    - https://github.com/raefon/containers
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/kdlhost-term-0.2.3/kdlhost-term-0.2.3.tgz
+    version: 0.2.3
   - annotations:
       artifacthub.io/changes: |
         - Update: 0.2.2
@@ -2851,6 +3005,36 @@ entries:
   plex:
   - annotations:
       artifacthub.io/changes: |
+        - Bump to 0.2.3
+        - Update common library chart dependency
+        - Update common to 0.3.0
+      artifacthub.io/images: |
+        - ghcr.io/raefon/plex:rolling
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-04T17:38:29.558371914Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: The Media Server.
+    digest: 71f9860d4067dfadc7b3c9de173293ea78bd562c2ecb9a9ff4e5f6cf44e1528d
+    home: https://github.com/kdlhost-charts/charts/plex
+    keywords:
+    - media
+    - plex
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: plex
+    sources:
+    - https://plex.tv/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/plex-0.2.3/plex-0.2.3.tgz
+    version: 0.2.3
+  - annotations:
+      artifacthub.io/changes: |
         - Bump to 0.2.2
         - Update common to 0.3.0
       artifacthub.io/images: |
@@ -3078,6 +3262,34 @@ entries:
   prowlarr:
   - annotations:
       artifacthub.io/changes: |
+        - Bump to 0.1.2
+        - Update common library chart dependency
+        - Update common to 0.3.0
+      artifacthub.io/images: '- ghcr.io/raefon/prowlarr:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-04T17:38:29.697109894Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: The Ultimate Indexer Manager
+    digest: 6d3d322a4b928cc754404495b265f9602a994c1746e1a080a500282033d092fb
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/prowlarr
+    keywords:
+    - prowlarr
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: prowlarr
+    sources:
+    - https://prowlarr.com/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/prowlarr-0.1.2/prowlarr-0.1.2.tgz
+    version: 0.1.2
+  - annotations:
+      artifacthub.io/changes: |
         - Bump to 0.1.1
         - Update common to 0.3.0
       artifacthub.io/images: '- ghcr.io/raefon/prowlarr:rolling'
@@ -3130,6 +3342,35 @@ entries:
     - https://github.com/raefon/kdlhost-charts/releases/download/prowlarr-0.1.0/prowlarr-0.1.0.tgz
     version: 0.1.0
   qbittorrent:
+  - annotations:
+      artifacthub.io/changes: |
+        - Bump to 0.2.4
+        - Update common library chart dependency
+        - Update common to 0.3.0
+      artifacthub.io/images: '- ghcr.io/raefon/qbittorrent:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-04T17:38:29.834843006Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: bittorrent client
+    digest: 78e781fd0547e4b6608cd4eed9fdfa3917a6438f32f73e3f848ab551f0a79ee8
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/qbittorrent
+    keywords:
+    - qbittorrent
+    - bittorrent
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: qbittorrent
+    sources:
+    - https://qbittorrent.org/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/qbittorrent-0.2.4/qbittorrent-0.2.4.tgz
+    version: 0.2.4
   - annotations:
       artifacthub.io/changes: |
         - Bump to 0.2.3
@@ -3242,6 +3483,34 @@ entries:
   radarr:
   - annotations:
       artifacthub.io/changes: |
+        - Bump to 0.2.2
+        - Update common library chart dependency
+        - Update common to 0.3.0
+      artifacthub.io/images: '- ghcr.io/raefon/radarr:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-04T17:38:30.034569033Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: TV Shows/Anime Downloader
+    digest: 79c844f1783cc3828606225ce66be329e163a859e5c513451e9e4c64f2a443f5
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/radarr
+    keywords:
+    - radarr
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: radarr
+    sources:
+    - https://radarr.video/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/radarr-0.2.2/radarr-0.2.2.tgz
+    version: 0.2.2
+  - annotations:
+      artifacthub.io/changes: |
         - Bump to 0.2.1
         - Update common to 0.3.0
       artifacthub.io/images: '- ghcr.io/raefon/radarr:rolling'
@@ -3294,6 +3563,35 @@ entries:
     - https://github.com/raefon/kdlhost-charts/releases/download/radarr-0.2.0/radarr-0.2.0.tgz
     version: 0.2.0
   sabnzbd:
+  - annotations:
+      artifacthub.io/changes: |
+        - Bump to 0.2.4
+        - Update common library chart dependency
+        - Update common to 0.3.0
+      artifacthub.io/images: '- ghcr.io/raefon/sabnzbd:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-04T17:38:30.223678648Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: nzb client
+    digest: aceb4d9f86d8149d43e91fafb4c78fb3c96103122f3fbe2e460abb21117d59d5
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/sabnzbd
+    keywords:
+    - sabnzbd
+    - nzb
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: sabnzbd
+    sources:
+    - https://sabnzbd.org/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/sabnzbd-0.2.4/sabnzbd-0.2.4.tgz
+    version: 0.2.4
   - annotations:
       artifacthub.io/changes: |
         - Bump to 0.2.3
@@ -3406,6 +3704,34 @@ entries:
   seerr:
   - annotations:
       artifacthub.io/changes: |
+        - Bump to 0.2.2
+        - Update common library chart dependency
+        - Update common to 0.3.0
+      artifacthub.io/images: '- ghcr.io/raefon/seerr:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-04T17:38:30.37281134Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: request management and media discovery tool
+    digest: 5c194df200d2266e06861ff20439f69685ceaf569751fdfc12a70bf409a7b8b6
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/seerr
+    keywords:
+    - seerr
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: seerr
+    sources:
+    - https://seerr.dev/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/seerr-0.2.2/seerr-0.2.2.tgz
+    version: 0.2.2
+  - annotations:
+      artifacthub.io/changes: |
         - Bump to 0.2.1
         - Update common to 0.3.0
       artifacthub.io/images: '- ghcr.io/raefon/seerr:rolling'
@@ -3478,6 +3804,34 @@ entries:
     - https://github.com/raefon/kdlhost-charts/releases/download/shulker-operator-0.13.0/shulker-operator-0.13.0.tgz
     version: 0.13.0
   sonarr:
+  - annotations:
+      artifacthub.io/changes: |
+        - Bump to 0.2.4
+        - Update common library chart dependency
+        - Update common to 0.3.0
+      artifacthub.io/images: '- ghcr.io/raefon/sonarr:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-04T17:38:30.519377135Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: TV Shows/Anime Downloader
+    digest: d299760e4ef4bcab2dcd8e6c5c751afc90691eab418951885fad8683ccd406fa
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/sonarr
+    keywords:
+    - sonarr
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: sonarr
+    sources:
+    - https://sonarr.tv/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/sonarr-0.2.4/sonarr-0.2.4.tgz
+    version: 0.2.4
   - annotations:
       artifacthub.io/changes: |
         - Bump to 0.2.3
@@ -3640,6 +3994,38 @@ entries:
     - https://github.com/raefon/kdlhost-charts/releases/download/sonarr-develop-0.2.0/sonarr-develop-0.2.0.tgz
     version: 0.2.0
   syncthing:
+  - annotations:
+      artifacthub.io/changes: |
+        - Bump to 0.2.6
+        - Update common library chart dependency
+        - Update common to 0.3.0
+      artifacthub.io/images: '- ghcr.io/raefon/syncthing:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-04T17:38:30.685806484Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: A continuous file synchronization program.
+    digest: 84ec8dca020b43a3cfe85eea509fe93864b890a58ea9653ea09fb9b7293dcb3f
+    home: https://github.com/nicholaswilde/helm-charts/tree/main/charts/syncthing
+    icon: https://github.com/syncthing/syncthing/raw/main/assets/logo-128.png
+    keywords:
+    - sync
+    - thing
+    - syncronization
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: syncthing
+    sources:
+    - https://syncthing.net/
+    - https://hub.docker.com/r/syncthing/syncthing
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/syncthing-0.2.6/syncthing-0.2.6.tgz
+    version: 0.2.6
   - annotations:
       artifacthub.io/changes: |
         - Bump to 0.2.5
@@ -3918,6 +4304,78 @@ entries:
     - https://github.com/raefon/kdlhost-charts/releases/download/syncthing-0.1.0/syncthing-0.1.0.tgz
     version: 0.1.0
   tenet:
+  - annotations:
+      artifacthub.io/changes: |-
+        - Bump to 0.4.10
+        - Update dependencies to include common chart changes
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-06-04T17:38:30.891926461Z"
+    dependencies:
+    - condition: syncthing.enabled
+      name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: plex.enabled
+      name: plex
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: filebrowser
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: qbittorrent.enabled
+      name: qbittorrent
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sabnzbd.enabled
+      name: sabnzbd
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sonarr.enabled
+      name: sonarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: radarr.enabled
+      name: radarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: docker-nvidia-egl-desktop.enabled
+      name: docker-nvidia-egl-desktop
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.0.4
+    - condition: jellyfin.enabled
+      name: jellyfin
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    - condition: prowlarr.enabled
+      name: prowlarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    - condition: seerr.enabled
+      name: seerr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: kdlhost-term.enabled
+      name: kdlhost-term
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: decypharr.enabled
+      name: decypharr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: Used to provision tenets
+    digest: 1d25b043a779d9dd47bbe68e8c0225e5bc5b2614352bf8bdb522c1a1ece452dd
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.4.10/tenet-0.4.10.tgz
+    version: 0.4.10
   - annotations:
       artifacthub.io/changes: '- Bump to 0.4.9'
     apiVersion: v2
@@ -5782,4 +6240,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2026-06-04T17:33:09.87235023Z"
+generated: "2026-06-04T17:38:30.89289322Z"
