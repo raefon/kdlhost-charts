@@ -30,6 +30,26 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: fixed
+          description: Bump common chart version to 0.3.0 and finalize Prometheus ServiceMonitor template.
+    apiVersion: v2
+    created: "2026-06-04T17:18:15.037075248Z"
+    description: Function library for kdlhost helm charts
+    digest: 3bae8ff46352804e5d95fb7067e394b3e90f15cb903b1d49249b19167ba52bb0
+    home: https://raefon.github.io/kdlhost-charts/common
+    keywords:
+    - kdlhost-charts
+    - common
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: common
+    type: library
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/common-0.3.0/common-0.3.0.tgz
+    version: 0.3.0
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: fixed
           description: Bump common chart version to 0.2.9 and finalize Prometheus ServiceMonitor template.
     apiVersion: v2
     created: "2025-11-30T06:20:07.304232556Z"
@@ -5214,4 +5234,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2026-06-04T17:01:00.767139995Z"
+generated: "2026-06-04T17:18:15.037476867Z"
