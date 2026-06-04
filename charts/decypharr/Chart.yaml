@@ -1,0 +1,27 @@
+---
+apiVersion: v2
+appVersion: "rolling"
+version: 0.2.0
+name: decypharr
+description: Media gateway for Debrid & Usenet.
+type: application
+home: "https://github.com/nicholaswilde/helm-charts/tree/main/charts/decypharr"
+icon: "https://raw.githubusercontent.com/sirrobot01/decypharr/refs/heads/main/docs/src/assets/logo.png"
+deprecated: false
+dependencies:
+  - name: common
+    version: ~0.2.0
+    repository: https://raefon.github.io/kdlhost-charts/
+keywords:
+  - decypharr
+sources:
+  - https://docs.decypharr.com
+  - https://github.com/sirrobot01/decypharr
+maintainers:
+  - name: raefon
+    email: raefon@users.noreply.github.com 
+annotations:
+  artifacthub.io/changes: |
+    - Initial release.
+  artifacthub.io/images: |
+    - ghcr.io/raefon/decypharr:rolling
