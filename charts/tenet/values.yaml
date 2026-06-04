@@ -38,6 +38,9 @@ seerr:
 kdlhost-term:
   enabled: false
 
+decypharr:
+  enabled: false
+
 ## config pvc
 config:
   name: "config"

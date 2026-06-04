@@ -56,6 +56,10 @@ dependencies:
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
     condition: kdlhost-term.enabled
+  - name: decypharr
+    version: ~0.2.0
+    repository: https://raefon.github.io/kdlhost-charts/
+    condition: decypharr.enabled
 keywords:
   - tenet
 maintainers:
@@ -63,5 +67,5 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Bump to 0.4.7
-    - Update Roles to add patch and update verbs to allow for configmap updates
+    - Bump to 0.4.8
+    - Add decypharr to dependencies
