@@ -1,0 +1,29 @@
+{{- if .Values.persistence.enabled }}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  # PVs are cluster-scoped, so we MUST use the release name to keep it unique
+  name: "{{ .Release.Name }}-rclone-pv"
+spec:
+  accessModes:
+    - {{ .Values.rclone.accessMode | default "ReadWriteMany" | quote }}
+  capacity:
+    storage: {{ .Values.rclone.size | default "100Ti" | quote }}
+  persistentVolumeReclaimPolicy: Delete
+  csi:
+    driver: rclone.csi.k8s.io
+    # volumeHandle must be unique per tenant on the node
+    volumeHandle: "{{ .Release.Name }}-{{ .Release.Namespace }}-torbox"
+    volumeAttributes:
+      remote: "torbox"
+      # These flags optimize streaming and handled agnostic renames
+      mountOptions: >-
+        --vfs-cache-mode full
+        --vfs-cache-max-size {{ .Values.rclone.cacheSize | default "50G" }}
+        --buffer-size {{ .Values.rclone.bufferSize | default "64M" }}
+        --vfs-read-ahead 128M
+    nodePublishSecretRef:
+      # This secret is created by your secrets.yaml and points to Decypharr
+      name: "{{ .Values.rclone.name }}-secret"
+      namespace: {{ .Release.Namespace }}
+{{- end }}

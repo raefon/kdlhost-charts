@@ -1,0 +1,27 @@
+{{- if .Values.persistence.enabled }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: "{{ .Values.rclone.name }}"
+  namespace: {{ .Release.Namespace }}
+  {{- with .Values.rclone.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  labels:
+    app: {{ template "tenet.fullname" . }}
+    release: "{{ .Release.Name }}"
+    {{- if .Values.rclone.additionalLabels }}
+    {{- toYaml .Values.rclone.additionalLabels | nindent 4 }}
+    {{- end }}
+spec:
+  accessModes:
+    - {{ .Values.rclone.accessMode | default "ReadWriteMany" | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.rclone.size | default "100Ti" | quote }}
+  # Critical: Use an empty string for StorageClass to bind to the static PV below
+  storageClassName: ""
+  # Critical: Link specifically to this tenant's PV
+  volumeName: "{{ .Release.Name }}-rclone-pv"
+{{- end }}

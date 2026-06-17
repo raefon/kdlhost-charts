@@ -73,6 +73,14 @@ data:
   annotations: {}
   additionalLabels: {}
 
+## rclone pvc
+rclone:
+  name: "media-pvc"
+  size: "100Ti"
+  accessMode: "ReadWriteMany"
+  cacheSize: "50G"
+  bufferSize: "64M"
+
 ## appwatcher pvc
 appwatcher:
   name: "app-watcher"
