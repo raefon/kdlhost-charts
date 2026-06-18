@@ -16,6 +16,7 @@ spec:
     volumeHandle: "{{ .Release.Name }}-{{ .Release.Namespace }}-torbox"
     volumeAttributes:
       remote: "torbox"
+      remotePath: "/"
       # These flags optimize streaming and handled agnostic renames
       mountOptions: >-
         --vfs-cache-mode full
