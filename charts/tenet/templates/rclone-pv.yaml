@@ -10,6 +10,12 @@ spec:
   capacity:
     storage: {{ .Values.rclone.size | default "100Ti" | quote }}
   persistentVolumeReclaimPolicy: Delete
+  mountOptions:
+    - allow_other=true
+    - uid=568
+    - gid=568
+    - vfs-read-ahead=128M
+    - path-fuse-binary=/usr/bin/fusermount3
   csi:
     driver: rclone.csi.veloxpack.io
     # volumeHandle should also be unique to avoid internal driver conflicts
@@ -20,8 +26,6 @@ spec:
       vfs-cache-mode: "full"
       vfs-cache-max-size: {{ .Values.rclone.cacheSize | default "50G" | quote }}
       buffer-size: {{ .Values.rclone.bufferSize | default "64M" | quote }}
-      # Required for Talos to locate FUSE
-      rclone-mount-extra-flags: "--allow-other --uid 568 --gid 568 --path-fuse-binary /usr/bin/fusermount3 --vfs-read-ahead 128M"
     nodePublishSecretRef:
       name: "{{ .Values.rclone.name }}-secret"
       namespace: {{ .Release.Namespace }}
