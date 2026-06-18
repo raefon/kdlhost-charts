@@ -2,8 +2,8 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  # PVs are cluster-scoped, so we MUST use the release name to keep it unique
-  name: "{{ .Release.Name }}-rclone-pv"
+  # Result: tenet-%name%-rclone-pv
+  name: "{{ .Release.Namespace }}-rclone-pv"
 spec:
   accessModes:
     - {{ .Values.rclone.accessMode | default "ReadWriteMany" | quote }}
@@ -12,19 +12,17 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   csi:
     driver: rclone.csi.veloxpack.io
-    # volumeHandle must be unique per tenant on the node
-    volumeHandle: "{{ .Release.Name }}-{{ .Release.Namespace }}-torbox"
+    # volumeHandle should also be unique to avoid internal driver conflicts
+    volumeHandle: "{{ .Release.Namespace }}-media-vol"
     volumeAttributes:
       remote: "torbox"
       remotePath: "/"
-      # These flags optimize streaming and handled agnostic renames
-      mountOptions: >-
-        --vfs-cache-mode full
-        --vfs-cache-max-size {{ .Values.rclone.cacheSize | default "50G" }}
-        --buffer-size {{ .Values.rclone.bufferSize | default "64M" }}
-        --vfs-read-ahead 128M
+      vfs-cache-mode: "full"
+      vfs-cache-max-size: {{ .Values.rclone.cacheSize | default "50G" | quote }}
+      buffer-size: {{ .Values.rclone.bufferSize | default "64M" | quote }}
+      # Required for Talos to locate FUSE
+      rclone-mount-extra-flags: "--path-fuse-binary /usr/bin/fusermount3 --vfs-read-ahead 128M"
     nodePublishSecretRef:
-      # This secret is created by your secrets.yaml and points to Decypharr
       name: "{{ .Values.rclone.name }}-secret"
       namespace: {{ .Release.Namespace }}
 {{- end }}
