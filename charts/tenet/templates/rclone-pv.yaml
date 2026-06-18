@@ -11,7 +11,7 @@ spec:
     storage: {{ .Values.rclone.size | default "100Ti" | quote }}
   persistentVolumeReclaimPolicy: Delete
   csi:
-    driver: rclone.csi.k8s.io
+    driver: rclone.csi.veloxpack.io
     # volumeHandle must be unique per tenant on the node
     volumeHandle: "{{ .Release.Name }}-{{ .Release.Namespace }}-torbox"
     volumeAttributes:
