@@ -4306,6 +4306,78 @@ entries:
   tenet:
   - annotations:
       artifacthub.io/changes: |-
+        - Bump to 0.4.12
+        - Fix driver name to rclone.csi.veloxpack.io
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-06-18T03:49:40.39184943Z"
+    dependencies:
+    - condition: syncthing.enabled
+      name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: plex.enabled
+      name: plex
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: filebrowser
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: qbittorrent.enabled
+      name: qbittorrent
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sabnzbd.enabled
+      name: sabnzbd
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sonarr.enabled
+      name: sonarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: radarr.enabled
+      name: radarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: docker-nvidia-egl-desktop.enabled
+      name: docker-nvidia-egl-desktop
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.0.4
+    - condition: jellyfin.enabled
+      name: jellyfin
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    - condition: prowlarr.enabled
+      name: prowlarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    - condition: seerr.enabled
+      name: seerr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: kdlhost-term.enabled
+      name: kdlhost-term
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: decypharr.enabled
+      name: decypharr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: Used to provision tenets
+    digest: 5aa7e396a37172726cfd5948c00b8c460c35e8ce13a29837f1831a5b6532f15d
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.4.12/tenet-0.4.12.tgz
+    version: 0.4.12
+  - annotations:
+      artifacthub.io/changes: |-
         - Bump to 0.4.11
         - Add rclone PVC and secret templates for Tenet
     apiVersion: v2
@@ -6312,4 +6384,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2026-06-17T23:34:01.46767477Z"
+generated: "2026-06-18T03:49:40.392295379Z"
