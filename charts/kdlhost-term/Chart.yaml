@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.2.3
+version: 0.2.4
 name: kdlhost-term
 description: In-House terminal based on ttyd/fish
 type: application
@@ -23,8 +23,7 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Update: 0.2.3
-    - Update common to 0.3.0
-    - Update common library chart dependency
+    - Update: 0.2.4
+    - Change default config pvc spec
   artifacthub.io/images: |
     - ghcr.io/raefon/kdlhost-term:rolling

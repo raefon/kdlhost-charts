@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.2.5
+version: 0.2.6
 name: filebrowser
 description: Middleware or standalone app that provides a web-based file manager within a specified directory. 
 type: application
@@ -20,8 +20,7 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Bump to 0.2.5
-    - Update common library chart dependency
-    - Update common to 0.3.0
+    - Bump to 0.2.6
+    - Change default config pvc spec
   artifacthub.io/images: |
     - ghcr.io/raefon/filebrowser:rolling

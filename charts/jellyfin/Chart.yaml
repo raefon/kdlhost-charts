@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: "rolling"
-version: 0.1.2
+version: 0.1.3
 name: jellyfin
 description: The Other Media Server.
 type: application
@@ -22,8 +22,7 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Bump to 0.1.2
-    - Update common library chart dependency
-    - Update common to 0.3.0
+    - Bump to 0.1.3
+    - change config pvc spec
   artifacthub.io/images: |
     - ghcr.io/raefon/jellyfin:rolling
