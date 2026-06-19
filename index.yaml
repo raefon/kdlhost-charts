@@ -420,6 +420,35 @@ entries:
   decypharr:
   - annotations:
       artifacthub.io/changes: |
+        - Bump to 0.2.3
+        - Change default config pvc spec
+      artifacthub.io/images: '- ghcr.io/raefon/decypharr:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-19T03:07:31.022982926Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: Media gateway for Debrid & Usenet.
+    digest: 6fd62abf8ae8173ba07592abf7cbcc67f463bd19815ac819e962983f35966b42
+    home: https://github.com/nicholaswilde/helm-charts/tree/main/charts/decypharr
+    icon: https://raw.githubusercontent.com/sirrobot01/decypharr/refs/heads/main/docs/src/assets/logo.png
+    keywords:
+    - decypharr
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: decypharr
+    sources:
+    - https://docs.decypharr.com
+    - https://github.com/sirrobot01/decypharr
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/decypharr-0.2.3/decypharr-0.2.3.tgz
+    version: 0.2.3
+  - annotations:
+      artifacthub.io/changes: |
         - Bump to 0.2.2
         - Update common library chart dependency
         - Update common to 0.3.0
@@ -7185,4 +7214,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2026-06-19T02:56:38.446753215Z"
+generated: "2026-06-19T03:07:31.023172223Z"
