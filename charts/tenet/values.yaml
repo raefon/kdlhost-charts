@@ -41,6 +41,9 @@ kdlhost-term:
 decypharr:
   enabled: false
 
+rehydrator:
+  enabled: false
+
 ## config pvc
 config:
   name: "config"

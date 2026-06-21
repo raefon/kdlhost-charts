@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.4.19
+version: 0.4.20
 name: tenet
 description: Used to provision tenets
 type: application
@@ -60,6 +60,10 @@ dependencies:
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
     condition: decypharr.enabled
+  - name: rehydrator
+    version: ~0.2.0
+    repository: https://raefon.github.io/kdlhost-charts/
+    condition: rehydrator.enabled
 keywords:
   - tenet
 maintainers:
@@ -67,5 +71,5 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Bump to 0.4.19
-    - Pull updated charts from kdlhost-charts
+    - Bump to 0.4.20
+    - Add rehydrator as dependencies
