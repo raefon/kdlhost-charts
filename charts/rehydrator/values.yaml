@@ -36,7 +36,7 @@ probes:
       failureThreshold: 3
       httpGet:
         path: /healthz
-        port: main
+        port: http
 
   readiness:
     # -- Enable the readiness probe
@@ -53,7 +53,7 @@ probes:
       failureThreshold: 3
       httpGet:
         path: /readyz
-        port: main
+        port: http
 
 ingress:
   main:
