@@ -3820,6 +3820,32 @@ entries:
   rehydrator:
   - annotations:
       artifacthub.io/changes: |
+        - Fix httpGet path for liveness and readiness probes
+      artifacthub.io/images: '- ghcr.io/raefon/rehydrator:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-21T05:48:12.151369373Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: A Helm chart for deploying Rehydrator, a tool for rehydrating data
+      from various sources.
+    digest: 45a29d3087e732f8cace182ee10fb8dc755a503db2dd2cbe0446bd7846221e5c
+    keywords:
+    - rehydrator
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: rehydrator
+    sources:
+    - https://github.com/raefon/rehydrator
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/rehydrator-0.2.2/rehydrator-0.2.2.tgz
+    version: 0.2.2
+  - annotations:
+      artifacthub.io/changes: |
         - Add healthz and readyz endpoints for liveness and readiness probes.
       artifacthub.io/images: '- ghcr.io/raefon/rehydrator:rolling'
     apiVersion: v2
@@ -7491,4 +7517,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2026-06-21T05:24:19.759671748Z"
+generated: "2026-06-21T05:48:12.151744962Z"
