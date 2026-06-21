@@ -3817,6 +3817,33 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/radarr-0.2.0/radarr-0.2.0.tgz
     version: 0.2.0
+  rehydrator:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial release of Rehydrator Helm chart
+      artifacthub.io/images: '- ghcr.io/raefon/rehydrator:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-21T01:00:40.16116079Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: A Helm chart for deploying Rehydrator, a tool for rehydrating data
+      from various sources.
+    digest: 081e0e56c28332f442f048d5af17dd731d3a08ea818ee3568c941f6aa779daa5
+    keywords:
+    - rehydrator
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: rehydrator
+    sources:
+    - https://github.com/raefon/rehydrator
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/rehydrator-0.2.0/rehydrator-0.2.0.tgz
+    version: 0.2.0
   sabnzbd:
   - annotations:
       artifacthub.io/changes: |
@@ -7286,4 +7313,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2026-06-19T03:09:19.305188523Z"
+generated: "2026-06-21T01:00:40.161506062Z"
