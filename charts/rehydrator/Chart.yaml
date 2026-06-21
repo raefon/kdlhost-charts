@@ -1,0 +1,26 @@
+---
+apiVersion: v2
+appVersion: "rolling"
+version: 0.2.0
+name: rehydrator
+description: A Helm chart for deploying Rehydrator, a tool for rehydrating data from various sources.
+type: application
+home: ""
+icon: ""
+deprecated: false
+dependencies:
+  - name: common
+    version: ~0.3.0
+    repository: https://raefon.github.io/kdlhost-charts/
+keywords:
+  - rehydrator
+sources:
+  - https://github.com/raefon/rehydrator
+maintainers:
+  - name: raefon
+    email: raefon@users.noreply.github.com 
+annotations:
+  artifacthub.io/changes: |
+    - Initial release of Rehydrator Helm chart
+  artifacthub.io/images: |
+    - ghcr.io/raefon/rehydrator:rolling
