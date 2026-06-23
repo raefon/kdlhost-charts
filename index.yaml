@@ -26,6 +26,33 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/app-watcher-0.1.0/app-watcher-0.1.0.tgz
     version: 0.1.0
+  byparr:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial release of Byparr Helm chart
+      artifacthub.io/images: '- ghcr.io/raefon/byparr:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-06-23T17:48:47.172729245Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: A Helm chart for deploying Byparr, a tool for bypassing cloudflare
+      captchas and other security measures.
+    digest: 46ecbec0c4cc1ddd1cea5f23bdeff523ee40ba14ea05a7e205f76933b8d76e0c
+    keywords:
+    - byparr
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: byparr
+    sources:
+    - https://github.com/raefon/byparr
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/byparr-0.2.0/byparr-0.2.0.tgz
+    version: 0.2.0
   common:
   - annotations:
       artifacthub.io/changes: |
@@ -7593,4 +7620,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2026-06-21T05:49:26.840637391Z"
+generated: "2026-06-23T17:48:47.173047967Z"
