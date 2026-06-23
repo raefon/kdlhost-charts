@@ -1,0 +1,26 @@
+---
+apiVersion: v2
+appVersion: "rolling"
+version: 0.2.0
+name: byparr
+description: A Helm chart for deploying Byparr, a tool for bypassing cloudflare captchas and other security measures.
+type: application
+home: ""
+icon: ""
+deprecated: false
+dependencies:
+  - name: common
+    version: ~0.3.0
+    repository: https://raefon.github.io/kdlhost-charts/
+keywords:
+  - byparr
+sources:
+  - https://github.com/raefon/byparr
+maintainers:
+  - name: raefon
+    email: raefon@users.noreply.github.com 
+annotations:
+  artifacthub.io/changes: |
+    - Initial release of Byparr Helm chart
+  artifacthub.io/images: |
+    - ghcr.io/raefon/byparr:rolling
