@@ -44,6 +44,9 @@ decypharr:
 rehydrator:
   enabled: false
 
+byparr:
+  enabled: false
+
 ## config pvc
 config:
   name: "config"
