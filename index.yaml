@@ -3591,6 +3591,34 @@ entries:
   qbittorrent:
   - annotations:
       artifacthub.io/changes: |
+        - Bump to 0.2.6
+        - Pull updated common chart
+      artifacthub.io/images: '- ghcr.io/raefon/qbittorrent:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-08-11T16:57:40.691864035Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: bittorrent client
+    digest: 780394f0ef2a3d8f38b09941217753b7839af12cc666494f2acd32d0355979d7
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/qbittorrent
+    keywords:
+    - qbittorrent
+    - bittorrent
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: qbittorrent
+    sources:
+    - https://qbittorrent.org/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/qbittorrent-0.2.6/qbittorrent-0.2.6.tgz
+    version: 0.2.6
+  - annotations:
+      artifacthub.io/changes: |
         - Bump to 0.2.5
         - Change default config pvc spec
       artifacthub.io/images: '- ghcr.io/raefon/qbittorrent:rolling'
@@ -7720,4 +7748,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2026-08-11T16:56:19.591452348Z"
+generated: "2026-08-11T16:57:40.692358431Z"
