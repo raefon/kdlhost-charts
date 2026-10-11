@@ -47,6 +47,9 @@ rehydrator:
 byparr:
   enabled: false
 
+dispatcharr:
+  enabled: false
+
 ## config pvc
 config:
   name: "config"
