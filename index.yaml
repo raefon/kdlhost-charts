@@ -581,6 +581,32 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/decypharr-0.2.0/decypharr-0.2.0.tgz
     version: 0.2.0
+  dispatcharr:
+  - annotations:
+      artifacthub.io/changes: |
+        - Initial release
+      artifacthub.io/images: '- ghcr.io/dispatcharr/dispatcharr:latest'
+    apiVersion: v2
+    appVersion: latest
+    created: "2026-10-11T03:51:40.799049042Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: Your Ultimate IPTV & Stream Management Companion
+    digest: d1397fda90b110f5f70329d77654baf09d4d8a18b9a7d6a3f34e49eaa59bf0e2
+    keywords:
+    - dispatcharr
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: dispatcharr
+    sources:
+    - https://dispatcharr.tv/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/dispatcharr-0.2.0/dispatcharr-0.2.0.tgz
+    version: 0.2.0
   docker-nvidia-egl-desktop:
   - annotations:
       artifacthub.io/changes: |
@@ -7828,4 +7854,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2026-08-11T16:58:56.705434369Z"
+generated: "2026-10-11T03:51:40.7995667Z"
