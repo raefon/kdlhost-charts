@@ -1,0 +1,49 @@
+---
+# Default values for template.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+image:
+  repository: ghcr.io/dispatcharr/dispatcharr
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+env:
+  # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  TZ: "America/Los_Angeles"
+  DISPATCHARR_ENV: "aio"
+  REDIS_HOST: "localhost"
+  CELERY_BROKER_URL: "redis://localhost:6379/0"
+  DISPATCHARR_REDIS_URL: "redis://localhost:6379/0"
+  DISPATCHARR_LOG_LEVEL: "info"
+
+service:
+  main:
+    ports:
+      http:
+        port: 9191
+
+ingress:
+  main:
+    enabled: false
+    hosts:
+      - host: "cluster.local"
+        paths:
+          - path: /
+            # Ignored if not kubeVersion >= 1.14-0
+            pathType: Prefix
+    tls: []
+    #  - secretName: chart-example-tls
+    #    hosts:
+    #      - chart-example.local
+
+persistence:
+  config:
+    enabled: false
+    subPath:
+      - path: .
+        mountPath: /config
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    ## Do not delete the pvc upon helm uninstall
+    skipuninstall: false

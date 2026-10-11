@@ -1,0 +1,26 @@
+---
+apiVersion: v2
+appVersion: "latest"
+version: 0.2.0
+name: dispatcharr
+description: Your Ultimate IPTV & Stream Management Companion
+type: application
+home: ""
+icon: ""
+deprecated: false
+dependencies:
+  - name: common
+    version: ~0.3.0
+    repository: https://raefon.github.io/kdlhost-charts/
+keywords:
+  - dispatcharr
+sources:
+  - https://dispatcharr.tv/
+maintainers:
+  - name: raefon
+    email: raefon@users.noreply.github.com 
+annotations:
+  artifacthub.io/changes: |
+    - Initial release
+  artifacthub.io/images: |
+    - ghcr.io/dispatcharr/dispatcharr:latest
