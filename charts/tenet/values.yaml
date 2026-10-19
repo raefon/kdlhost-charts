@@ -89,6 +89,23 @@ rclone:
   accessMode: "ReadWriteMany"
   cacheSize: "50G"
   bufferSize: "64M"
+  # Mount flags passed to CSI rclone. Replace this list to customize defaults.
+  mountOptions:
+    - allow_other=true
+    - uid=568
+    - gid=568
+    - vfs-read-ahead=128M
+    - path-fuse-binary=/usr/bin/fusermount3
+    - dir-cache-time=30s
+    - poll-interval=0
+    - attr-timeout=1s
+    - tpslimit=2
+    - tpslimit-burst=4
+  # Extra mount flags, appended without replacing the defaults above.
+  extraMountOptions: []
+  cacheMode: "full"
+  remote: "torbox"
+  remotePath: "/"
 
 ## appwatcher pvc
 appwatcher:

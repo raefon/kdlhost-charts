@@ -11,19 +11,17 @@ spec:
     storage: {{ .Values.rclone.size | default "100Ti" | quote }}
   persistentVolumeReclaimPolicy: Delete
   mountOptions:
-    - allow_other=true
-    - uid=568
-    - gid=568
-    - vfs-read-ahead=128M
-    - path-fuse-binary=/usr/bin/fusermount3
+    {{- range concat .Values.rclone.mountOptions .Values.rclone.extraMountOptions }}
+    - {{ . | quote }}
+    {{- end }}
   csi:
     driver: rclone.csi.veloxpack.io
     # volumeHandle should also be unique to avoid internal driver conflicts
     volumeHandle: "{{ .Release.Namespace }}-media-vol"
     volumeAttributes:
-      remote: "torbox"
-      remotePath: "/"
-      vfs-cache-mode: "full"
+      remote: {{ .Values.rclone.remote | quote }}
+      remotePath: {{ .Values.rclone.remotePath | quote }}
+      vfs-cache-mode: {{ .Values.rclone.cacheMode | quote }}
       vfs-cache-max-size: {{ .Values.rclone.cacheSize | default "50G" | quote }}
       buffer-size: {{ .Values.rclone.bufferSize | default "64M" | quote }}
     nodePublishSecretRef:
