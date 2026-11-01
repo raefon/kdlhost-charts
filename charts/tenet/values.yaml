@@ -43,6 +43,15 @@ decypharr:
 
 rehydrator:
   enabled: false
+  args:
+    - --role=controller
+    - --config=/config/rehydrator.yaml
+
+rehydrator-gateway:
+  enabled: false
+  args:
+    - --role=gateway
+    - --config=/etc/rehydrator/config.yaml
 
 byparr:
   enabled: false
@@ -106,6 +115,9 @@ rclone:
   cacheMode: "full"
   remote: "torbox"
   remotePath: "/"
+  webdav:
+    username: rclone
+    passwordObscured: "" # Supply through your encrypted Secret workflow
 
 ## appwatcher pvc
 appwatcher:

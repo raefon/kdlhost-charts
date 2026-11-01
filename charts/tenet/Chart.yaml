@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.4.26
+version: 0.4.27
 name: tenet
 description: Used to provision tenets
 type: application
@@ -64,6 +64,11 @@ dependencies:
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
     condition: rehydrator.enabled
+  - name: rehydrator
+    alias: rehydrator-gateway
+    version: ~0.2.0
+    repository: https://raefon.github.io/kdlhost-charts/
+    condition: rehydrator-gateway.enabled
   - name: byparr
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
@@ -79,5 +84,5 @@ maintainers:
     email: raefon@users.noreply.github.com 
 annotations:
   artifacthub.io/changes: |
-    - Bump to 0.4.26
-    - Add support for rclone options in the PV template
+    - Bump to 0.4.27
+    - Add rehydrator-gateway subchart
