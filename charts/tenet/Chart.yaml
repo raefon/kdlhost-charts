@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
 appVersion: 1.0.0
-version: 0.4.27
+version: 0.4.28
 name: tenet
 description: Used to provision tenets
 type: application
@@ -36,10 +36,6 @@ dependencies:
     version: ~0.2.0
     repository: https://raefon.github.io/kdlhost-charts/
     condition: radarr.enabled
-  - name: docker-nvidia-egl-desktop
-    version: ~0.0.4
-    repository: https://raefon.github.io/kdlhost-charts/
-    condition: docker-nvidia-egl-desktop.enabled
   - name: jellyfin
     version: ~0.1.0
     repository: https://raefon.github.io/kdlhost-charts/
