@@ -4881,6 +4881,105 @@ entries:
     version: 0.1.0
   tenet:
   - annotations:
+      artifacthub.io/changes: |
+        - Add opt-in Sonarr 4K, Radarr 4K and Rehydrator 4K controller aliases
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-11-09T18:50:04.089619187Z"
+    dependencies:
+    - condition: syncthing.enabled
+      name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: plex.enabled
+      name: plex
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: filebrowser
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: qbittorrent.enabled
+      name: qbittorrent
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sabnzbd.enabled
+      name: sabnzbd
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sonarr.enabled
+      name: sonarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: radarr.enabled
+      name: radarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: jellyfin.enabled
+      name: jellyfin
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    - condition: prowlarr.enabled
+      name: prowlarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    - condition: seerr.enabled
+      name: seerr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: kdlhost-term.enabled
+      name: kdlhost-term
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: decypharr.enabled
+      name: decypharr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: rehydrator.enabled
+      name: rehydrator
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - alias: rehydrator-gateway
+      condition: rehydrator-gateway.enabled
+      name: rehydrator
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: byparr.enabled
+      name: byparr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: dispatcharr.enabled
+      name: dispatcharr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - alias: sonarr-4k
+      condition: sonarr-4k.enabled
+      name: sonarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - alias: radarr-4k
+      condition: radarr-4k.enabled
+      name: radarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - alias: rehydrator-4k
+      condition: rehydrator-4k.enabled
+      name: rehydrator
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: Used to provision tenets
+    digest: 93b432d58c12895e1e4a5ee212f854cd5d7dd68872a0aff15d8f724e66702a6b
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.4.29/tenet-0.4.29.tgz
+    version: 0.4.29
+  - annotations:
       artifacthub.io/changes: |-
         - Bump to 0.4.27
         - Add rehydrator-gateway subchart
@@ -8196,4 +8295,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2026-11-03T00:50:12.397283375Z"
+generated: "2026-11-09T18:50:04.090144126Z"
