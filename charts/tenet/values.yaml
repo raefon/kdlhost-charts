@@ -142,3 +142,11 @@ roles:
 # rolebinding
 rolebinding:
   name: tenet
+
+# Separate 4K applications are enabled by tenant first-run provisioning.
+sonarr-4k:
+  enabled: false
+radarr-4k:
+  enabled: false
+rehydrator-4k:
+  enabled: false
