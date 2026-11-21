@@ -100,9 +100,9 @@ N/A
 | addons.vpn.openvpn | object | See below | OpenVPN specific configuration |
 | addons.vpn.openvpn.auth | string | `nil` | Credentials to connect to the VPN Service (used with -a) |
 | addons.vpn.openvpn.authSecret | string | `nil` | Optionally specify an existing secret that contains the credentials. Credentials should be stored under the `VPN_AUTH` key |
-| addons.vpn.openvpn.image.pullPolicy | string | `"IfNotPresent"` | Specify the openvpn client image pull policy |
-| addons.vpn.openvpn.image.repository | string | `"dperson/openvpn-client"` | Specify the openvpn client image |
-| addons.vpn.openvpn.image.tag | string | `"latest"` | Specify the openvpn client image tag |
+| addons.vpn.openvpn.image.pullPolicy | string | `"Always"` | Specify the openvpn client image pull policy |
+| addons.vpn.openvpn.image.repository | string | `"ghcr.io/raefon/kdlhost-openvpn-client"` | Specify the openvpn client image |
+| addons.vpn.openvpn.image.tag | string | `"rolling"` | Specify the openvpn client image tag |
 | addons.vpn.scripts | object | See values.yaml | Provide custom up/down scripts that can be used by the vpn configuration. |
 | addons.vpn.securityContext | object | See values.yaml | Set the VPN container securityContext |
 | addons.vpn.type | string | `"openvpn"` | Specify the VPN type. Valid options are `openvpn`, `wireguard` and `gluetun`. |

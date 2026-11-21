@@ -491,11 +491,11 @@ addons:
     openvpn:
       image:
         # -- Specify the openvpn client image
-        repository: dperson/openvpn-client
+        repository: ghcr.io/raefon/kdlhost-openvpn-client
         # -- Specify the openvpn client image tag
-        tag: latest
+        tag: rolling
         # -- Specify the openvpn client image pull policy
-        pullPolicy: IfNotPresent
+        pullPolicy: Always
 
       # -- Credentials to connect to the VPN Service (used with -a)
       auth:  # "user;password"

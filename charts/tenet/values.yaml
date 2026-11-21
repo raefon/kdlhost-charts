@@ -19,6 +19,13 @@ sabnzbd:
 
 qbittorrent:
   enabled: false
+  addons:
+    vpn:
+      openvpn:
+        image:
+          repository: ghcr.io/raefon/kdlhost-openvpn-client
+          tag: rolling
+          pullPolicy: Always
 
 plex:
   enabled: false

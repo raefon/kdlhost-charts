@@ -2,6 +2,14 @@
 # Default values for template.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+addons:
+  vpn:
+    openvpn:
+      image:
+        repository: ghcr.io/raefon/kdlhost-openvpn-client
+        tag: rolling
+        pullPolicy: Always
+
 image:
   repository: ghcr.io/raefon/qbittorrent
   pullPolicy: Always
