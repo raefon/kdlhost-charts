@@ -57,6 +57,26 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: fixed
+          description: Use maintained nftables OpenVPN image by default
+    apiVersion: v2
+    created: "2026-11-21T23:18:46.60607127Z"
+    description: Function library for kdlhost helm charts
+    digest: 623a538fa7f5bf74c3778efaf2ec2870ad4ceb1dfaf61cd7522321cb766f0943
+    home: https://raefon.github.io/kdlhost-charts/common
+    keywords:
+    - kdlhost-charts
+    - common
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: common
+    type: library
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/common-0.3.3/common-0.3.3.tgz
+    version: 0.3.3
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: fixed
           description: Bump common chart version to 0.3.2
     apiVersion: v2
     created: "2026-08-11T16:56:19.59110735Z"
@@ -3617,6 +3637,33 @@ entries:
   qbittorrent:
   - annotations:
       artifacthub.io/changes: |
+        - Use kdlhost OpenVPN client image for VPN add-on
+      artifacthub.io/images: '- ghcr.io/raefon/qbittorrent:rolling'
+    apiVersion: v2
+    appVersion: rolling
+    created: "2026-11-21T23:18:46.765339694Z"
+    dependencies:
+    - name: common
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.3.0
+    description: bittorrent client
+    digest: 8add4340ddb01f6f4e65d0d4f876130a0365d73302c3bf2978857d78097faed0
+    home: https://github.com/raefon/kdlhost-charts/tree/main/charts/qbittorrent
+    keywords:
+    - qbittorrent
+    - bittorrent
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: qbittorrent
+    sources:
+    - https://qbittorrent.org/
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/qbittorrent-0.2.7/qbittorrent-0.2.7.tgz
+    version: 0.2.7
+  - annotations:
+      artifacthub.io/changes: |
         - Bump to 0.2.6
         - Pull updated common chart
       artifacthub.io/images: '- ghcr.io/raefon/qbittorrent:rolling'
@@ -4880,6 +4927,105 @@ entries:
     - https://github.com/raefon/kdlhost-charts/releases/download/syncthing-0.1.0/syncthing-0.1.0.tgz
     version: 0.1.0
   tenet:
+  - annotations:
+      artifacthub.io/changes: |
+        - Default tenant VPN add-on to the maintained kdlhost OpenVPN image
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-11-21T23:18:46.973823285Z"
+    dependencies:
+    - condition: syncthing.enabled
+      name: syncthing
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: plex.enabled
+      name: plex
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - name: filebrowser
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: qbittorrent.enabled
+      name: qbittorrent
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sabnzbd.enabled
+      name: sabnzbd
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: sonarr.enabled
+      name: sonarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: radarr.enabled
+      name: radarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: jellyfin.enabled
+      name: jellyfin
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    - condition: prowlarr.enabled
+      name: prowlarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.1.0
+    - condition: seerr.enabled
+      name: seerr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: kdlhost-term.enabled
+      name: kdlhost-term
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: decypharr.enabled
+      name: decypharr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: rehydrator.enabled
+      name: rehydrator
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - alias: rehydrator-gateway
+      condition: rehydrator-gateway.enabled
+      name: rehydrator
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: byparr.enabled
+      name: byparr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - condition: dispatcharr.enabled
+      name: dispatcharr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - alias: sonarr-4k
+      condition: sonarr-4k.enabled
+      name: sonarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - alias: radarr-4k
+      condition: radarr-4k.enabled
+      name: radarr
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    - alias: rehydrator-4k
+      condition: rehydrator-4k.enabled
+      name: rehydrator
+      repository: https://raefon.github.io/kdlhost-charts/
+      version: ~0.2.0
+    description: Used to provision tenets
+    digest: 88a02eb1d69d07e03fa8055b8baa26cc6b455996c4dfd73f39738da30082dba5
+    home: https://github.com/kdlhost-charts/helm-charts/tree/main/charts/tenet
+    keywords:
+    - tenet
+    maintainers:
+    - email: raefon@users.noreply.github.com
+      name: raefon
+    name: tenet
+    type: application
+    urls:
+    - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.4.30/tenet-0.4.30.tgz
+    version: 0.4.30
   - annotations:
       artifacthub.io/changes: |
         - Add opt-in Sonarr 4K, Radarr 4K and Rehydrator 4K controller aliases
@@ -8295,4 +8441,4 @@ entries:
     urls:
     - https://github.com/raefon/kdlhost-charts/releases/download/tenet-0.0.1/tenet-0.0.1.tgz
     version: 0.0.1
-generated: "2026-11-09T18:50:04.090144126Z"
+generated: "2026-11-21T23:18:46.974294724Z"
